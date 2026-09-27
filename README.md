@@ -18,7 +18,7 @@ Use Python 3.13 and Node.js 24 for the supplied development checks. From this di
 python3 scripts/check.py --suite core
 ```
 
-On Windows use `python` instead of `python3` if appropriate. Checks run from a temporary copy with spaces in its path. They leave source and historical evidence unchanged and write logs to `.checks/`. Core checks deliberately exclude browser execution. Optional browser setup and tests are in the Mac guide.
+On Windows use `python` instead of `python3` if appropriate. Checks run from a temporary copy with spaces in its path. They leave source and historical evidence unchanged and write logs to `.checks/`. Core checks deliberately exclude browser execution. For the browser suite, see [`docs/BROWSER-TESTS.md`](docs/BROWSER-TESTS.md).
 
 The GitHub Actions workflow has separate core and Chromium jobs for Windows, macOS and Linux. It is prepared, not a record of successful GitHub runs. It never deploys or publishes a release. A 1 MiB browser lifecycle pass does not validate the full file-size limit.
 

@@ -52,7 +52,7 @@ def main():
         if shutil.which('node') is None: raise RuntimeError('Node.js 24 is required for the JavaScript comparison tests')
         record['environment']['node']=subprocess.check_output(['node','--version'],text=True).strip()
         if args.suite=='browser' and importlib.util.find_spec('playwright') is None:
-            raise RuntimeError('Browser dependencies missing: follow START-HERE-MAC.md; browser checks cannot be skipped')
+            raise RuntimeError('Browser dependencies missing: see docs/BROWSER-TESTS.md; browser checks cannot be skipped')
         with tempfile.TemporaryDirectory(prefix='PointTruth team checks ') as tmp:
             copy=Path(tmp)/'repository copy with spaces'
             shutil.copytree(ROOT,copy,ignore=ignore_runtime)
