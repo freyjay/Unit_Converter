@@ -5,12 +5,12 @@
 ## Verified
 
 - **Arithmetic and preservation:** exact rational conversion with declared rounding; an independent second calculation; hand-derived reference values; a second implementation (the PointTruth comparator in `tests/differential/`) agreeing on 47 cases, refusing the same 33, and differing only in 3 named policies; round-trip loops that reproduce the original bytes at the original precision.
-- **Operating systems:** the complete core test gate passed on Linux (x86_64), macOS 15.7.1 (Apple Silicon) and Windows 10. On the accepted packaging revision, all three built a **byte-identical** tested candidate, verified by opening and comparing the archives themselves (`docs/PAYLOAD-IDENTITY.md`, `scripts/compare_runs.py`). Browser tests passed on Linux Chromium.
+- **Operating systems:** the complete core test gate passed on Linux (x86_64), macOS 15.7.1 (Apple Silicon) and Windows 10. On the accepted packaging revision, all three built a **byte-identical** tested candidate, verified by opening and comparing the archives themselves (`docs/PAYLOAD-IDENTITY.md`, `scripts/compare_runs.py`). Browser tests passed on Linux Chromium. **Continuous integration:** on the public commit `625fbbc`, all six GitHub Actions jobs succeeded: the core gate and the Chromium lifecycle (through Playwright), each on Ubuntu, Windows and macOS ([run 36348557774](https://github.com/freyjay/Unit_Converter/actions/runs/36348557774)). The Windows and macOS core gates also passed locally on that commit, and the Windows tested archive is byte-identical to the Linux ones.
 - **Civil 3D:** one six-point case (international feet to metres, PENZD, Civil 3D 2027) was imported and exported natively, and the export came back byte-identical to the converted file (`acceptance/civil3d-completed/`).
 
 ## Not yet verified
 
-The browser app on Windows and macOS; Edge, Firefox and Safari; Intel Macs; the U.S. survey foot, metres-to-feet and PNEZD cases in Civil 3D (prepared in `acceptance/next-native-tests/`); files produced by the browser app in Civil 3D; accessibility; very large files on typical computers. Official CI (build once, test the same artifact on every OS) is planned.
+The browser app on Windows and macOS; Edge, Firefox and Safari; Intel Macs; the U.S. survey foot, metres-to-feet and PNEZD cases in Civil 3D (prepared in `acceptance/next-native-tests/`); files produced by the browser app in Civil 3D; accessibility; very large files on typical computers. Installed-browser checks (Edge and Chrome on Windows, Safari and Chrome on macOS) are separate from the Chromium runs above and still pending (`docs/BROWSER-TESTS.md`). Official CI that builds once and tests the same artifact on every OS is planned; today each OS rebuilds.
 
 ## What a pass means
 
@@ -18,4 +18,4 @@ A pass means the arithmetic is exact to the written precision and nothing outsid
 
 ## This copy
 
-This is the first public snapshot. Its own checks run on its own commits. The historical evidence behind the statements above is kept privately and identified by hash in `PUBLIC-EVIDENCE-MAP.json` and `EVIDENCE-ARCHIVES.json`. License: MIT, copyright freyjay.
+This repository started from a fresh public snapshot (`87a202a`). Its own checks run on its own commits, and CI runs on every push. The historical evidence behind the statements above is kept privately and identified by hash in `PUBLIC-EVIDENCE-MAP.json` and `EVIDENCE-ARCHIVES.json`. License: MIT, copyright freyjay.

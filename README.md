@@ -40,7 +40,7 @@ The GitHub Actions workflow has separate core and Chromium jobs for Windows, mac
 
 The bundled PointTruth rc.1 file under `tests/differential/` is a comparison dependency, not a second app the user must choose. This package does not imply that PFU and the earlier PointTruth repository have been merged into a shared runtime.
 
-The passing CAD route used Python-produced files and a Windows Civil 3D operator. Browser-to-CAD, wider native cases, macOS acceptance and large-file profiles remain pending. See [current status](docs/CURRENT-STATUS.md).
+The passing CAD route used Python-produced files and a Windows Civil 3D operator. The core gate has passed on Windows, macOS and Linux, and CI runs on every push. Still pending: hands-on checks in installed browsers (Edge and Chrome on Windows, Safari and Chrome on macOS), browser-to-CAD, the wider native cases, and large-file profiles. See [current status](docs/CURRENT-STATUS.md).
 
 ## License
 

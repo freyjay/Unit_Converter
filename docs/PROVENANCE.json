@@ -25,8 +25,8 @@
   "Run records capture tool hashes, settings, Playwright package, browser version and Git revision during the run"
  ],
  "pointtruth_comparator": "tests/differential/PointTruth.html is pinned rc.1 evidence; it is not a replacement for the primary PFU application",
- "macos_execution": "Core PASS on macOS 15.7.1 Apple Silicon (arm64), Python 3.13.5, Node 22.17 (owner; commits e26ce91 and 357d536; partner-reviewed 27 Sep). Browser suite and Intel Macs PENDING.",
- "github_execution": "PENDING (nothing pushed)",
+ "macos_execution": "Core PASS on macOS 15.7.1 Apple Silicon (arm64), Python 3.13.5, Node 22.17 (owner; commits e26ce91 and 357d536; partner-reviewed 27 Sep). Browser suite and Intel Macs PENDING. Core PASS on the public commit 625fbbc (owner).",
+ "github_execution": "CI run https://github.com/freyjay/Unit_Converter/actions/runs/36348557774 on 625fbbc: all six jobs succeeded (core, and the Chromium lifecycle through Playwright, on Ubuntu, Windows and macOS), confirmed from GitHub job data by the Windows review. Build-once, test-the-same-artifact CI is pending.",
  "civil3d_scope": "One operator-assisted six-point PFU Python import/export passed; no CAD program is included",
  "based_on_team_package_zip_sha256": "a8995d2e3b2bb5d24bf2ad94d18b2c652ceb411ce1f98b7b3ebe37446a6db3e9",
  "browser_execution": {
@@ -38,12 +38,12 @@
    ]
   },
   "windows": {
-   "status": "PENDING",
-   "note": "core suite PASS on Windows (partner): 26 Sep; 27 Sep on 357d536 and on cd5758d (Windows 10, Python 3.13.7, Node 24.19.0); browser suite not yet run (no Playwright on that machine)"
+   "status": "PARTIAL",
+   "note": "Chromium (Playwright) lifecycle PASS in CI on 625fbbc; local core PASS on 625fbbc (Windows review). Installed Edge and Chrome not yet tested by hand."
   },
   "macos": {
-   "status": "PENDING",
-   "note": "core suite PASS (owner, Apple Silicon); browser suite not yet run"
+   "status": "PARTIAL",
+   "note": "Chromium (Playwright) lifecycle PASS in CI on 625fbbc; local core PASS (owner). Installed Safari and Chrome not yet tested by hand."
   },
   "other_browsers": {
    "status": "NOT CLAIMED",
@@ -52,6 +52,6 @@
  },
  "html_text_revision": "2026-09-27.4",
  "license": "MIT (see LICENSE), copyright freyjay, the sole contributor; confirmed by the owner on 2026-09-27",
- "release_revision": "2026-09-27.6",
+ "release_revision": "2026-09-27.7",
  "consumer_release_cross_platform": "Unit_Converter-2026-09-27.5.zip rebuilt on Windows by the partner is byte-identical to the Linux build (sha256 f3250b19b14cd8206d5bbd1226f12e8841fc0b90981741b0c7f611923a6fb371), confirming the pinned ZIP metadata on real Windows; identical compression output across future zlib versions is not claimed."
 }

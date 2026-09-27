@@ -6,4 +6,4 @@ The converter, the app, the PointTruth comparator (`tests/differential/PointTrut
 
 The fonts embedded in the app keep their own licenses and notices. The software is provided "as is", without warranty. A pass in this tool concerns the bytes and the arithmetic, not the survey.
 
-Earlier wording of this file (the MIT intent, and a pending confirmation by other contributors) is preserved in the git history. That confirmation was closed when the owner confirmed there are no other contributors.
+Earlier wording of this file (the MIT intent, and a pending confirmation by other contributors) is preserved in the history of the owner's private repository, which is not part of this public history. That confirmation was closed when the owner confirmed there are no other contributors.

@@ -36,8 +36,8 @@
   "acceptance/next-native-tests/us-survey-feet-to-meters/conversion.log"
  ],
  "retained_exceptions": {
-  "tests/legacy-records/v3.3.1-python/base.out.manifest.json": "original v3.3.1 record read by the legacy-reader regressions; contains the owner's Windows path; kept pending the owner's decision",
-  "tests/legacy-records/v3.3.1-python/cross-unicode.out.manifest.json": "same as above"
+  "tests/legacy-records/v3.3.1-python/base.out.manifest.json": "kept by the owner's decision of 27 September 2026: a genuine v3.3.1 record that the legacy-reader regressions need unedited; it contains the owner's own Windows path",
+  "tests/legacy-records/v3.3.1-python/cross-unicode.out.manifest.json": "kept by the owner's decision of 27 September 2026: a genuine v3.3.1 record that the legacy-reader regressions need unedited; it contains the owner's own Windows path"
  },
  "source_commit": "private repository b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
 }
