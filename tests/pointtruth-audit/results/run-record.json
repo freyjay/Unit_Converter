@@ -1,0 +1,40 @@
+{
+  "audited_artifact": {
+    "file": "PointTruth.html",
+    "sha256": "9fb87ec289fe924a3bac4e21476df06701bd129ae4e94e006e57c9f1e37eff7a",
+    "bytes": 67350
+  },
+  "runners": {
+    "audit_pt.cjs": "568d6022cd83e9e7",
+    "audit_pt2.cjs": "488c659174fb5538",
+    "ui-audit.py": "cf770439e7fa66a2"
+  },
+  "environment": {
+    "os": "Linux-6.18.44-fc-v37-x86_64-with-glibc2.39",
+    "node": "v22.22.2",
+    "python": "3.12.3",
+    "browser": "Chromium via Playwright (headless)"
+  },
+  "fixtures": {
+    "independent-expected-outputs.json": "155c587d1ed1f415572b319e2969b2249cc74074c1793414dcda595a169d2101",
+    "independent-expected-outputs-2.json": "30f835cd7c599f2064c18ff3455a220272a4265f4a4ed99e3ea71e6a8193e765",
+    "comparison_engine": "pointfile_units.py a93c80c4a8c9d987"
+  },
+  "run_utc": "2026-09-21T22:52:49Z",
+  "results": {
+    "audit_pt": {
+      "summary": "passed 46 failed 0",
+      "exit": 0
+    },
+    "audit_pt2": {
+      "summary": "passed 17 failed 0",
+      "exit": 0
+    },
+    "ui-audit": {
+      "summary": "UI: passed 11 failed 0",
+      "exit": 0
+    }
+  },
+  "gate": "each runner exits nonzero on any failed assertion or harness exception (R6-05); proven by a deliberately broken expectation and a simulated crash, see README",
+  "scope": "characterization of the named cases in this environment; not a proof of absence of defects; the 60,000-line timing is an observation"
+}

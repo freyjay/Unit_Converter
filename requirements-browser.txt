@@ -1,0 +1,3 @@
+# Optional development tests only; the HTML and Python CLI need no pip packages.
+# New pin prepared for cross-platform CI; browser execution remains pending here.
+playwright==1.63.0

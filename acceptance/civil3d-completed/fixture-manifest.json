@@ -1,0 +1,24 @@
+{
+  "schema": "pfu-cad-acceptance-fixture/1",
+  "app_version": "PFU 3.3.6 Python, package r3",
+  "app_sha256": "b6589870c4c2e587d3ef5bf21496db19a598d6adb449903e1b0ea61cb2f326cf",
+  "source_sha256": "7a2d5c2798af57185e893130ce7deb5e85930bd4ab6bcaee8daaed2842646493",
+  "expected_sha256": "6a858d7e2b8a7574498b180fde57826c0b96ef87515deea45fdc06424b5b1412",
+  "source_unit": "international foot",
+  "target_unit": "metre",
+  "exact_factor": "381/1250",
+  "decimals": 8,
+  "format": "PENZD comma, no header",
+  "cad_export_tolerance_m": "0.000001",
+  "point_count": 6,
+  "point_ids": [
+    "101",
+    "102",
+    "110",
+    "150",
+    "201",
+    "901"
+  ],
+  "native_cad_status": "Six-point operator-run native export comparison PASSED; see operator-record.json for provenance and limits",
+  "producer": "Python CLI; browser download not exercised"
+}

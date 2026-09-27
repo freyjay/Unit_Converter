@@ -1,0 +1,23 @@
+{
+  "case": "meters-to-international-feet",
+  "conversion": "MetersToIntlFeet",
+  "format": "PENZD",
+  "delimiter": "comma",
+  "header": "no",
+  "decimals": 8,
+  "exact_factor": "1250/381",
+  "target_unit": "ft",
+  "coordinate_tolerance": "1/304800",
+  "source": "SOURCE-DECLARED-UNITS.txt",
+  "source_sha256": "f87f180ef415cca079e9097670df122c64b03bb61adcfc74518f944f5b0c6f3f",
+  "import_file": "IMPORT-PENZD-FT.txt",
+  "import_sha256": "b7203c08a96966f46555be281f772538684ac942a41c6f56df384b6877a9930d",
+  "expected": "expected.txt",
+  "expected_sha256": "b7203c08a96966f46555be281f772538684ac942a41c6f56df384b6877a9930d",
+  "expected_point_count": 2,
+  "converter_exit": 0,
+  "verifier_exit": 0,
+  "matches_exact_rounding_oracle": true,
+  "native_execution": "NOT RUN",
+  "source_unit_truth": "declared fictional fixture; no external survey certification"
+}

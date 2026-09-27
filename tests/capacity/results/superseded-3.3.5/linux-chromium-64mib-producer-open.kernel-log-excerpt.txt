@@ -1,0 +1,5 @@
+Captured manually with `dmesg | tail -3` in the same sandbox session, immediately after the 3.3.5 producer-open run
+(not captured by the runner; labelled contributor-reported):
+[  540.832050] [    709]     0   709 364885385    12600    12570       30         0   786432        0           300 headless_shell
+[  540.834618] oom-kill:constraint=CONSTRAINT_NONE,nodemask=(null),cpuset=/,mems_allowed=0,global_oom,task_memcg=/process_api/...,task=headless_shell,pid=448,uid=0
+[  540.838401] Out of memory: Killed process 448 (headless_shell) total-vm:1459523124kB, anon-rss:2959164kB, file-rss:84kB, shmem-rss:0kB, UID:0 pgtables:6984kB oom_score_adj:300

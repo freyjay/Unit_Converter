@@ -1,0 +1,179 @@
+{
+ "schema": "unit-converter-evidence-archives/1",
+ "policy": "Tested archives are evidence, not inputs: they are excluded from tested candidates (tests/release_check.py CANDIDATE_EXCLUDE) so they are never nested. Originals are never deleted or regenerated; each is identified here by SHA-256 and its retention places. Archives present in the repository are verified against this list on every run.",
+ "archives": [
+  {
+   "id": "windows-partner-357d536",
+   "description": "Partner Windows core run on 357d536: tested candidate",
+   "sha256": "5384252fc603b837f62781b45ad94e3a74e3f43d43f21c1602820d1057db2e93",
+   "bytes": 3660416,
+   "members": null,
+   "in_repository": "evidence/windows-partner-2026-09-27/tested-partial.zip",
+   "retained_at": [
+    "this repository (excluded from candidates)",
+    "partner review package Unit-Converter-2026-09-27-Review.zip, windows-core/"
+   ]
+  },
+  {
+   "id": "civil3d-acceptance-pack-round-7",
+   "description": "Partner Civil 3D acceptance pack (round 7), original",
+   "sha256": "8f511d0d2f8c76d0cc23d5ac9032979e86eb4df811569a06d0f94d8f66d947f1",
+   "bytes": 31532,
+   "members": null,
+   "in_repository": "tests/review-evidence/round-7/Civil3D-Acceptance-Pack.zip",
+   "retained_at": [
+    "this repository (excluded from candidates)"
+   ]
+  },
+  {
+   "id": "windows-partner-cd5758d",
+   "description": "Partner Windows core run on cd5758d: tested candidate (kept out of the repository at the partner's request)",
+   "sha256": "ee879590f1153bd7ff1a1003f72e78f4c863fa92415292d08f5cda9d80a911b5",
+   "bytes": 7279099,
+   "members": null,
+   "in_repository": null,
+   "retained_at": [
+    "partner review package Unit-Converter-cd5758d-Review.zip (sha256 100415671921aeb8272cbb747a0caa11f90b24b4990004b35bd4024740e88cb9), windows-core/tested-partial.zip",
+    "owner's private evidence archive"
+   ]
+  },
+  {
+   "id": "macos-owner-e26ce91",
+   "description": "Owner macOS core run on e26ce91: tested candidate",
+   "sha256": "e301ec710b5fcecb8d4fe0f0a7d900d55f7964fff5187b7e9f79a62b6061a771",
+   "bytes": 3651745,
+   "members": null,
+   "in_repository": null,
+   "retained_at": [
+    "owner's Mac, .checks/20260927T033202939004Z-core/",
+    "review package Unit_Converter-review-package-2026-09-27.zip, B-tests/macos-owner/"
+   ]
+  },
+  {
+   "id": "macos-owner-357d536",
+   "description": "Owner macOS core run on 357d536: tested candidate",
+   "sha256": "a3c77dc0662976984b8078561fd0ba1cff584bcb0c256ad45f85bb2797dde8d9",
+   "bytes": 3660416,
+   "members": null,
+   "in_repository": null,
+   "retained_at": [
+    "owner's Mac, .checks/20260927T034724065652Z-core/",
+    "review package Unit_Converter-review-package-2026-09-27.zip, B-tests/macos-owner/"
+   ]
+  },
+  {
+   "id": "macos-owner-cd5758d",
+   "description": "Owner macOS core run on cd5758d: tested candidate",
+   "sha256": "10b97cad06ac7124dd09cb1d695260d346e60327820da42a27cf4fe4c9908ab4",
+   "bytes": 7279099,
+   "members": 376,
+   "in_repository": null,
+   "retained_at": [
+    "owner's Mac, .checks/20260927T072235473878Z-core/",
+    "owner's upload mac-run-cd5758d.zip (sha256 d1ababdb69204d3ff9211ea1d33efa7d2b607df15688736630161c1fda105f15)",
+    "response package Unit_Converter-response-2-2026-09-27.zip, B-tests/macos-owner-cd5758d-original/"
+   ]
+  },
+  {
+   "id": "linux-contributor-357d536",
+   "description": "Contributor Linux core run on 357d536: tested candidate",
+   "sha256": "cd2f5f3065546ae945ebf06db64ca9674bb097ddace77a459c7345156cfb2677",
+   "bytes": 3660416,
+   "members": null,
+   "in_repository": null,
+   "retained_at": [
+    "Unit_Converter-review-package-2026-09-27.zip, B-tests/linux-contributor/20260927T035453656070Z-core/tested-partial.zip"
+   ]
+  },
+  {
+   "id": "linux-contributor-cd5758d",
+   "description": "Contributor Linux core run on cd5758d: tested candidate",
+   "sha256": "75dd1cc049bb5a80cd9c00d89c74addb850f6a9a5f8714de62abbe341b6e28d2",
+   "bytes": 7279099,
+   "members": null,
+   "in_repository": null,
+   "retained_at": [
+    "Unit_Converter-response-2026-09-27.zip, B-tests/linux-contributor-cd5758d/20260927T072458450131Z-core/tested-partial.zip"
+   ]
+  },
+  {
+   "id": "windows-partner-ed6f1bb-rebuild",
+   "description": "Partner Windows rebuild of the unmodified draft ed6f1bb (comparison artifact; its gate failed on time.tzset)",
+   "sha256": "5439a084d4953ea7c094908242d8b02da4a9b3157b178117e7536ec722c649d5",
+   "bytes": 5828661,
+   "members": null,
+   "in_repository": null,
+   "retained_at": [
+    "partner review package Unit-Converter-Determinism-Review-2026-09-27.zip (sha256 3977b6aac768a720b9fab2a1565e1b0b9543a0fd419656e1830e6b0225bf4307), built-proposal-ed6f1bb.zip"
+   ]
+  },
+  {
+   "id": "windows-partner-ed6f1bb-patched",
+   "description": "Partner Windows core run on ed6f1bb plus their four-file portability patch (not a clean commit)",
+   "sha256": "cb2433408519590b8ff831d2f35418f4dbdb835db062193dac640bdb9704795d",
+   "bytes": 5830507,
+   "members": null,
+   "in_repository": null,
+   "retained_at": [
+    "partner review package Unit-Converter-Determinism-Review-2026-09-27.zip (sha256 3977b6aac768a720b9fab2a1565e1b0b9543a0fd419656e1830e6b0225bf4307), windows-patched-pass/"
+   ]
+  },
+  {
+   "id": "windows-partner-0a2f84a",
+   "description": "Partner Windows core run on 0a2f84a, clean commit: identical to the Linux and Mac archives",
+   "sha256": "83eeac2030dc54fe534c09ac21c91aae9eed9dc17af56d1bccf3ee97e5e04a79",
+   "bytes": 5848478,
+   "members": null,
+   "in_repository": null,
+   "retained_at": [
+    "partner review package Unit-Converter-0a2f84a-Review.zip (sha256 56339142d698da5c720b0e72bf92c770c8afeee2c845ff4334cd0a51972105da), windows-original-pass/"
+   ]
+  },
+  {
+   "id": "windows-partner-0a2f84a-patched",
+   "description": "Partner Windows core run on 0a2f84a plus their five-file helper repair (not a clean commit)",
+   "sha256": "4a42b57738f45b51999d437c5bad80c01332df3be2c149af0e374e05ab5cfd4b",
+   "bytes": 5858257,
+   "members": null,
+   "in_repository": null,
+   "retained_at": [
+    "partner review package Unit-Converter-0a2f84a-Review.zip (sha256 56339142d698da5c720b0e72bf92c770c8afeee2c845ff4334cd0a51972105da), windows-patched-pass/"
+   ]
+  },
+  {
+   "id": "macos-owner-0a2f84a",
+   "description": "Owner macOS core run on 0a2f84a",
+   "sha256": "83eeac2030dc54fe534c09ac21c91aae9eed9dc17af56d1bccf3ee97e5e04a79",
+   "bytes": 5848478,
+   "members": null,
+   "in_repository": null,
+   "retained_at": [
+    "owner's Mac, .checks/20260927T183403630428Z-core/",
+    "owner's upload mac-run-0a2f84a.zip (sha256 5ae7598ee8fb9aadd3e2f35094c7d9eef234dad51de35e073f7d66b03241dd1b)",
+    "response package Unit_Converter-determinism-response-2026-09-27.zip (sha256 f21fc2989061725fe1c9be6f885be99a357968fbf5b501bcc6cc0fc3841fe95c), B-tests/macos-owner-0a2f84a-original/"
+   ]
+  },
+  {
+   "id": "linux-contributor-0a2f84a-run-1",
+   "description": "Contributor Linux core run 1 on 0a2f84a",
+   "sha256": "83eeac2030dc54fe534c09ac21c91aae9eed9dc17af56d1bccf3ee97e5e04a79",
+   "bytes": 5848478,
+   "members": null,
+   "in_repository": null,
+   "retained_at": [
+    "response package Unit_Converter-determinism-response-2026-09-27.zip (sha256 f21fc2989061725fe1c9be6f885be99a357968fbf5b501bcc6cc0fc3841fe95c), B-tests/linux-contributor-0a2f84a/core-run-1/"
+   ]
+  },
+  {
+   "id": "linux-contributor-0a2f84a-run-2",
+   "description": "Contributor Linux core run 2 on 0a2f84a",
+   "sha256": "83eeac2030dc54fe534c09ac21c91aae9eed9dc17af56d1bccf3ee97e5e04a79",
+   "bytes": 5848478,
+   "members": null,
+   "in_repository": null,
+   "retained_at": [
+    "response package Unit_Converter-determinism-response-2026-09-27.zip (sha256 f21fc2989061725fe1c9be6f885be99a357968fbf5b501bcc6cc0fc3841fe95c), B-tests/linux-contributor-0a2f84a/core-run-2/"
+   ]
+  }
+ ]
+}

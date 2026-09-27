@@ -1,0 +1,98 @@
+{
+ "contract": "canonical-json/2 (draft 2 candidate): typed domain. null, booleans and safe integers keep their JSON types; strings and keys escaped as in v1 (lowercase \\uXXXX outside 0x20..0x7E); keys in UTF-16 code-unit order; floats, non-finite, integers beyond 2^53-1 and unpaired surrogates are REFUSED, never normalised. Not the wire format yet: schema 3 records use canonical-json/1.",
+ "cases": [
+  {
+   "input": {
+    "z": null,
+    "t": true,
+    "f": false,
+    "i": 1,
+    "n": 0,
+    "big": 9007199254740991,
+    "s": "1",
+    "s2": "true",
+    "arr": [
+     1,
+     "two",
+     {
+      "c": "caf\u00e9",
+      "b": "\u6e2c\u91cf"
+     }
+    ],
+    "emoji": "\ud83d\ude00",
+    "esc": "q\"uote \\ back\nnl\ttab\u0001\u007f",
+    "nested": {
+     "y": {
+      "x": [
+       [],
+       {}
+      ]
+     }
+    }
+   },
+   "canonical": "{\"arr\":[1,\"two\",{\"b\":\"\\u6e2c\\u91cf\",\"c\":\"caf\\u00e9\"}],\"big\":9007199254740991,\"emoji\":\"\\ud83d\\ude00\",\"esc\":\"q\\\"uote \\\\ back\\nnl\\ttab\\u0001\\u007f\",\"f\":false,\"i\":1,\"n\":0,\"nested\":{\"y\":{\"x\":[[],{}]}},\"s\":\"1\",\"s2\":\"true\",\"t\":true,\"z\":null}",
+   "sha256": "7b891740fe7d1114a4f2836c530797fb4033c53c58b887a169fd2bc3c232e680"
+  },
+  {
+   "input": {
+    "\ud800\udc00": 1,
+    "\ue000": 2,
+    "a": 3
+   },
+   "canonical": "{\"a\":3,\"\\ud800\\udc00\":1,\"\\ue000\":2}",
+   "sha256": "ba61fe427d4266aad58e6fc253025c5420e8bb276ea8210e9113b346e71adf24"
+  },
+  {
+   "input": [],
+   "canonical": "[]",
+   "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  {
+   "input": {},
+   "canonical": "{}",
+   "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+  },
+  {
+   "input": "x",
+   "canonical": "\"x\"",
+   "sha256": "ba2df4903a2c14e86dc3bcca58911b44ac1d2514b7227bf6eb08cfb978f55a1b"
+  },
+  {
+   "input": 0,
+   "canonical": "0",
+   "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+  },
+  {
+   "input": true,
+   "canonical": "true",
+   "sha256": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b"
+  },
+  {
+   "input": null,
+   "canonical": "null",
+   "sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+  }
+ ],
+ "refused": [
+  {
+   "input_json": "{\"f\": 1.5}",
+   "reason": "canonical: floating-point values are not in the record domain"
+  },
+  {
+   "input_json": "{\"f\": 1e+21}",
+   "reason": "canonical: floating-point values are not in the record domain"
+  },
+  {
+   "input_json": "{\"big\": 9007199254740992}",
+   "reason": "canonical: integer outside the safe range: 9007199254740992"
+  },
+  {
+   "input_json": "{\"lone\": \"\\ud800\"}",
+   "reason": "canonical: unpaired surrogate in string"
+  },
+  {
+   "input_json": "{\"lone\\udc00\": 1}",
+   "reason": "canonical: unpaired surrogate in string"
+  }
+ ]
+}

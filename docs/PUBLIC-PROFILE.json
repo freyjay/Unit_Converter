@@ -1,0 +1,43 @@
+{
+ "profile": "public",
+ "private_areas": [
+  "evidence/",
+  "tests/review-evidence/",
+  "docs/history/",
+  "publication/",
+  "START-HERE-MAC.md",
+  "GITHUB-PUSH.md",
+  "scripts/make_public_snapshot.py",
+  "CLAUDE.md",
+  ".claudeignore",
+  ".cursorrules",
+  "SETUP-GUIDE.md",
+  "TEMPLATE-README.md",
+  "WORKFLOW.md",
+  "setup-project.sh",
+  ".claude/",
+  "config/",
+  "tasks/",
+  "acceptance/civil3d-completed/operator-record.json",
+  "acceptance/civil3d-completed/NEXT-EXPORT.md",
+  "acceptance/civil3d-completed/converted-meters.csv.manifest.json",
+  "acceptance/civil3d-completed/converted-meters.csv.report.txt",
+  "acceptance/civil3d-completed/evidence/",
+  "acceptance/civil3d-completed/Drawing1.dwg",
+  "acceptance/civil3d-completed/Drawing1.bak",
+  "acceptance/next-native-tests/meters-to-international-feet/IMPORT-PENZD-FT.txt.manifest.json",
+  "acceptance/next-native-tests/meters-to-international-feet/IMPORT-PENZD-FT.txt.report.txt",
+  "acceptance/next-native-tests/meters-to-international-feet/conversion.log",
+  "acceptance/next-native-tests/pnezd-international-feet-to-meters/IMPORT-PNEZD-M.txt.manifest.json",
+  "acceptance/next-native-tests/pnezd-international-feet-to-meters/IMPORT-PNEZD-M.txt.report.txt",
+  "acceptance/next-native-tests/pnezd-international-feet-to-meters/conversion.log",
+  "acceptance/next-native-tests/us-survey-feet-to-meters/IMPORT-PENZD-M.txt.manifest.json",
+  "acceptance/next-native-tests/us-survey-feet-to-meters/IMPORT-PENZD-M.txt.report.txt",
+  "acceptance/next-native-tests/us-survey-feet-to-meters/conversion.log"
+ ],
+ "retained_exceptions": {
+  "tests/legacy-records/v3.3.1-python/base.out.manifest.json": "original v3.3.1 record read by the legacy-reader regressions; contains the owner's Windows path; kept pending the owner's decision",
+  "tests/legacy-records/v3.3.1-python/cross-unicode.out.manifest.json": "same as above"
+ },
+ "source_commit": "private repository b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+}

@@ -1,0 +1,48 @@
+PASS  36 independent oracle fixtures exact (36/36)
+PASS  non-finite token refused
+PASS  sci notation precision kept
+PASS  one malformed row refuses whole file
+PASS  gapped ids with explicit PENZD convert Z
+PASS  large integer exact
+PASS  custom 2 then exact 1/2 reproduces
+PASS  mixed line endings preserved per line
+PASS  surrounding whitespace preserved
+PASS  latin-1 refused
+PASS  quoted csv preserved
+PASS  decimal comma (ws) refused
+PASS  decimal comma (csv) refused
+PASS  integer coordinate column needs acknowledgement
+PASS  tie at 0 decimals refused (reconstruction)
+PASS  negatives
+PASS  double BOM refused by name
+PASS  Unicode digits refused
+PASS  reserved-name identifier handled
+PASS  short control refused
+PASS  duplicate id refused
+PASS  negative tolerance refused
+PASS  identifier==coordinate refused
+PASS  negative column refused
+PASS  identifier column 99 refused as a MAPPING error (columns are 1..64), no crash
+PASS  zero denominator refused
+PASS  11-dp source accepted on auto
+PASS  anchor passes after raising precision
+PASS  38-digit integer accepted on auto
+PASS  NBSP is content, refused
+PASS  verifier rejects wrong rounding 1.4000
+PASS  verifier rejects non-fixed 14000e-4
+PASS  verifier accepts correct candidate
+PASS  verifier catches description tamper
+PASS  verifier catches added line
+PASS  baseline run with anchor+control
+PASS  verifyPackage passes untouched
+PASS  mutated control expected refused
+PASS  mutated counts refused
+PASS  mutated custom factor input refused
+PASS  unknown manifest key refused
+PASS  null anchors refused
+PASS  zero denominator in manifest refused
+PASS  fingerprint mismatch refused
+PASS  different build refused
+PASS  PointTruth output byte-identical to pointfile_units.py on the shared PENZD file
+
+passed 46 failed 0

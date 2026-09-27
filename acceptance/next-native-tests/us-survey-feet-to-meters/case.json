@@ -1,0 +1,23 @@
+{
+  "case": "us-survey-feet-to-meters",
+  "conversion": "USFeetToMeters",
+  "format": "PENZD",
+  "delimiter": "comma",
+  "header": "no",
+  "decimals": 8,
+  "exact_factor": "1200/3937",
+  "target_unit": "m",
+  "coordinate_tolerance": "1/1000000",
+  "source": "SOURCE-DECLARED-UNITS.txt",
+  "source_sha256": "d48ddb4b8db47a606a9c3cc4208bab6ab5d2571043320f7500897dd219a18b2a",
+  "import_file": "IMPORT-PENZD-M.txt",
+  "import_sha256": "821ab82cbfa4ac3cd19ad836ff991e74e6d673183bfca92b56a0c5f4781e7a88",
+  "expected": "expected.txt",
+  "expected_sha256": "821ab82cbfa4ac3cd19ad836ff991e74e6d673183bfca92b56a0c5f4781e7a88",
+  "expected_point_count": 2,
+  "converter_exit": 0,
+  "verifier_exit": 0,
+  "matches_exact_rounding_oracle": true,
+  "native_execution": "NOT RUN",
+  "source_unit_truth": "declared fictional fixture; no external survey certification"
+}

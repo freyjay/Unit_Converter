@@ -1,0 +1,209 @@
+{
+ "schema": "pfu-roundtrip-observations/1",
+ "tool": {
+  "file": "pointfile_units.py",
+  "sha256": "b6589870c4c2e587d3ef5bf21496db19a598d6adb449903e1b0ea61cb2f326cf"
+ },
+ "run_utc": "2026-09-24T13:39:29Z",
+ "samples": [
+  {
+   "sample": "acceptance",
+   "file": "acceptance-source-international-feet.csv",
+   "sha256": "7a2d5c2798af57185e893130ce7deb5e85930bd4ab6bcaee8daaed2842646493",
+   "format": "PENZD",
+   "delimiter": "comma",
+   "header": "no",
+   "legs": [
+    {
+     "leg": "L1 ft->m",
+     "accepted": true,
+     "decimals_written": 6,
+     "sha256": "c1583e3ed2cfd2faf9a494a8139cfe81f33a3f03d965dded331e676040c440b1",
+     "oracle_problems": [],
+     "rows": 6
+    },
+    {
+     "leg": "L2 m->ft",
+     "accepted": true,
+     "decimals_written": 8,
+     "sha256": "04288b6948820a3bedaf3b7e6562e78dc42f323f1d1a670b79bb9824a80a270c",
+     "oracle_problems": [],
+     "rows": 6,
+     "max_abs_deviation_from_original_ft": "157/100000000"
+    },
+    {
+     "leg": "L3 ft->m",
+     "accepted": true,
+     "decimals_written": 10,
+     "sha256": "7118c14e278d47c119aa27d9511e08add0c6ff5c3345f7841b99c9c0d367fa96",
+     "oracle_problems": [],
+     "rows": 6
+    },
+    {
+     "leg": "L4 m->ft",
+     "accepted": true,
+     "decimals_written": 12,
+     "sha256": "43067ea0dcbc73641931190797c4cdc1b8028a0fbd914833c198d6bebb40b6d5",
+     "oracle_problems": [],
+     "rows": 6,
+     "max_abs_deviation_from_original_ft": "784941/500000000000"
+    }
+   ],
+   "problems": [],
+   "byte_identity": {
+    "L1==L3": false,
+    "L2==L4": false,
+    "L2==original": false
+   },
+   "return_at_original_precision": {
+    "decimals": 4,
+    "accepted": true,
+    "byte_identical_to_original": true
+   },
+   "wrong_foot_return_auto": {
+    "accepted": true,
+    "decimals_written": 8,
+    "max_abs_deviation_ft": "4",
+    "max_abs_deviation_ft_float": 4.0,
+    "max_magnitude_ft": 2000000.0
+   },
+   "wrong_foot_return_original_precision": {
+    "accepted": false,
+    "refusal": "REFUSED: verification failed at 4 decimals:"
+   }
+  },
+  {
+   "sample": "survey40",
+   "file": "survey40.txt",
+   "sha256": "91cc849675bd43c354cff3e7c95f33d03a494048a0af2e8419f8edad43040625",
+   "format": "PENZD",
+   "delimiter": "whitespace",
+   "header": "no",
+   "legs": [
+    {
+     "leg": "L1 ft->m",
+     "accepted": true,
+     "decimals_written": 6,
+     "sha256": "d96a6d3d1829672ac1c3bc2380c79d809b71bd6464c838765b875f20550634df",
+     "oracle_problems": [],
+     "rows": 40
+    },
+    {
+     "leg": "L2 m->ft",
+     "accepted": true,
+     "decimals_written": 8,
+     "sha256": "983edc02556ad36b8aa2093d1783a4e1c669160e8193d7e238a1570fa49c0044",
+     "oracle_problems": [],
+     "rows": 40,
+     "max_abs_deviation_from_original_ft": "157/100000000"
+    },
+    {
+     "leg": "L3 ft->m",
+     "accepted": true,
+     "decimals_written": 10,
+     "sha256": "c5941ac1a05dbf848288112313ec07b02c4c25ba3bce3dcdff3254810d2b362d",
+     "oracle_problems": [],
+     "rows": 40
+    },
+    {
+     "leg": "L4 m->ft",
+     "accepted": true,
+     "decimals_written": 12,
+     "sha256": "9ed32ccb4fc372afbb519a09d73ad60a91d5824fcadac351fd0abe9bc71fdb48",
+     "oracle_problems": [],
+     "rows": 40,
+     "max_abs_deviation_from_original_ft": "784941/500000000000"
+    }
+   ],
+   "problems": [],
+   "byte_identity": {
+    "L1==L3": false,
+    "L2==L4": false,
+    "L2==original": false
+   },
+   "return_at_original_precision": {
+    "decimals": 4,
+    "accepted": true,
+    "byte_identical_to_original": true
+   },
+   "wrong_foot_return_auto": {
+    "accepted": true,
+    "decimals_written": 8,
+    "max_abs_deviation_ft": "4230553/100000000",
+    "max_abs_deviation_ft_float": 0.04230553,
+    "max_magnitude_ft": 21153.2891
+   },
+   "wrong_foot_return_original_precision": {
+    "accepted": false,
+    "refusal": "REFUSED: verification failed at 4 decimals:"
+   }
+  },
+  {
+   "sample": "stateplane",
+   "file": "stateplane-fictional.csv",
+   "sha256": "dfea76c9e7616dacbd0a03eda8f65b9b4284043e31a5928a561935d01c107626",
+   "format": "PENZD",
+   "delimiter": "comma",
+   "header": "yes",
+   "legs": [
+    {
+     "leg": "L1 ft->m",
+     "accepted": true,
+     "decimals_written": 4,
+     "sha256": "2c5b3973ed3ee257a9ab94ffd65e674d219aeb10d92d612cb3ff3c45e6066f8f",
+     "oracle_problems": [],
+     "rows": 25
+    },
+    {
+     "leg": "L2 m->ft",
+     "accepted": true,
+     "decimals_written": 6,
+     "sha256": "db7ed9abf6f7c407f202f16fa70025508c177c63156946dabe617e866634292e",
+     "oracle_problems": [],
+     "rows": 25,
+     "max_abs_deviation_from_original_ft": "157/1000000"
+    },
+    {
+     "leg": "L3 ft->m",
+     "accepted": true,
+     "decimals_written": 8,
+     "sha256": "6183fd3aa841b5908ec714c34960b762bbb6f03906366a0069e291de39459d53",
+     "oracle_problems": [],
+     "rows": 25
+    },
+    {
+     "leg": "L4 m->ft",
+     "accepted": true,
+     "decimals_written": 10,
+     "sha256": "d1516a78a04e22e05b973f71ba6bbf3541bb59edbe57b9b2090204d587249c8a",
+     "oracle_problems": [],
+     "rows": 25,
+     "max_abs_deviation_from_original_ft": "784941/5000000000"
+    }
+   ],
+   "problems": [],
+   "byte_identity": {
+    "L1==L3": false,
+    "L2==L4": false,
+    "L2==original": false
+   },
+   "return_at_original_precision": {
+    "decimals": 2,
+    "accepted": true,
+    "byte_identical_to_original": true
+   },
+   "wrong_foot_return_auto": {
+    "accepted": true,
+    "decimals_written": 6,
+    "max_abs_deviation_ft": "3252279/250000",
+    "max_abs_deviation_ft_float": 13.009116,
+    "max_magnitude_ft": 6504584.08
+   },
+   "wrong_foot_return_original_precision": {
+    "accepted": false,
+    "refusal": "REFUSED: verification failed at 2 decimals:"
+   }
+  }
+ ],
+ "problems": []
+}

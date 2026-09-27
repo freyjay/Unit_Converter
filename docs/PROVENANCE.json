@@ -1,0 +1,57 @@
+{
+ "package": "Unit_Converter (built from PointTruth team package 2026-09-26 r2)",
+ "product_in_this_package": "PFU 3.3.6 browser and Python converter",
+ "html_sha256": "a4e2b3883f6132d7d370daa1dfdbbc6e120cdb7679deaa628394956af04dc71a",
+ "python_sha256": "b6589870c4c2e587d3ef5bf21496db19a598d6adb449903e1b0ea61cb2f326cf",
+ "application_script_sha256": [
+  "242685711184a5078934439c4270654656e2df53d12b8e8ed5a731d377f34eef",
+  "c564f5d25375957f9ec45f1d323cc0e6bf1b5eb8d9e13ad82e072f1bdfc7c0a5",
+  "f860dd69f8755d82a2ef835d64f2c6898213d7bc7a517a1ea958a29d14114509"
+ ],
+ "based_on_advisor_archive_sha256": "3e4967f1b82fccce5ae334b62207a79967fec9a3e37f836f438cfc1285f79446",
+ "base_html_sha256": "6a70fe05eb7a8b4127954ecc6f1b85a0063486fd8a2953deb39eee0fe4420975",
+ "html_change": "Static text only (all script blocks identical): foot box points to control points as the check for a wrong declaration; control-point section summary says what it catches; scope note names international vs U.S. survey foot; download buttons labelled point data vs report/manifest (not for import), with titles. Revision 2: the foot box states that a control reveals a wrong unit choice only when the difference exceeds a justified tolerance. Unit_Converter 2026-09-27: foot box shortened with the tolerance qualification kept; \"Point data for import\" is the primary download; footer shows the page-text revision and states the license as intended. 2026-09-27.2: page background changed from a square grid to a tapered tumbling-blocks pattern (inline SVG in CSS, measured from the owner-supplied image); footer states the MIT license. 2026-09-27.3: background recoloured to light grey (#ECEEF0) with darker grey pattern lines (#9AA1A8), at the owner's request. 2026-09-27.4: pattern three times denser (68x113 px tile, strokes 2.0 to 1.0 px) with lines in #CBD2D9 on #ECEEF0, at the owner's request.",
+ "packaging_changes": [
+  "Mac and GitHub instructions",
+  "Pinned cross-platform CI definitions (not yet executed)",
+  "Core/browser checks run in a disposable repository copy",
+  "Explicit --skip-browser for partial checks",
+  "Portable Path.as_uri in browser regression runner",
+  "Repository extras included in release inventory",
+  "Git preserves all tracked file bytes across checkouts",
+  "Fresh archive member checksums, a stale-inventory regression control, and received-package checksum checker",
+  "Browser runner: agreed line-118 repair, then one file_uri() helper for every navigation",
+  "Executed browser-path check with negative controls in the core gate and repository check (replaces a pattern check)",
+  "Run records capture tool hashes, settings, Playwright package, browser version and Git revision during the run"
+ ],
+ "pointtruth_comparator": "tests/differential/PointTruth.html is pinned rc.1 evidence; it is not a replacement for the primary PFU application",
+ "macos_execution": "Core PASS on macOS 15.7.1 Apple Silicon (arm64), Python 3.13.5, Node 22.17 (owner; commits e26ce91 and 357d536; partner-reviewed 27 Sep). Browser suite and Intel Macs PENDING.",
+ "github_execution": "PENDING (nothing pushed)",
+ "civil3d_scope": "One operator-assisted six-point PFU Python import/export passed; no CAD program is included",
+ "based_on_team_package_zip_sha256": "a8995d2e3b2bb5d24bf2ad94d18b2c652ceb411ce1f98b7b3ebe37446a6db3e9",
+ "browser_execution": {
+  "linux_chromium": {
+   "status": "PASS (contributor-run; the 25 Sep run was partner-reviewed, the 26 Sep runs are contributor-reported)",
+   "scope": "Chromium 141 diagnostic-CSP regressions (slow 16 MiB lifecycle skipped) and normal-CSP ~1 MiB lifecycle, producer open and closed",
+   "evidence": [
+    "evidence/contributor-linux-2026-09-26/"
+   ]
+  },
+  "windows": {
+   "status": "PENDING",
+   "note": "core suite PASS on Windows (partner): 26 Sep; 27 Sep on 357d536 and on cd5758d (Windows 10, Python 3.13.7, Node 24.19.0); browser suite not yet run (no Playwright on that machine)"
+  },
+  "macos": {
+   "status": "PENDING",
+   "note": "core suite PASS (owner, Apple Silicon); browser suite not yet run"
+  },
+  "other_browsers": {
+   "status": "NOT CLAIMED",
+   "note": "Edge/Firefox targeted runs pending; Safari unclaimed"
+  }
+ },
+ "html_text_revision": "2026-09-27.4",
+ "license": "MIT (see LICENSE), copyright freyjay, the sole contributor; confirmed by the owner on 2026-09-27",
+ "release_revision": "2026-09-27.6",
+ "consumer_release_cross_platform": "Unit_Converter-2026-09-27.5.zip rebuilt on Windows by the partner is byte-identical to the Linux build (sha256 f3250b19b14cd8206d5bbd1226f12e8841fc0b90981741b0c7f611923a6fb371), confirming the pinned ZIP metadata on real Windows; identical compression output across future zlib versions is not claimed."
+}

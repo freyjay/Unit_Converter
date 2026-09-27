@@ -1,0 +1,19 @@
+PASS  SHA-256 fallback matches Node at 13 padding boundaries
+PASS  ties to even: converter and verifier agree, both signs
+PASS  trailing comma = empty 4th field, preserved
+PASS  header=first skips the first data-kind line after comments
+PASS  header=first with a single line -> EMPTY refusal
+PASS  exponent 100 refused
+PASS  70 trailing description tokens preserved
+PASS  multiline quoted CSV refused
+PASS  NUL refused
+PASS  blank lines preserved
+PASS  no trailing newline preserved
+PASS  CR-only line ending preserved
+PASS  duplicate point numbers refused even without control points (strict)
+PASS  same source and target units refused
+PASS  quoted numeric coordinate in whitespace mode: quotes preserved
+PASS  13-decimal source: refused (cannot reconstruct within 0-12)
+PASS  fingerprint binds full manifest (createdAt differs)
+
+passed 17 failed 0

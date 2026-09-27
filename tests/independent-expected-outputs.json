@@ -1,0 +1,113 @@
+{
+  "oracle": "Python Decimal, precision 160, nearest ties to even; independently authored from v3 core",
+  "cases": [
+    {
+      "conversion": "IntlFeetToMeters",
+      "source": "820829.7292 -833318.2688 -204762.2812\n",
+      "decimals": 10,
+      "expected": "250188.9014601600 -253995.4083302400 -62411.5433097600\n"
+    },
+    {
+      "conversion": "IntlFeetToMeters",
+      "source": "770611.3194 679188.3417 -97906.5422\n",
+      "decimals": 10,
+      "expected": "234882.3301531200 207016.6065501600 -29841.9140625600\n"
+    },
+    {
+      "conversion": "IntlFeetToMeters",
+      "source": "-501533.3103 756860.2415 -835684.6484\n",
+      "decimals": 10,
+      "expected": "-152867.3529794400 230691.0016092000 -254716.6808323200\n"
+    },
+    {
+      "conversion": "MetersToIntlFeet",
+      "source": "-25561.4400 210947.5651 122244.7252\n",
+      "decimals": 10,
+      "expected": "-83862.9921259843 692085.1873359580 401065.3713910761\n"
+    },
+    {
+      "conversion": "MetersToIntlFeet",
+      "source": "-300721.7729 159245.7392 846245.1256\n",
+      "decimals": 10,
+      "expected": "-986619.9898293963 522459.7742782152 2776394.7690288714\n"
+    },
+    {
+      "conversion": "MetersToIntlFeet",
+      "source": "-617922.5772 -68832.4646 -647585.1144\n",
+      "decimals": 10,
+      "expected": "-2027305.0433070866 -225828.2959317585 -2124623.0787401575\n"
+    },
+    {
+      "conversion": "USFeetToMeters",
+      "source": "-264345.1861 624402.1389 26330.3977\n",
+      "decimals": 10,
+      "expected": "-80572.5738684277 190318.1525730251 8025.5212700025\n"
+    },
+    {
+      "conversion": "USFeetToMeters",
+      "source": "-521909.8911 223817.2506 730050.6216\n",
+      "decimals": 10,
+      "expected": "-159078.4529641859 68219.6344221488 222519.8745034290\n"
+    },
+    {
+      "conversion": "USFeetToMeters",
+      "source": "605898.1003 103780.7892 171562.1292\n",
+      "decimals": 10,
+      "expected": "184678.1103276607 31632.4478130556 52292.2415646431\n"
+    },
+    {
+      "conversion": "MetersToUSFeet",
+      "source": "-241570.1466 687486.4995 -564310.5696\n",
+      "decimals": 10,
+      "expected": "-792551.3893035000 2255528.6237762500 -1851408.9270960000\n"
+    },
+    {
+      "conversion": "MetersToUSFeet",
+      "source": "834772.8163 -338194.7292 -281956.3124\n",
+      "decimals": 10,
+      "expected": "2738750.4814775833 -1109560.5407170000 -925051.6682656667\n"
+    },
+    {
+      "conversion": "MetersToUSFeet",
+      "source": "899376.3237 -583687.7133 613691.2556\n",
+      "decimals": 10,
+      "expected": "2950703.8220057500 -1914982.1060517500 2013418.7277476667\n"
+    },
+    {
+      "conversion": "USFeetToIntlFeet",
+      "source": "104436.2382 344106.0358 759703.3705\n",
+      "decimals": 10,
+      "expected": "104436.4470728941 344106.7240134480 759704.8899097798\n"
+    },
+    {
+      "conversion": "USFeetToIntlFeet",
+      "source": "-34607.8944 94137.9009 -286390.0737\n",
+      "decimals": 10,
+      "expected": "-34607.9636159272 94138.0891761784 -286390.6464812930\n"
+    },
+    {
+      "conversion": "USFeetToIntlFeet",
+      "source": "-557762.7993 272731.8907 818360.5366\n",
+      "decimals": 10,
+      "expected": "-557763.9148278297 272732.4361648723 818362.1733243466\n"
+    },
+    {
+      "conversion": "IntlFeetToUSFeet",
+      "source": "840576.4697 301257.8457 366515.2842\n",
+      "decimals": 10,
+      "expected": "840574.7885470606 301257.2431843086 366514.5511694316\n"
+    },
+    {
+      "conversion": "IntlFeetToUSFeet",
+      "source": "152832.1104 -96490.0630 876185.8347\n",
+      "decimals": 10,
+      "expected": "152831.8047357792 -96489.8700198740 876184.0823283306\n"
+    },
+    {
+      "conversion": "IntlFeetToUSFeet",
+      "source": "-843533.6321 126232.8798 429774.1556\n",
+      "decimals": 10,
+      "expected": "-843531.9450327358 126232.6273342404 429773.2960516888\n"
+    }
+  ]
+}

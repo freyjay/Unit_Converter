@@ -1,0 +1,23 @@
+{
+  "case": "pnezd-international-feet-to-meters",
+  "conversion": "IntlFeetToMeters",
+  "format": "PNEZD",
+  "delimiter": "comma",
+  "header": "no",
+  "decimals": 8,
+  "exact_factor": "381/1250",
+  "target_unit": "m",
+  "coordinate_tolerance": "1/1000000",
+  "source": "SOURCE-DECLARED-UNITS.txt",
+  "source_sha256": "be56b5a50e26ca725e147fb18f1df1894b80b9553f198f6f686be3d3f1c7cac6",
+  "import_file": "IMPORT-PNEZD-M.txt",
+  "import_sha256": "5c7dce40a806efab98039fb5179b21c7c5d199156077007131b5f072f08e32e3",
+  "expected": "expected.txt",
+  "expected_sha256": "5c7dce40a806efab98039fb5179b21c7c5d199156077007131b5f072f08e32e3",
+  "expected_point_count": 2,
+  "converter_exit": 0,
+  "verifier_exit": 0,
+  "matches_exact_rounding_oracle": true,
+  "native_execution": "NOT RUN",
+  "source_unit_truth": "declared fictional fixture; no external survey certification"
+}

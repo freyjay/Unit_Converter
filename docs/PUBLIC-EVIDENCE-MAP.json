@@ -1,0 +1,2589 @@
+{
+ "schema": "unit-converter-public-evidence-map/1",
+ "note": "Every file of the private commit that is not published as-is. Originals are unchanged in the private history; this map lets a reader know what exists and its SHA-256, not verify files they cannot access.",
+ "source_commit": "b051fe7963b0e4d14d367e6ffe58d20a2c29c060",
+ "entries": [
+  {
+   "id": "E-0001",
+   "original_path": ".claude/settings.json",
+   "original_sha256": "aed5f03ce47f5ad02de1f5cc461f91e9649feb8396aa5cd66021f84c22750a49",
+   "action": "omitted: private workflow or owner workspace file",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0002",
+   "original_path": ".claudeignore",
+   "original_sha256": "b3a8179b767d0f2fce86bff27bff1a2b76e801d95d1189a82e462b3f3e819ff2",
+   "action": "omitted: private workflow or owner workspace file",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0003",
+   "original_path": ".cursorrules",
+   "original_sha256": "3eecee16f8d41bcff343f2d14fcbdbc7f771d68cc4dc87d4ac5aa766413da396",
+   "action": "omitted: private workflow or owner workspace file",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0004",
+   "original_path": "CLAUDE.md",
+   "original_sha256": "3d41b9e31d5d626af7a9a7daab3091c5a32919c5abbaf11fb7d6dc69027446a1",
+   "action": "omitted: private workflow or owner workspace file",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0005",
+   "original_path": "GITHUB-PUSH.md",
+   "original_sha256": "fbba44d0048c8ebb1baaea91d5ab9cecdef3139126e4b02c60ad7bb4004c7cfc",
+   "action": "omitted: private workflow or owner workspace file",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0006",
+   "original_path": "README.md",
+   "original_sha256": "a13100ce8f7c6320812259c72ce34e6e4cd6a002db66620a2dbbb3c6b20ffefd",
+   "action": "replaced by public variant",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060",
+   "public_path": "README.md",
+   "public_sha256": "87a4ac4401815de3a3dd9113e88a7093a0d8cbab1f24037c940c32583d780004"
+  },
+  {
+   "id": "E-0007",
+   "original_path": "SETUP-GUIDE.md",
+   "original_sha256": "35a12ed64ac7b09dcf792b9b1ebc4dc67be9b841cd87473cc8e8bccdcfc2d651",
+   "action": "omitted: private workflow or owner workspace file",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0008",
+   "original_path": "START-HERE-MAC.md",
+   "original_sha256": "200e3c5501b02673075aaea7ae7d6bde4c6d7477c3f783db955f378e42b0e2ad",
+   "action": "omitted: private workflow or owner workspace file",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0009",
+   "original_path": "TEMPLATE-README.md",
+   "original_sha256": "efcb8cc19efe1a181443f7fd858b1804a3a4f3b6469db21bfcf5c18a654362ed",
+   "action": "omitted: private workflow or owner workspace file",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0010",
+   "original_path": "WORKFLOW.md",
+   "original_sha256": "6bdc2b7cbf0f22a750fbe5122669598c783c517bc1cc882db62c984b9bd01711",
+   "action": "omitted: private workflow or owner workspace file",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0011",
+   "original_path": "acceptance/civil3d-completed/Drawing1.bak",
+   "original_sha256": "775aefcf1b8f2c93a6f50a559abb8c9ad11c707c788a60d182aa9d5e35775d7b",
+   "action": "omitted: contains local paths or is binary evidence",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0012",
+   "original_path": "acceptance/civil3d-completed/Drawing1.dwg",
+   "original_sha256": "3091bd435b3b1a93a2e7f32540afa3ae81d73100f4fb623b57847d18ff3535db",
+   "action": "omitted: contains local paths or is binary evidence",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0013",
+   "original_path": "acceptance/civil3d-completed/NEXT-EXPORT.md",
+   "original_sha256": "08363e0d9c374f409581538f0b32411e5565e1d81c43ff10beb466ae78b7ea24",
+   "action": "omitted: contains local paths or is binary evidence",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0014",
+   "original_path": "acceptance/civil3d-completed/converted-meters.csv.manifest.json",
+   "original_sha256": "cf7de9358f6f34971788c45cf4c23f017bc4eda772d2091a99e3045ba3b4596e",
+   "action": "omitted: contains local paths or is binary evidence",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0015",
+   "original_path": "acceptance/civil3d-completed/converted-meters.csv.report.txt",
+   "original_sha256": "d4dea1672152c88921a5a960fa560cb6ae276d46f22e5c18ef42cd07a9275e04",
+   "action": "omitted: contains local paths or is binary evidence",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0016",
+   "original_path": "acceptance/civil3d-completed/evidence/civil3d-export-observed.txt",
+   "original_sha256": "6a858d7e2b8a7574498b180fde57826c0b96ef87515deea45fdc06424b5b1412",
+   "action": "omitted: contains local paths or is binary evidence",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0017",
+   "original_path": "acceptance/civil3d-completed/evidence/convert.log",
+   "original_sha256": "5f057758cb2e70134cf2ccec876a00e5795a663bc0c7f4eaffc2b0079e0d0183",
+   "action": "omitted: contains local paths or is binary evidence",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0018",
+   "original_path": "acceptance/civil3d-completed/evidence/crash-file-check.json",
+   "original_sha256": "d47fd42463e7e1bc5defc7817595ac6cb26da84c38f094cf60f8034278b4863d",
+   "action": "omitted: contains local paths or is binary evidence",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0019",
+   "original_path": "acceptance/civil3d-completed/evidence/default-application-after-save.json",
+   "original_sha256": "bc3cd2db119793164cc0123b96b697b58e598b6d8e9eddd544c90796a0fa099d",
+   "action": "omitted: contains local paths or is binary evidence",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0020",
+   "original_path": "acceptance/civil3d-completed/evidence/export-watch-20260924T125658Z.jsonl",
+   "original_sha256": "116a43e12ed2bca103efd0b807829995009795b91e3236a132cf49e38ecdd43e",
+   "action": "omitted: contains local paths or is binary evidence",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0021",
+   "original_path": "acceptance/civil3d-completed/evidence/fixture-manifest-before-native-result.json",
+   "original_sha256": "27fe584df7d46fb7ee1b235b02e2f33381ae67d9b997dec2799a1fcb9af98375",
+   "action": "omitted: contains local paths or is binary evidence",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0022",
+   "original_path": "acceptance/civil3d-completed/evidence/native-export-comparison.json",
+   "original_sha256": "5657b2688048f03fafcbf2dd31e431a57bfd2b1281fdba5df88325b68378483a",
+   "action": "omitted: contains local paths or is binary evidence",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0023",
+   "original_path": "acceptance/civil3d-completed/evidence/native-export-verification.json",
+   "original_sha256": "fbd90e600d8e8a3ae5e9f00a8a93e8ccddb1df0c7e5880695025447ada49d974",
+   "action": "omitted: contains local paths or is binary evidence",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0024",
+   "original_path": "acceptance/civil3d-completed/evidence/post-import-discovery.json",
+   "original_sha256": "4d51166408beb9eb8659395d714da0ea04072869f15c7245b2841e6000422507",
+   "action": "omitted: contains local paths or is binary evidence",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0025",
+   "original_path": "acceptance/civil3d-completed/evidence/pre-recovery/Drawing1.dwg",
+   "original_sha256": "775aefcf1b8f2c93a6f50a559abb8c9ad11c707c788a60d182aa9d5e35775d7b",
+   "action": "omitted: contains local paths or is binary evidence",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0026",
+   "original_path": "acceptance/civil3d-completed/evidence/qsave-file-check.json",
+   "original_sha256": "d2b2afc1d765cfb5ee1495a0536f044c7eaead1d44faa9ca1137f45189833ebc",
+   "action": "omitted: contains local paths or is binary evidence",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0027",
+   "original_path": "acceptance/civil3d-completed/evidence/reverification.json",
+   "original_sha256": "5f03bbe39af0a29a0699d52b075124078c28a238f00c34165fd37f0b1d3378fa",
+   "action": "omitted: contains local paths or is binary evidence",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0028",
+   "original_path": "acceptance/civil3d-completed/evidence/reverify.log",
+   "original_sha256": "622078197e2f2fac9085a965a8d53f2d244bc51ae1924e0c33f8da899065f189",
+   "action": "omitted: contains local paths or is binary evidence",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0029",
+   "original_path": "acceptance/civil3d-completed/evidence/saved-drawing-connection.json",
+   "original_sha256": "fd068a82acfaaa863101e9a15dfbe2590e5dfe6fc34ea76d4bbfa55a9e450a4a",
+   "action": "omitted: contains local paths or is binary evidence",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0030",
+   "original_path": "acceptance/civil3d-completed/evidence/user-command-importpoints.png",
+   "original_sha256": "7902667fc07a00909f3028ad58faae92863f9df1d7e7231dae02ab39bc5ef2af",
+   "action": "omitted: contains local paths or is binary evidence",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0031",
+   "original_path": "acceptance/civil3d-completed/evidence/user-export-point-file-format.png",
+   "original_sha256": "b6d90f057e8282c51202437c1ae1b3ae4fbaab0ac274a470d7490fa07084e338",
+   "action": "omitted: contains local paths or is binary evidence",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0032",
+   "original_path": "acceptance/civil3d-completed/evidence/user-import-dialog-before-configuration.png",
+   "original_sha256": "61c168c54be47e1c9794d7810659436b571f79ae8cdb92225927dfaa276214d2",
+   "action": "omitted: contains local paths or is binary evidence",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0033",
+   "original_path": "acceptance/civil3d-completed/evidence/user-import-dialog-correct-settings-no-file.png",
+   "original_sha256": "911562a35674866baf36351c1bce75c8108cf8033b817c2e02e5cc3e2500ae49",
+   "action": "omitted: contains local paths or is binary evidence",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0034",
+   "original_path": "acceptance/civil3d-completed/evidence/user-import-preview-enz-mapping-error.png",
+   "original_sha256": "d79b78774b5ee93b7c3c5b743427a82d22edf7a914578d888e7f10ffde16c491",
+   "action": "omitted: contains local paths or is binary evidence",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0035",
+   "original_path": "acceptance/civil3d-completed/evidence/user-import-preview-expected-meters.png",
+   "original_sha256": "12f1756709329f04597c65c07bfc4cfad440f2243176f51432449331a7b56bc8",
+   "action": "omitted: contains local paths or is binary evidence",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0036",
+   "original_path": "acceptance/civil3d-completed/operator-record.json",
+   "original_sha256": "9fcce71eb770a41486f94a2f8f290d7126ca02be811e532576de8f4dc101dd03",
+   "action": "omitted: contains local paths or is binary evidence",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0037",
+   "original_path": "acceptance/next-native-tests/meters-to-international-feet/IMPORT-PENZD-FT.txt.manifest.json",
+   "original_sha256": "5cc5c31a870721345ab0e5bc58b01713148eea33a0760447a23c43d5f91bdfcb",
+   "action": "omitted: contains local paths (preparation record)",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0038",
+   "original_path": "acceptance/next-native-tests/meters-to-international-feet/IMPORT-PENZD-FT.txt.report.txt",
+   "original_sha256": "a62ae3c4d35535c1c342d4beeee691bb8811c0c2f3fec8bf6b109b2e2cbed445",
+   "action": "omitted: contains local paths (preparation record)",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0039",
+   "original_path": "acceptance/next-native-tests/meters-to-international-feet/conversion.log",
+   "original_sha256": "f9d30096bceea8766d1e96012eda238a497bbb632f2c81e995154a7bf5c123e8",
+   "action": "omitted: contains local paths (preparation record)",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0040",
+   "original_path": "acceptance/next-native-tests/pnezd-international-feet-to-meters/IMPORT-PNEZD-M.txt.manifest.json",
+   "original_sha256": "bc3e7de0825561428b6b2f391af8ef772b5dd70ea5e6a01b0b557fb04735db82",
+   "action": "omitted: contains local paths (preparation record)",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0041",
+   "original_path": "acceptance/next-native-tests/pnezd-international-feet-to-meters/IMPORT-PNEZD-M.txt.report.txt",
+   "original_sha256": "53f51a1f9025576c35763aedec2b761a3350f21348b057f86ec62327e960d4c6",
+   "action": "omitted: contains local paths (preparation record)",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0042",
+   "original_path": "acceptance/next-native-tests/pnezd-international-feet-to-meters/conversion.log",
+   "original_sha256": "76b6a96b52db857bdd5c8ac68dba6638c5819e808ff09806f424d23df35ae632",
+   "action": "omitted: contains local paths (preparation record)",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0043",
+   "original_path": "acceptance/next-native-tests/us-survey-feet-to-meters/IMPORT-PENZD-M.txt.manifest.json",
+   "original_sha256": "cc37bce567f7726e9232a8951e4e444feab6a29f5cc5e642e6893234adc91d89",
+   "action": "omitted: contains local paths (preparation record)",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0044",
+   "original_path": "acceptance/next-native-tests/us-survey-feet-to-meters/IMPORT-PENZD-M.txt.report.txt",
+   "original_sha256": "ebf9c125f24d9d11439a1ef3af28228d85167354c903b773138fdb302e9cb5e4",
+   "action": "omitted: contains local paths (preparation record)",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0045",
+   "original_path": "acceptance/next-native-tests/us-survey-feet-to-meters/conversion.log",
+   "original_sha256": "cf7ce69fe15c84b23e2581bd8a5b037254a6399de9162667a236a114e6d6fb5f",
+   "action": "omitted: contains local paths (preparation record)",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0046",
+   "original_path": "config/commands.md",
+   "original_sha256": "e5f0fda65e935bd03f1691481677b18718126366163ee25b023872c6db601350",
+   "action": "omitted: private workflow or owner workspace file",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0047",
+   "original_path": "config/environment.md",
+   "original_sha256": "f626c816ff4c5cca3be699e99465cf75139a7a2d3d0b3d6f6e175adfbbf2366c",
+   "action": "omitted: private workflow or owner workspace file",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0048",
+   "original_path": "config/stack.md",
+   "original_sha256": "3a6a781b9a8e42ccd928406e1f6c2df3fa3600054a4bd4ef173fc8f6d62da3d9",
+   "action": "omitted: private workflow or owner workspace file",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0049",
+   "original_path": "config/standards.md",
+   "original_sha256": "14f9a9196a9f9dea86edb8b60cfc7c7850618f42de57041419e2068c0da8e047",
+   "action": "omitted: private workflow or owner workspace file",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0050",
+   "original_path": "docs/CURRENT-STATUS.md",
+   "original_sha256": "eeef681856afbc35b28a4026d3bf0f12a05b72ab5d0411de4a56d01690385dd1",
+   "action": "replaced by public variant",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060",
+   "public_path": "docs/CURRENT-STATUS.md",
+   "public_sha256": "7237253447621369ac73def1ed4aa27a63949e95fd9ef75fe6ecc133d1583739"
+  },
+  {
+   "id": "E-0051",
+   "original_path": "docs/README.md",
+   "original_sha256": "858f71b70c401177fca1f475b88fc16ac1c826f360b837089901ac3836e6b1c1",
+   "action": "replaced by public variant",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060",
+   "public_path": "docs/README.md",
+   "public_sha256": "d30c08d46806f6f5b9b22a35d638ff3f2b29b5ffd26dc5d3880b33b65e4a71a6"
+  },
+  {
+   "id": "E-0052",
+   "original_path": "docs/history/ADVISOR-CANDIDATE-2026-09-24.md",
+   "original_sha256": "e65ec05efe26a2a42249472405130582d7acf1de64e0679ffffc12bb26033313",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0053",
+   "original_path": "docs/history/ARCHITECTURE-OPTIONS-RESPONSE.md",
+   "original_sha256": "dac966bc53933a63fbcf28a002e09d2a6638aaedb29dbe8cda6214be8d2f19e1",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0054",
+   "original_path": "docs/history/CIVIL3D-ACCEPTANCE-RUNSHEET.md",
+   "original_sha256": "5db8aa411eb91b0c5a23702d20095e2f75013711a3f9667a6c4f4ed650c15a12",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0055",
+   "original_path": "docs/history/FOLDING-RISKS-AND-TRUTH.md",
+   "original_sha256": "bd29b0e7c6d2337e0c668c0478afc51f9a10d23d1604ab9e03170f293d9bdbb0",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0056",
+   "original_path": "docs/history/INTERCHANGE-CONTRACT-DRAFT2.1.md",
+   "original_sha256": "34ab2e568ce4532fbcce4d0735498c71fa9bf9c3a0f69b8eebae0c88bd792a45",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0057",
+   "original_path": "docs/history/INTERCHANGE-CONTRACT-DRAFT2.md",
+   "original_sha256": "99a847d49e66b691a6244bcfa213f691f9475c70251da090e3099863af920f74",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0058",
+   "original_path": "docs/history/INTERCHANGE-CONTRACT.md",
+   "original_sha256": "88c5e31b111b83b4c37570fafbf9023a49fd41b1eb0a56b6971168c6f43d1fee",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0059",
+   "original_path": "docs/history/Point-File-Units-HANDOFF-v3.md",
+   "original_sha256": "4518092d99217d4c4bf10967808fa78a2d39e4c8869281bee1ea3deef10e15f8",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0060",
+   "original_path": "docs/history/README-before-team-package.md",
+   "original_sha256": "13050f0758c6fcdb7c5d0c812194aec9d1f3c57d911c12d5b1f9392fe92202e0",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0061",
+   "original_path": "docs/history/README.md",
+   "original_sha256": "d3ea07ab2ba91d4cee446165fb2fc88ed30402633a78f160dff31a167f724ce2",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0062",
+   "original_path": "docs/history/RESPONSE-TO-REVIEW-10.md",
+   "original_sha256": "795c3ccc7cb6bcd7d0ae95a9006150c12afff6a0d0081a9fb916bc3bc07a1261",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0063",
+   "original_path": "docs/history/RESPONSE-TO-REVIEW-11.md",
+   "original_sha256": "05c1e1116ba37f05a946d51433b8d6ad8ad2ec50861c17499cdd84fb59d9e978",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0064",
+   "original_path": "docs/history/RESPONSE-TO-REVIEW-12.md",
+   "original_sha256": "8b223dfd6f235f58eb14ca85ec774b13be6069e1b54fee45cd84c62465514c13",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0065",
+   "original_path": "docs/history/RESPONSE-TO-REVIEW-4.md",
+   "original_sha256": "06e217e28235a2b734daf008234a2c116e8c3cc875de255b67116821104c8e5a",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0066",
+   "original_path": "docs/history/RESPONSE-TO-REVIEW-5.md",
+   "original_sha256": "4138777e63f2c965c1e11b556036515ed503571a7b29a74edaf34ace1c43ddfd",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0067",
+   "original_path": "docs/history/RESPONSE-TO-REVIEW-6.md",
+   "original_sha256": "1c065d42d23a05d08443cbe6f037c27aa6db3bae3cdd8354e77bed45c71b48aa",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0068",
+   "original_path": "docs/history/RESPONSE-TO-REVIEW-7.md",
+   "original_sha256": "26bf427210b0696fd954756a4068875b8d62af0640c82ca41d08fd1131894b7b",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0069",
+   "original_path": "docs/history/RESPONSE-TO-REVIEW-9.md",
+   "original_sha256": "52a77a25cd3867837a2645da2bec5e81055b4a5d1ce2c87087772becc0b4438f",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0070",
+   "original_path": "docs/history/STATUS.md",
+   "original_sha256": "eb80987e545751766e7a422d31a5ecb72a87d8913477ef8f39683f0ee83b4a62",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0071",
+   "original_path": "docs/history/status-manual.json",
+   "original_sha256": "b0e2ed63b5069233e44ce2e8b1ab15bd9322d5a0f68e2fcfaa0e40ded0f41c77",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0072",
+   "original_path": "docs/history/tools/status_ledger.py",
+   "original_sha256": "5d182ccbd14e58a9d9598acdee2029eaa5171a8f333e376e114d23c35738fcf7",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0073",
+   "original_path": "evidence/README.md",
+   "original_sha256": "3d137e38aae8a79ad75861c6ca639e66fc182efeccb17d23cc6940bbf9889bfb",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0074",
+   "original_path": "evidence/contributor-linux-2026-09-26-r2/20260926T121352373595Z-core/extracted-package-core.log",
+   "original_sha256": "1a8b151b3e9315e9b8679528eb2ca411cba5672ab087af46e6b0c1d79e3d03c3",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0075",
+   "original_path": "evidence/contributor-linux-2026-09-26-r2/20260926T121352373595Z-core/next-fixture-checker.log",
+   "original_sha256": "5daeaaca4f8ae289ce817c328aa43f1bad6f5636f4d920941c76554c54742331",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0076",
+   "original_path": "evidence/contributor-linux-2026-09-26-r2/20260926T121352373595Z-core/repository-structure.log",
+   "original_sha256": "0b429454755e5bf16089ec19d6b0d748cbb537341a3625ffaa4d6d68db2267d8",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0077",
+   "original_path": "evidence/contributor-linux-2026-09-26-r2/20260926T121352373595Z-core/run-record.json",
+   "original_sha256": "86c1d45e29bdc3bc0006765607e1ab9fa1b50a0cec0d8d6da88b346607eafa9e",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0078",
+   "original_path": "evidence/contributor-linux-2026-09-26-r2/20260926T121352373595Z-core/tested-partial.zip.record.json",
+   "original_sha256": "cd6954a9e9c9df42734b1f0827b352b8c4925576d9ec12eecffd9edb89f4228b",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0079",
+   "original_path": "evidence/contributor-linux-2026-09-26-r2/20260926T121416521499Z-browser/browser-regressions-diagnostic-csp.log",
+   "original_sha256": "448fd558f77c83cda2864a0f7f77bc181d2db53a58a25c2119c66fba71dc78f9",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0080",
+   "original_path": "evidence/contributor-linux-2026-09-26-r2/20260926T121416521499Z-browser/normal-csp-producer-closed.log",
+   "original_sha256": "3fb20c42659247cf4129bf4f8e2b47266524c4ffe409829c9c728ae469e46460",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0081",
+   "original_path": "evidence/contributor-linux-2026-09-26-r2/20260926T121416521499Z-browser/normal-csp-producer-open.log",
+   "original_sha256": "f2307df1b2102de6ea61bd401a7425d340baa6f43f42c9639157a7378788fa9b",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0082",
+   "original_path": "evidence/contributor-linux-2026-09-26-r2/20260926T121416521499Z-browser/producer-closed/capacity-record.json",
+   "original_sha256": "cd8a4b5590f9e1a853bd2d2a8f6a98ed7077113f9f22e56bb5b02a384c065bd7",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0083",
+   "original_path": "evidence/contributor-linux-2026-09-26-r2/20260926T121416521499Z-browser/producer-closed/converted_1.manifest.json",
+   "original_sha256": "8f62564be62efcb30572cc88d2769d1149cc808af9622c7c51f2fd0b70daffab",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0084",
+   "original_path": "evidence/contributor-linux-2026-09-26-r2/20260926T121416521499Z-browser/producer-closed/reopened_1.manifest.json",
+   "original_sha256": "8f62564be62efcb30572cc88d2769d1149cc808af9622c7c51f2fd0b70daffab",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0085",
+   "original_path": "evidence/contributor-linux-2026-09-26-r2/20260926T121416521499Z-browser/producer-open/capacity-record.json",
+   "original_sha256": "7cafd6731d83599bfc87b24b788a8313e07f5874bd58399b04d17d6401ef4d19",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0086",
+   "original_path": "evidence/contributor-linux-2026-09-26-r2/20260926T121416521499Z-browser/producer-open/converted_1.manifest.json",
+   "original_sha256": "46fae715b20a2bc9e731477c30da0e6b637ecf0706912bb20dbcbe56b481ffe4",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0087",
+   "original_path": "evidence/contributor-linux-2026-09-26-r2/20260926T121416521499Z-browser/producer-open/reopened_1.manifest.json",
+   "original_sha256": "46fae715b20a2bc9e731477c30da0e6b637ecf0706912bb20dbcbe56b481ffe4",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0088",
+   "original_path": "evidence/contributor-linux-2026-09-26-r2/20260926T121416521499Z-browser/repository-structure.log",
+   "original_sha256": "0b429454755e5bf16089ec19d6b0d748cbb537341a3625ffaa4d6d68db2267d8",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0089",
+   "original_path": "evidence/contributor-linux-2026-09-26-r2/20260926T121416521499Z-browser/run-record.json",
+   "original_sha256": "9e6a600bbd471f8c7f6c5e7b585215d4e3de499fcc65eb27621a8818cdc9a654",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0090",
+   "original_path": "evidence/contributor-linux-2026-09-26-r2/README.md",
+   "original_sha256": "710846ab8842e52d9d2f4509b73292778baafee7acc348e47e81012394a71578",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0091",
+   "original_path": "evidence/contributor-linux-2026-09-26/20260926T061337759179Z-core/extracted-package-core.log",
+   "original_sha256": "a987891d9f2ee839ce899a4e050c60af47f5e0a39a3c0672a3bc7b48003cc0a4",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0092",
+   "original_path": "evidence/contributor-linux-2026-09-26/20260926T061337759179Z-core/next-fixture-checker.log",
+   "original_sha256": "5daeaaca4f8ae289ce817c328aa43f1bad6f5636f4d920941c76554c54742331",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0093",
+   "original_path": "evidence/contributor-linux-2026-09-26/20260926T061337759179Z-core/repository-structure.log",
+   "original_sha256": "9a4fc1f43581d5e72e3debabe3a1c9ff844abbc1be72244e57e34ffc0c5498c1",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0094",
+   "original_path": "evidence/contributor-linux-2026-09-26/20260926T061337759179Z-core/run-record.json",
+   "original_sha256": "deee4cb2b2fedf3d75c23b1d68c79f71ec2dad70ec472b7af61ea2b019eb8a10",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0095",
+   "original_path": "evidence/contributor-linux-2026-09-26/20260926T061337759179Z-core/tested-partial.zip.record.json",
+   "original_sha256": "66fa0e3738e427064bb0e53d584380b641dcbe0724c06be35dcd3836cc82aac4",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0096",
+   "original_path": "evidence/contributor-linux-2026-09-26/20260926T061401305268Z-browser/browser-regressions-diagnostic-csp.log",
+   "original_sha256": "448fd558f77c83cda2864a0f7f77bc181d2db53a58a25c2119c66fba71dc78f9",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0097",
+   "original_path": "evidence/contributor-linux-2026-09-26/20260926T061401305268Z-browser/normal-csp-producer-closed.log",
+   "original_sha256": "8adf830b1b1fd135e23400a09e4e8d5ef9baae4ef146d92e239c1637f685c541",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0098",
+   "original_path": "evidence/contributor-linux-2026-09-26/20260926T061401305268Z-browser/normal-csp-producer-open.log",
+   "original_sha256": "75a06c597c98cac8ed0c3dfea3beb24a96139dcab332c4e9e765838714603cb6",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0099",
+   "original_path": "evidence/contributor-linux-2026-09-26/20260926T061401305268Z-browser/producer-closed/capacity-record.json",
+   "original_sha256": "4496774d57d4c74fa88a41ab1c88cfe28d113c19b82289840fea58c83a7c99cd",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0100",
+   "original_path": "evidence/contributor-linux-2026-09-26/20260926T061401305268Z-browser/producer-closed/converted_1.manifest.json",
+   "original_sha256": "8d8bf9bdc79446c0a2a964e192e725e2afb6960e297bfcb962a8ef55c967d8a9",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0101",
+   "original_path": "evidence/contributor-linux-2026-09-26/20260926T061401305268Z-browser/producer-closed/reopened_1.manifest.json",
+   "original_sha256": "8d8bf9bdc79446c0a2a964e192e725e2afb6960e297bfcb962a8ef55c967d8a9",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0102",
+   "original_path": "evidence/contributor-linux-2026-09-26/20260926T061401305268Z-browser/producer-open/capacity-record.json",
+   "original_sha256": "dd43368ec9bf19e0d842be22391f6eccc22c66aadca687180febaf3c8c0ef310",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0103",
+   "original_path": "evidence/contributor-linux-2026-09-26/20260926T061401305268Z-browser/producer-open/converted_1.manifest.json",
+   "original_sha256": "2f3c30c4ba2207be1900957ed1e131e5bf9b87a7b9fd863e994c32993eec9efd",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0104",
+   "original_path": "evidence/contributor-linux-2026-09-26/20260926T061401305268Z-browser/producer-open/reopened_1.manifest.json",
+   "original_sha256": "2f3c30c4ba2207be1900957ed1e131e5bf9b87a7b9fd863e994c32993eec9efd",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0105",
+   "original_path": "evidence/contributor-linux-2026-09-26/20260926T061401305268Z-browser/repository-structure.log",
+   "original_sha256": "9a4fc1f43581d5e72e3debabe3a1c9ff844abbc1be72244e57e34ffc0c5498c1",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0106",
+   "original_path": "evidence/contributor-linux-2026-09-26/20260926T061401305268Z-browser/run-record.json",
+   "original_sha256": "c2a790e2b41e612560d8add9c7676b54d9159267dd46dff63e4f7621896fe0b3",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0107",
+   "original_path": "evidence/contributor-linux-2026-09-26/README.md",
+   "original_sha256": "ae913f607c53303d7b961b70a128b88c2d6e816447981cc361ab6cbe01c66574",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0108",
+   "original_path": "evidence/current-package/action-pins.json",
+   "original_sha256": "3564bff61ec00cfcc12f8734bec98d57d9e1892e56919b36201eadb538f3e012",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0109",
+   "original_path": "evidence/current-package/checksum-build-first-attempt/extracted-package-core.log",
+   "original_sha256": "d566acca3dcf2c09fdf1e2bc41247f27b8e98d4766b9e2b76a76971775a6e05a",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0110",
+   "original_path": "evidence/current-package/checksum-build-first-attempt/repository-structure.log",
+   "original_sha256": "f42f28867119ef7a73d1ae13a7e53dca0676df4bbea37dd4eb118892bb0537cc",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0111",
+   "original_path": "evidence/current-package/checksum-build-first-attempt/run-record.json",
+   "original_sha256": "41236e7c5c9b283ef1abb10841bc2907ad492527d2079ca0033a4f4f8860ba74",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0112",
+   "original_path": "evidence/current-package/git-check-record.json",
+   "original_sha256": "3ee88abae92121758e5888aab771fb188229915e58a172f3f5d17092b30c3973",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0113",
+   "original_path": "evidence/current-package/inventory-check.json",
+   "original_sha256": "8ed38d9bc77b483582100664dfe9304cd6fed2a1656801f7a37bc1ef4b4c6ab1",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0114",
+   "original_path": "evidence/current-package/received-checksum-controls.json",
+   "original_sha256": "c08d3ebbc743f30d89d5291ca6d25fcae3bf0d9e5f679bc97d2c15697b19451e",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0115",
+   "original_path": "evidence/current-package/windows-core-final/extracted-package-core.log",
+   "original_sha256": "65f624cacdea066d5687455d49cb2240271768a241eeb03f3f36d0ae2b70c645",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0116",
+   "original_path": "evidence/current-package/windows-core-final/next-fixture-checker.log",
+   "original_sha256": "2e883416a711ceba78a6834365c03b0822a0791ddeb51312ef4d1f20c984f557",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0117",
+   "original_path": "evidence/current-package/windows-core-final/repository-structure.log",
+   "original_sha256": "f42f28867119ef7a73d1ae13a7e53dca0676df4bbea37dd4eb118892bb0537cc",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0118",
+   "original_path": "evidence/current-package/windows-core-final/run-record.json",
+   "original_sha256": "5a1d65fe9bf0990bd2a4e59a732c615bbbac1ef600e81bfb6ecc43be2cfdf992",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0119",
+   "original_path": "evidence/current-package/windows-core-final/tested-partial.zip.record.json",
+   "original_sha256": "dd383dce280d27fb4dca47484bb8fd74a02c744b6ed7254a9026f55cf2fe7bdd",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0120",
+   "original_path": "evidence/current-package/windows-core/extracted-package-core.log",
+   "original_sha256": "79807326be13ef588cb8f43e359216f26a41685ae4a10e0541c3e5ab9c48d031",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0121",
+   "original_path": "evidence/current-package/windows-core/next-fixture-checker.log",
+   "original_sha256": "2e883416a711ceba78a6834365c03b0822a0791ddeb51312ef4d1f20c984f557",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0122",
+   "original_path": "evidence/current-package/windows-core/repository-structure.log",
+   "original_sha256": "f42f28867119ef7a73d1ae13a7e53dca0676df4bbea37dd4eb118892bb0537cc",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0123",
+   "original_path": "evidence/current-package/windows-core/run-record.json",
+   "original_sha256": "571b3f31637c481280ede558ef4e2fe5e6f3bbdb8204f5d6449b8a549572336e",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0124",
+   "original_path": "evidence/current-package/workflow-check.json",
+   "original_sha256": "f16be1198f9e5fe275b2cd39c23601b9b3cff9b8858d18a368b232b79bad66c1",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0125",
+   "original_path": "evidence/linux-contributor-0a2f84a/browser-run/browser-regressions-diagnostic-csp.log",
+   "original_sha256": "448fd558f77c83cda2864a0f7f77bc181d2db53a58a25c2119c66fba71dc78f9",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0126",
+   "original_path": "evidence/linux-contributor-0a2f84a/browser-run/normal-csp-producer-closed.log",
+   "original_sha256": "a746e355c589693121364c446efc6ac116cf91960ea802a6f63dfce825a1c183",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0127",
+   "original_path": "evidence/linux-contributor-0a2f84a/browser-run/normal-csp-producer-open.log",
+   "original_sha256": "2e25f36257b7d13b7a0fad57260ccd0bae9322a9f3c5587200109ddac51ade2d",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0128",
+   "original_path": "evidence/linux-contributor-0a2f84a/browser-run/repository-structure.log",
+   "original_sha256": "67fb963ebd2b97a5627ba282804ed2ec4ffb436faffd580c09e8532e1d8c2934",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0129",
+   "original_path": "evidence/linux-contributor-0a2f84a/browser-run/run-record.json",
+   "original_sha256": "d9b39eb9940d920479413ff8eacc4d8c9870224a9efde6ccda889cee41419aeb",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0130",
+   "original_path": "evidence/linux-contributor-0a2f84a/core-run-1/extracted-package-core.log",
+   "original_sha256": "65470bdb19cc234d6132bcef2fd0320287fa54001cbe216ade2c95e327db8714",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0131",
+   "original_path": "evidence/linux-contributor-0a2f84a/core-run-1/next-fixture-checker.log",
+   "original_sha256": "5daeaaca4f8ae289ce817c328aa43f1bad6f5636f4d920941c76554c54742331",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0132",
+   "original_path": "evidence/linux-contributor-0a2f84a/core-run-1/repository-structure.log",
+   "original_sha256": "67fb963ebd2b97a5627ba282804ed2ec4ffb436faffd580c09e8532e1d8c2934",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0133",
+   "original_path": "evidence/linux-contributor-0a2f84a/core-run-1/run-record.json",
+   "original_sha256": "33fe93b7dcac630ba09351480ef9eb58cae6dd2bf2590bbf8e4c6d3b01c9eeda",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0134",
+   "original_path": "evidence/linux-contributor-0a2f84a/core-run-1/tested-partial.zip.record.json",
+   "original_sha256": "2b3e567173f6981283e980c0e67d5e7d23d151a00fbf346859805d9fcc9dbacb",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0135",
+   "original_path": "evidence/linux-contributor-0a2f84a/core-run-2/extracted-package-core.log",
+   "original_sha256": "b65d908c6c352888a07f18efdc6bd1587faa49f2acc435c6719fe0691d85f583",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0136",
+   "original_path": "evidence/linux-contributor-0a2f84a/core-run-2/next-fixture-checker.log",
+   "original_sha256": "5daeaaca4f8ae289ce817c328aa43f1bad6f5636f4d920941c76554c54742331",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0137",
+   "original_path": "evidence/linux-contributor-0a2f84a/core-run-2/repository-structure.log",
+   "original_sha256": "67fb963ebd2b97a5627ba282804ed2ec4ffb436faffd580c09e8532e1d8c2934",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0138",
+   "original_path": "evidence/linux-contributor-0a2f84a/core-run-2/run-record.json",
+   "original_sha256": "4c967ac017cededafbc1291d43f4e8c935204cb109328934dac107ea0505466a",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0139",
+   "original_path": "evidence/linux-contributor-0a2f84a/core-run-2/tested-partial.zip.record.json",
+   "original_sha256": "2f208abcac9f566c33fb64f01251b2ffbae8819262f9a75a4494e0d4c70ee44a",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0140",
+   "original_path": "evidence/macos-2026-09-27/README.md",
+   "original_sha256": "730ab893394dfb712b712143a8beb034e659ad67dd10c631e07d7525492bfaa4",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0141",
+   "original_path": "evidence/macos-2026-09-27/extracted-package-core.log",
+   "original_sha256": "d1d2d3c3b0a0c4aab9895a3700451d9656384e882eaf05c49968101d15136f98",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0142",
+   "original_path": "evidence/macos-2026-09-27/next-fixture-checker.log",
+   "original_sha256": "5daeaaca4f8ae289ce817c328aa43f1bad6f5636f4d920941c76554c54742331",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0143",
+   "original_path": "evidence/macos-2026-09-27/repository-structure.log",
+   "original_sha256": "92affd422db0f8449cec76576e8f1ffd4a7080a96b39e331df8b8896886c8128",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0144",
+   "original_path": "evidence/macos-2026-09-27/run-record.json",
+   "original_sha256": "cba57e6a78930ccf0067981a125076c4e9ad8da81cc9a7d7587c405ae9961cad",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0145",
+   "original_path": "evidence/macos-owner-0a2f84a/extracted-package-core.log",
+   "original_sha256": "928b074409b2960b59dd7110045da6b0510a8059e829ebc365cf277479a84438",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0146",
+   "original_path": "evidence/macos-owner-0a2f84a/next-fixture-checker.log",
+   "original_sha256": "5daeaaca4f8ae289ce817c328aa43f1bad6f5636f4d920941c76554c54742331",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0147",
+   "original_path": "evidence/macos-owner-0a2f84a/repository-structure.log",
+   "original_sha256": "67fb963ebd2b97a5627ba282804ed2ec4ffb436faffd580c09e8532e1d8c2934",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0148",
+   "original_path": "evidence/macos-owner-0a2f84a/run-record.json",
+   "original_sha256": "a094f31bb754bbb715001a4979de3257eabcaa26c7a46c6f33ff4e0e669659ee",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0149",
+   "original_path": "evidence/macos-owner-0a2f84a/tested-partial.zip.record.json",
+   "original_sha256": "3cb7385b3130bee71da93963ff0465783a174d2295e8ab30b63d429983722fb1",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0150",
+   "original_path": "evidence/macos-owner-cd5758d/README.md",
+   "original_sha256": "afcd6157a851a5f2acfdff5bebdf063873cb26919a2d0e99614ba8ae5e51b08a",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0151",
+   "original_path": "evidence/macos-owner-cd5758d/extracted-package-core.log",
+   "original_sha256": "78089721e357766f61848e09f0136061bf2faa5b5255dc154444aac69dc643d0",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0152",
+   "original_path": "evidence/macos-owner-cd5758d/next-fixture-checker.log",
+   "original_sha256": "5daeaaca4f8ae289ce817c328aa43f1bad6f5636f4d920941c76554c54742331",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0153",
+   "original_path": "evidence/macos-owner-cd5758d/repository-structure.log",
+   "original_sha256": "67fb963ebd2b97a5627ba282804ed2ec4ffb436faffd580c09e8532e1d8c2934",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0154",
+   "original_path": "evidence/macos-owner-cd5758d/run-record.json",
+   "original_sha256": "57436cf3c628f7a60deee4ad24baa7accae56bf0eb8879206c7cfef87f6b5e5a",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0155",
+   "original_path": "evidence/macos-owner-cd5758d/tested-partial.zip.record.json",
+   "original_sha256": "bde928cb19d7b21c2720061f0bc389a5b936214a93a26e7f2581015529e6552d",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0156",
+   "original_path": "evidence/previous-candidate/AUTOMATION-STATUS.md",
+   "original_sha256": "f862178f7471c8a83079670384ecc4d9b44233c1b69007365c541123ecb6a668",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0157",
+   "original_path": "evidence/previous-candidate/CANDIDATE-CHANGES.json",
+   "original_sha256": "aecc5c9e23d69d8fcf99842c89aeaabac9abb15c78025441652fd05abcd8c316",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0158",
+   "original_path": "evidence/previous-candidate/HANDOFF.md",
+   "original_sha256": "d1b3de2e40e86d76abda1ad3b9347bf8a282fc77571690bdf3d71524ef57b0ea",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0159",
+   "original_path": "evidence/previous-candidate/PARTNER-NOTES.md",
+   "original_sha256": "e0fe7bcef6b24a20de63be25fc6515bbb6934bed3f5031a4ddf2cc2278e8c922",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0160",
+   "original_path": "evidence/previous-candidate/TEST-RESULTS.md",
+   "original_sha256": "9f17ee1e06811720ff3634c4ceef94c41f158f7375750ecddd77286eb436985d",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0161",
+   "original_path": "evidence/previous-candidate/capacity-row-count-reproduction.json",
+   "original_sha256": "02b4d0d20ef35c3171665b356cebcadd514d3bc82d5f926387c378914c4a0a33",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0162",
+   "original_path": "evidence/previous-candidate/utility-checks/capacity-entrypoint-self-test.log",
+   "original_sha256": "4eb67210f4b7dac63068a61c29ebde7b49d78bf52680cc45d592d344b3e27a0f",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0163",
+   "original_path": "evidence/previous-candidate/utility-checks/extracted-package-partial.log",
+   "original_sha256": "2fa4dd19f1e885b2f3c027707a3fa57bb8c7aae229fc99f27a9dafa30ff53391",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0164",
+   "original_path": "evidence/previous-candidate/utility-checks/release-self-test-after-regeneration.log",
+   "original_sha256": "69f655a3988c528a8332c8c773abad83d8bf382ab013b8ed80f7a3056b3ca36a",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0165",
+   "original_path": "evidence/previous-candidate/utility-checks/roundtrip-RESULT.md",
+   "original_sha256": "e68431ce28e8ea61d84931d8a10f0ecfc4ff03eeb28298697bc72065f9871bc0",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0166",
+   "original_path": "evidence/previous-candidate/utility-checks/roundtrip-observations.json",
+   "original_sha256": "60e1f222d737a5e9d7311145728d6be0345e462c8c0d368475947213467e3685",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0167",
+   "original_path": "evidence/previous-candidate/utility-checks/run-record.json",
+   "original_sha256": "5d022fe4386d4b349d4de7a163d5c9e29690f4aabbb7c9fd8831236d1d11a312",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0168",
+   "original_path": "evidence/previous-candidate/utility-checks/windows-roundtrip-regeneration.log",
+   "original_sha256": "186915416587ec9556c190eb6f82131368fd1b9e1b65bf0b5f5c8e590c74c679",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0169",
+   "original_path": "evidence/unit-converter-2026-09-27.2/20260927T023800775882Z-core/extracted-package-core.log",
+   "original_sha256": "42318af1c1b5f4f85b5cba2aeaee5ab9abf4bd87b53905762f715c7958403cff",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0170",
+   "original_path": "evidence/unit-converter-2026-09-27.2/20260927T023800775882Z-core/next-fixture-checker.log",
+   "original_sha256": "5daeaaca4f8ae289ce817c328aa43f1bad6f5636f4d920941c76554c54742331",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0171",
+   "original_path": "evidence/unit-converter-2026-09-27.2/20260927T023800775882Z-core/repository-structure.log",
+   "original_sha256": "7dd12e6b145c1e87d880001e3ecd3a308ccd82998aaba609007b8e1ae7f3b777",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0172",
+   "original_path": "evidence/unit-converter-2026-09-27.2/20260927T023800775882Z-core/run-record.json",
+   "original_sha256": "9ca07a5b84a8f745b898fe417d7598ad0da913241a379f0f93d7080a34b05dd3",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0173",
+   "original_path": "evidence/unit-converter-2026-09-27.2/20260927T023800775882Z-core/tested-partial.zip.record.json",
+   "original_sha256": "5fa1951223ed1d6ddc983305d25768a3a293857822ea6c784ad94c50b4973f8a",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0174",
+   "original_path": "evidence/unit-converter-2026-09-27.2/20260927T023823046642Z-browser/browser-regressions-diagnostic-csp.log",
+   "original_sha256": "448fd558f77c83cda2864a0f7f77bc181d2db53a58a25c2119c66fba71dc78f9",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0175",
+   "original_path": "evidence/unit-converter-2026-09-27.2/20260927T023823046642Z-browser/normal-csp-producer-closed.log",
+   "original_sha256": "980560e0fbe7beb086694d2e01ba50ceb8802f48625b8b4ca7b45a6d546ce41c",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0176",
+   "original_path": "evidence/unit-converter-2026-09-27.2/20260927T023823046642Z-browser/normal-csp-producer-open.log",
+   "original_sha256": "c80d1aad3c8ecef20fa7b204a16adf06d669293e42759926775cd774a9f2ca78",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0177",
+   "original_path": "evidence/unit-converter-2026-09-27.2/20260927T023823046642Z-browser/producer-closed/capacity-record.json",
+   "original_sha256": "47708a076303fc7a8d9d1901a57edd7a3d5910381557d0e949169a17669d8619",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0178",
+   "original_path": "evidence/unit-converter-2026-09-27.2/20260927T023823046642Z-browser/producer-closed/converted_1.manifest.json",
+   "original_sha256": "fd80ba48d244585513b0bf3f8ca9c24d5c29450387ded9c8fc2327c543ae5267",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0179",
+   "original_path": "evidence/unit-converter-2026-09-27.2/20260927T023823046642Z-browser/producer-closed/reopened_1.manifest.json",
+   "original_sha256": "fd80ba48d244585513b0bf3f8ca9c24d5c29450387ded9c8fc2327c543ae5267",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0180",
+   "original_path": "evidence/unit-converter-2026-09-27.2/20260927T023823046642Z-browser/producer-open/capacity-record.json",
+   "original_sha256": "ae967d322b3d41db2747a321d29426fda4137727817c05adb1b73a902dd07d4a",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0181",
+   "original_path": "evidence/unit-converter-2026-09-27.2/20260927T023823046642Z-browser/producer-open/converted_1.manifest.json",
+   "original_sha256": "26fdd62dfa814e9965f371d8edb0bdc35277a65bfa197155a0c45096f38f86f1",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0182",
+   "original_path": "evidence/unit-converter-2026-09-27.2/20260927T023823046642Z-browser/producer-open/reopened_1.manifest.json",
+   "original_sha256": "26fdd62dfa814e9965f371d8edb0bdc35277a65bfa197155a0c45096f38f86f1",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0183",
+   "original_path": "evidence/unit-converter-2026-09-27.2/20260927T023823046642Z-browser/repository-structure.log",
+   "original_sha256": "7dd12e6b145c1e87d880001e3ecd3a308ccd82998aaba609007b8e1ae7f3b777",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0184",
+   "original_path": "evidence/unit-converter-2026-09-27.2/20260927T023823046642Z-browser/run-record.json",
+   "original_sha256": "2b912e86548e6c10f834edc6aa4fd2429fd78e71e51c0f82292a926e05031942",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0185",
+   "original_path": "evidence/unit-converter-2026-09-27.2/README.md",
+   "original_sha256": "3634c383e6a3a75f9f3386dfc07d564fd0767a3d1c35799b0f02157fdfdd054a",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0186",
+   "original_path": "evidence/unit-converter-2026-09-27/20260926T125857068999Z-core/extracted-package-core.log",
+   "original_sha256": "9043d5a18ffc5023b4b27fc5c952c3c916c3693b391f9b80a7179e221afd03b7",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0187",
+   "original_path": "evidence/unit-converter-2026-09-27/20260926T125857068999Z-core/next-fixture-checker.log",
+   "original_sha256": "5daeaaca4f8ae289ce817c328aa43f1bad6f5636f4d920941c76554c54742331",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0188",
+   "original_path": "evidence/unit-converter-2026-09-27/20260926T125857068999Z-core/repository-structure.log",
+   "original_sha256": "49358b73da75b756b5d361d59efc81c69b20612dc9e86ca6d01aee145ba4a355",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0189",
+   "original_path": "evidence/unit-converter-2026-09-27/20260926T125857068999Z-core/run-record.json",
+   "original_sha256": "0ee667524d30d6602d73f4a9eb5712bc3111d6bd2abbf1bdc0ff8fcd4ddde7b3",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0190",
+   "original_path": "evidence/unit-converter-2026-09-27/20260926T125857068999Z-core/tested-partial.zip.record.json",
+   "original_sha256": "28b0c15eab49a269f1f9653f86f43fc27a90a2e6f7e5345a05477002a63e1073",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0191",
+   "original_path": "evidence/unit-converter-2026-09-27/20260926T125923338826Z-browser/browser-regressions-diagnostic-csp.log",
+   "original_sha256": "448fd558f77c83cda2864a0f7f77bc181d2db53a58a25c2119c66fba71dc78f9",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0192",
+   "original_path": "evidence/unit-converter-2026-09-27/20260926T125923338826Z-browser/normal-csp-producer-closed.log",
+   "original_sha256": "26041287323961199fd9427f950248435078de64c08b23b92e42a1bfabdcc38f",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0193",
+   "original_path": "evidence/unit-converter-2026-09-27/20260926T125923338826Z-browser/normal-csp-producer-open.log",
+   "original_sha256": "a954cfcbe3a71d03d5adf3c21b74713e47534fc55a06e2fde2d7f0326bba2571",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0194",
+   "original_path": "evidence/unit-converter-2026-09-27/20260926T125923338826Z-browser/producer-closed/capacity-record.json",
+   "original_sha256": "a77519db08b614331db81590cf5dbdfb5c96eebe4009aba094e9a6488774ad78",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0195",
+   "original_path": "evidence/unit-converter-2026-09-27/20260926T125923338826Z-browser/producer-closed/converted_1.manifest.json",
+   "original_sha256": "10e011c83e852fe5091ce774d6db55d1410d76c5e8456c62587fe2cb3b0381ff",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0196",
+   "original_path": "evidence/unit-converter-2026-09-27/20260926T125923338826Z-browser/producer-closed/reopened_1.manifest.json",
+   "original_sha256": "10e011c83e852fe5091ce774d6db55d1410d76c5e8456c62587fe2cb3b0381ff",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0197",
+   "original_path": "evidence/unit-converter-2026-09-27/20260926T125923338826Z-browser/producer-open/capacity-record.json",
+   "original_sha256": "eb23c37c67cb05297da516990275a449492c0e860729ffa7836ac3b63f785feb",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0198",
+   "original_path": "evidence/unit-converter-2026-09-27/20260926T125923338826Z-browser/producer-open/converted_1.manifest.json",
+   "original_sha256": "c72bd0bff7a03ccb9b848c7fef37ae47425615d1e973e62d50e98e10ec7bb8de",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0199",
+   "original_path": "evidence/unit-converter-2026-09-27/20260926T125923338826Z-browser/producer-open/reopened_1.manifest.json",
+   "original_sha256": "c72bd0bff7a03ccb9b848c7fef37ae47425615d1e973e62d50e98e10ec7bb8de",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0200",
+   "original_path": "evidence/unit-converter-2026-09-27/20260926T125923338826Z-browser/repository-structure.log",
+   "original_sha256": "49358b73da75b756b5d361d59efc81c69b20612dc9e86ca6d01aee145ba4a355",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0201",
+   "original_path": "evidence/unit-converter-2026-09-27/20260926T125923338826Z-browser/run-record.json",
+   "original_sha256": "cd0e053f0694bf5f3434b678a0bae00c2bc10f9f810e88132d71fa6b8e049345",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0202",
+   "original_path": "evidence/unit-converter-2026-09-27/README.md",
+   "original_sha256": "a99c1340f1cfda6f4232cc84b8e5ff3d3ba7cc060162d695e547ceb0863574e9",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0203",
+   "original_path": "evidence/windows-partner-0a2f84a-patched-pass/extracted-package-core.log",
+   "original_sha256": "5de52c58dcf2f35abf796aa047ad7b8d906247b4cc47de917d3b048249210454",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0204",
+   "original_path": "evidence/windows-partner-0a2f84a-patched-pass/next-fixture-checker.log",
+   "original_sha256": "2e883416a711ceba78a6834365c03b0822a0791ddeb51312ef4d1f20c984f557",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0205",
+   "original_path": "evidence/windows-partner-0a2f84a-patched-pass/repository-structure.log",
+   "original_sha256": "f0eb46521cbd8d5754f7fa81f4d700f4eacdab9e0a4c652cce0f1a1f6e6767d4",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0206",
+   "original_path": "evidence/windows-partner-0a2f84a-patched-pass/run-record.json",
+   "original_sha256": "752bdd58f87a29dc627bc617cdbf3d8401dfe438b28c3e15eb1489af48dd2aa5",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0207",
+   "original_path": "evidence/windows-partner-0a2f84a-patched-pass/tested-partial.zip.record.json",
+   "original_sha256": "f71ac4b49c61f9884ab1fb9171aaf333b810a5aab52d941a84f1c2625ed9a6db",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0208",
+   "original_path": "evidence/windows-partner-0a2f84a/extracted-package-core.log",
+   "original_sha256": "4fa4707cf01ca896f762f9b3ecebc6ea617a3f170ff7ced3e2bd852ce81c5e57",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0209",
+   "original_path": "evidence/windows-partner-0a2f84a/next-fixture-checker.log",
+   "original_sha256": "2e883416a711ceba78a6834365c03b0822a0791ddeb51312ef4d1f20c984f557",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0210",
+   "original_path": "evidence/windows-partner-0a2f84a/repository-structure.log",
+   "original_sha256": "f0eb46521cbd8d5754f7fa81f4d700f4eacdab9e0a4c652cce0f1a1f6e6767d4",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0211",
+   "original_path": "evidence/windows-partner-0a2f84a/run-record.json",
+   "original_sha256": "022fdd279977279f62420c7bd0ae20456c83ab53ebb24ad785f67cf650b982a3",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0212",
+   "original_path": "evidence/windows-partner-0a2f84a/tested-partial.zip.record.json",
+   "original_sha256": "80ac9b7b4fac53374ff71a064f0c3bf6030f40b8d5425db26d64fc269de89473",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0213",
+   "original_path": "evidence/windows-partner-2026-09-27/extracted-package-core.log",
+   "original_sha256": "ef1aed95fc7b25f950cb0aa36f19fc59854dd1cc7e5d0bf0a43d90bdfe161f5c",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0214",
+   "original_path": "evidence/windows-partner-2026-09-27/next-fixture-checker.log",
+   "original_sha256": "2e883416a711ceba78a6834365c03b0822a0791ddeb51312ef4d1f20c984f557",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0215",
+   "original_path": "evidence/windows-partner-2026-09-27/repository-structure.log",
+   "original_sha256": "f0eb46521cbd8d5754f7fa81f4d700f4eacdab9e0a4c652cce0f1a1f6e6767d4",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0216",
+   "original_path": "evidence/windows-partner-2026-09-27/run-record.json",
+   "original_sha256": "8657422cbf81385018ffd5765c4c815188b1b3a27db3b0bf63dba5ccaa5d9ed3",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0217",
+   "original_path": "evidence/windows-partner-2026-09-27/tested-partial.zip",
+   "original_sha256": "5384252fc603b837f62781b45ad94e3a74e3f43d43f21c1602820d1057db2e93",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0218",
+   "original_path": "evidence/windows-partner-2026-09-27/tested-partial.zip.record.json",
+   "original_sha256": "fb57a3f139cac115a09bf84c2b97a8d0eddb2beb17c90bd6ad8688a5c533629a",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0219",
+   "original_path": "evidence/windows-partner-cd5758d/extracted-package-core.log",
+   "original_sha256": "6795f7b173895fa1ad518c004b0a250197fd141b7ca745ac5090a15ae12452c0",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0220",
+   "original_path": "evidence/windows-partner-cd5758d/next-fixture-checker.log",
+   "original_sha256": "2e883416a711ceba78a6834365c03b0822a0791ddeb51312ef4d1f20c984f557",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0221",
+   "original_path": "evidence/windows-partner-cd5758d/repository-structure.log",
+   "original_sha256": "f0eb46521cbd8d5754f7fa81f4d700f4eacdab9e0a4c652cce0f1a1f6e6767d4",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0222",
+   "original_path": "evidence/windows-partner-cd5758d/run-record.json",
+   "original_sha256": "dee1685bff8e1c5e691d17486c3234d76cf7241cb8e7e6a662dab212073a0410",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0223",
+   "original_path": "evidence/windows-partner-cd5758d/tested-partial.zip.record.json",
+   "original_sha256": "f49c9458077bcd43948196dcf1e21765918dee7da6e7ce4ff6e217a37924e038",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0224",
+   "original_path": "evidence/windows-partner-ed6f1bb-original-fail/extracted-package-core.log",
+   "original_sha256": "ecb5466405ed3ba76ded6365dde4159c23d5237358caaa3506474af12414b7fb",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0225",
+   "original_path": "evidence/windows-partner-ed6f1bb-original-fail/repository-structure.log",
+   "original_sha256": "f0eb46521cbd8d5754f7fa81f4d700f4eacdab9e0a4c652cce0f1a1f6e6767d4",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0226",
+   "original_path": "evidence/windows-partner-ed6f1bb-original-fail/run-record.json",
+   "original_sha256": "3b0f28b3c274b49e0421184190365c03c66bed933b83204037ebf0a33aa95c2a",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0227",
+   "original_path": "evidence/windows-partner-ed6f1bb-patched-pass/extracted-package-core.log",
+   "original_sha256": "59913e975ffe2e85700f8f02b4caced68c32d5ed039df55fe5598cf70a6ec47e",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0228",
+   "original_path": "evidence/windows-partner-ed6f1bb-patched-pass/next-fixture-checker.log",
+   "original_sha256": "2e883416a711ceba78a6834365c03b0822a0791ddeb51312ef4d1f20c984f557",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0229",
+   "original_path": "evidence/windows-partner-ed6f1bb-patched-pass/repository-structure.log",
+   "original_sha256": "f0eb46521cbd8d5754f7fa81f4d700f4eacdab9e0a4c652cce0f1a1f6e6767d4",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0230",
+   "original_path": "evidence/windows-partner-ed6f1bb-patched-pass/run-record.json",
+   "original_sha256": "16e1c25b909f8389a1d6c2b0d368960369c8cc89848bef18be813378aa632956",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0231",
+   "original_path": "evidence/windows-partner-ed6f1bb-patched-pass/tested-partial.zip.record.json",
+   "original_sha256": "0e79dda1fc61896f4e743fdfa6ce60ea448f160fb7db222e8274c333dc99732b",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0232",
+   "original_path": "publication/overlay/README.md",
+   "original_sha256": "87a4ac4401815de3a3dd9113e88a7093a0d8cbab1f24037c940c32583d780004",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0233",
+   "original_path": "publication/overlay/acceptance/civil3d-completed/PUBLIC-NOTE.md",
+   "original_sha256": "ffec8b4ec71d8a72e95d9060172f5e1f8dd18fdc04f81118a8504921454d5be4",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0234",
+   "original_path": "publication/overlay/acceptance/next-native-tests/PUBLIC-NOTE.md",
+   "original_sha256": "30e8d88ade425d1c7f3234306942c6c4a8042d30e73ab49366a598003d5cd034",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0235",
+   "original_path": "publication/overlay/docs/CURRENT-STATUS.md",
+   "original_sha256": "7237253447621369ac73def1ed4aa27a63949e95fd9ef75fe6ecc133d1583739",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0236",
+   "original_path": "publication/overlay/docs/README.md",
+   "original_sha256": "d30c08d46806f6f5b9b22a35d638ff3f2b29b5ffd26dc5d3880b33b65e4a71a6",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0237",
+   "original_path": "scripts/make_public_snapshot.py",
+   "original_sha256": "c660c2ddcfb0d563ebbd5acb44b76487c49fd3f3722536e9f7563689bb002810",
+   "action": "omitted: private workflow or owner workspace file",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0238",
+   "original_path": "setup-project.sh",
+   "original_sha256": "407158c61129ecab09d1beec64693509c9f2e83181d50ea1002463d95ba037db",
+   "action": "omitted: private workflow or owner workspace file",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0239",
+   "original_path": "tasks/blueprint.md",
+   "original_sha256": "faba2e84aa47b9d0751c90ec62a11321c8a737971683f08315e829698d6a3776",
+   "action": "omitted: private workflow or owner workspace file",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0240",
+   "original_path": "tasks/todo.md",
+   "original_sha256": "e1dbc8cf1e7002e262ba0068aee31be3bc0141aa8490c852044aca110b9bb03e",
+   "action": "omitted: private workflow or owner workspace file",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0241",
+   "original_path": "tests/review-evidence/partner-2026-09-26/REVIEW.md",
+   "original_sha256": "00ce4ead451fdb374979f735b492930c32f8fb3c1d69195f37823af523417a14",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0242",
+   "original_path": "tests/review-evidence/partner-2026-09-26/TEAM-REPLY.md",
+   "original_sha256": "422eab1432e9342f6851018522acd862e4220dca669672cf1935a9d69fa6b19b",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0243",
+   "original_path": "tests/review-evidence/partner-2026-09-26/loose-control.log",
+   "original_sha256": "df0b7c4558be66e4686c1799ab183e82649cf22ff63d638c2d721f4f22031ee2",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0244",
+   "original_path": "tests/review-evidence/partner-2026-09-26/probes.json",
+   "original_sha256": "494754691af8137bbd707691b7d23875cfd670c74086f6e37a9432cc34000f60",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0245",
+   "original_path": "tests/review-evidence/partner-2026-09-26/tight-control.log",
+   "original_sha256": "6963b11179e4a5751ed6000ab57205be1405e33115b3991783ede0fccb1755dd",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0246",
+   "original_path": "tests/review-evidence/partner-2026-09-27/APPROVAL-RESPONSE-DRAFT.md",
+   "original_sha256": "192387c1b7ab851d9181074ebdebf135ec2bdfbfde9f20a6a717dfeb3c1f7d67",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0247",
+   "original_path": "tests/review-evidence/partner-2026-09-27/CONTENTS.sha256",
+   "original_sha256": "c6ee9d1a1d432d5ade7f30cdb7f150859838566615cd4502fbaa68d0ecfb2aa4",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0248",
+   "original_path": "tests/review-evidence/partner-2026-09-27/REVIEW.md",
+   "original_sha256": "f8ebda289d35da202d982ed8a35a1f9746f071b4bedcac0df22357ae814b54ea",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0249",
+   "original_path": "tests/review-evidence/partner-2026-09-27/TEAM-REPLY.md",
+   "original_sha256": "f0fa96928fd5ffd3bc760fdd2b360495667ed1166468262e5d39e2472af1343a",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0250",
+   "original_path": "tests/review-evidence/partner-2026-09-27/consumer-zip-platform-metadata.patch",
+   "original_sha256": "920ba5a9634b3db8e4ec724bb778c9275d8ebf3d934156e9bf32ecffc6f97f16",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0251",
+   "original_path": "tests/review-evidence/partner-2026-09-27/exposure-scan.json",
+   "original_sha256": "085bc449a24138bbc4e4d65800d71cbe5f38ad48e1b06afa82fa8dc82eef3dda",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0252",
+   "original_path": "tests/review-evidence/partner-2026-09-27/received-record-bindings.json",
+   "original_sha256": "686e37eef6ada0d675cd2a4d5a5309bbb35fe6e4a62eae546abbff2f2d097d70",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0253",
+   "original_path": "tests/review-evidence/partner-2026-09-27/retained-artifact-checks.json",
+   "original_sha256": "3af10db8872907c027ff5441b7c77f254925807b0809eb9005dae7051e2a5d1b",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0254",
+   "original_path": "tests/review-evidence/partner-2026-09-27/verification-summary.json",
+   "original_sha256": "663b1b431cb311ff814d59164830103c2f503a845fc45d7715c2c1fa40e2f281",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0255",
+   "original_path": "tests/review-evidence/partner-2026-09-27/windows-rebuilt-inventory.json",
+   "original_sha256": "0a4b0269b2fe66df52d390cd48989faf2079d422067de6b324f068e14c32d32f",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0256",
+   "original_path": "tests/review-evidence/partner-2026-09-27b/CONTENTS.sha256",
+   "original_sha256": "03e088102cc39c0ef92351e468ee3f98a3a3ff186f42b1a8dcff381c4a354f84",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0257",
+   "original_path": "tests/review-evidence/partner-2026-09-27b/REPLY-FORM-DRAFT.md",
+   "original_sha256": "a16f0de027e1ae21503aa46fe10455c210cc62a3304a2df3ffdbc37b208a17b9",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0258",
+   "original_path": "tests/review-evidence/partner-2026-09-27b/REVIEW.md",
+   "original_sha256": "0f49bfe6f4b531d0c7904560d4801edd9b9e408b1e9a5793318b6faf6fe1b8c0",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0259",
+   "original_path": "tests/review-evidence/partner-2026-09-27b/TEAM-REPLY.md",
+   "original_sha256": "7b8c95e7e9ae6bef603c2185674a72b436518ecda832ff3777dd3affb7fed22a",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0260",
+   "original_path": "tests/review-evidence/partner-2026-09-27b/archived-partner-review-map.json",
+   "original_sha256": "132d13ffb58a2d73e85958d40bf987b39abebef0ac21c0687c3ba100a5f503d7",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0261",
+   "original_path": "tests/review-evidence/partner-2026-09-27b/consumer-test-fix-validation.log",
+   "original_sha256": "2528ad51d76b9980f88b4798f9828b3844c9d85280d57eb57ef5251c559f1314",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0262",
+   "original_path": "tests/review-evidence/partner-2026-09-27b/consumer-test-zip-handles.patch",
+   "original_sha256": "1dc18b5988510fb1a12fcb283c1ecfd56a06b31b9ab66c6856e4f817ec484124",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0263",
+   "original_path": "tests/review-evidence/partner-2026-09-27b/exposure-rescan.json",
+   "original_sha256": "92d77ce3c2aaab8a460d9f9729f9ac83965f14fb7aa799a98d1c8d7f9bde7810",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0264",
+   "original_path": "tests/review-evidence/partner-2026-09-27b/metadata-negative-control.log",
+   "original_sha256": "694f96b142bb01cca0a79a4ea73e7f350e893594e663f1b455a4b663d02bebee",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0265",
+   "original_path": "tests/review-evidence/partner-2026-09-27b/verification-summary.json",
+   "original_sha256": "26ac8b29581245d0a95b118bbbf8622ce4e6f9a6a2be285976706f88f1c84440",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0266",
+   "original_path": "tests/review-evidence/partner-2026-09-27c/CONTENTS.sha256",
+   "original_sha256": "a103ea94884b5f300a472066749360b317f55094fbf95d1a08af2371d7d60e8e",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0267",
+   "original_path": "tests/review-evidence/partner-2026-09-27c/DESIGN-RESPONSE.md",
+   "original_sha256": "edd1325d88770ffdd9340ac484af8c453f0fbad17a1a8f8479b8042d341c4a17",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0268",
+   "original_path": "tests/review-evidence/partner-2026-09-27c/REVIEW.md",
+   "original_sha256": "efc0fa1c33158b95c4ca66309e4a38f38c3034310f1a5668458becb76c7c3eac",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0269",
+   "original_path": "tests/review-evidence/partner-2026-09-27c/TEAM-REPLY.md",
+   "original_sha256": "7f14f98ad66decbc0aebb44fdfe0c779b447506b023a828d933f9dce7a5b75a0",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0270",
+   "original_path": "tests/review-evidence/partner-2026-09-27c/edge-probe-results.json",
+   "original_sha256": "dccd73c882490db79850ee39c589b5c471ab495bd781c788e13d90a6ced1fa1d",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0271",
+   "original_path": "tests/review-evidence/partner-2026-09-27c/identity.json",
+   "original_sha256": "f57669cc39799cc41e35ae3cb49dc8710f3658aa978d084d877732f3997bf2f2",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0272",
+   "original_path": "tests/review-evidence/partner-2026-09-27c/portability-repairs.patch",
+   "original_sha256": "af6e4b567189c051e5c2aa95f60a96204ae2bb5f4c293ff30b410def5d003f4c",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0273",
+   "original_path": "tests/review-evidence/partner-2026-09-27c/probe_digest.py",
+   "original_sha256": "84d73e268047ffbf6dd0ac7a595522583f858940dc82c69b61d9eabbc44b0de5",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0274",
+   "original_path": "tests/review-evidence/partner-2026-09-27c/windows-master-measurement.log",
+   "original_sha256": "5b549628baafd4de09c4fdb82281abe9b5935d0d1720b7accf9c4f0fb5bfef22",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0275",
+   "original_path": "tests/review-evidence/partner-2026-09-27c/windows-proposal-measurement.log",
+   "original_sha256": "fbd84d8074be63b271742505b9028b23e50a142f475c8212bae34b7e12200471",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0276",
+   "original_path": "tests/review-evidence/partner-2026-09-27d/CONTENTS.sha256",
+   "original_sha256": "19ae079b6922c6d1b1e96f49550aeeb3799021fcb1a436839fd824078d718eb6",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0277",
+   "original_path": "tests/review-evidence/partner-2026-09-27d/README-FIRST.md",
+   "original_sha256": "898bedcc16e9e99050221248ab56c97a509fed93c51af6543f21f9dd19cef50e",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0278",
+   "original_path": "tests/review-evidence/partner-2026-09-27d/REPLY-FORM-DRAFT.md",
+   "original_sha256": "4ca3c91e272efc60d551e84336f91bdacae2a46874cbd8b5e4d7812ba31ff36c",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0279",
+   "original_path": "tests/review-evidence/partner-2026-09-27d/REVIEW.md",
+   "original_sha256": "0eab7a152fd9336386ff6821393adc6c5ba4f51827509a882f36a3e018a5084b",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0280",
+   "original_path": "tests/review-evidence/partner-2026-09-27d/TEAM-REPLY.md",
+   "original_sha256": "4e248d009df2a6c27863709fd557c76ab45e221a8e84da3ef9b960d41914abde",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0281",
+   "original_path": "tests/review-evidence/partner-2026-09-27d/acceptance-helper-repairs.patch",
+   "original_sha256": "4b28a044d4f54d04364ea8e39c3fc2b058a13b774f503f6c9d3fda6b66ad09f0",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0282",
+   "original_path": "tests/review-evidence/partner-2026-09-27d/patched-probe-results.json",
+   "original_sha256": "68f32ba6e9e1d86d8832fc036b51e4a9c27b6f5e10399a8666ff20affc673e66",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0283",
+   "original_path": "tests/review-evidence/partner-2026-09-27d/probe-results.json",
+   "original_sha256": "ecb22edc1e81e556ddcc8f52018cff26ac1ad590d7a85552a2d32bf1c7c20551",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0284",
+   "original_path": "tests/review-evidence/partner-2026-09-27d/probe_boundaries.py",
+   "original_sha256": "afa21755f73de32f118c8ac36aadfef0ffd672f035f12179db81bcd9e6a20e51",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0285",
+   "original_path": "tests/review-evidence/partner-2026-09-27d/three-platform-original-comparison.log",
+   "original_sha256": "5c661228e14575ac21db1265d393488264a2c8e15c4237d9f5ff226fcc9e86d3",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0286",
+   "original_path": "tests/review-evidence/partner-2026-09-27d/three-platform-verified-comparison.log",
+   "original_sha256": "ce47f17cdf3522d55f33d3630581dcd6dc1801d22730247258101d764a43b81b",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0287",
+   "original_path": "tests/review-evidence/partner-2026-09-27d/verification-summary.json",
+   "original_sha256": "c515bc8cd9138a52fb0d61b13b154258cf79226298b21bf55018acb9bca7e8f4",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0288",
+   "original_path": "tests/review-evidence/partner-2026-09-27e/CONTENTS.sha256",
+   "original_sha256": "f1e71331283c6d8cdc393d276b3c6956c8615f20c4ff6ad6eb63088e51a0ec4d",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0289",
+   "original_path": "tests/review-evidence/partner-2026-09-27e/README-FIRST.md",
+   "original_sha256": "bf10461e9548a1d4c6cdaf908cee4dd07d91cc2b8e5175f87b642e6f3bb4a7be",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0290",
+   "original_path": "tests/review-evidence/partner-2026-09-27e/REPLY-FORM.md",
+   "original_sha256": "021799b85ede02e1d47c1f40c44dc98865dca3f48975bb253ebe086ede42e089",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0291",
+   "original_path": "tests/review-evidence/partner-2026-09-27e/REVIEW.md",
+   "original_sha256": "9807f50992737c9de5e5c960f6e793f39da0768a202307820b64601702cd2aea",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0292",
+   "original_path": "tests/review-evidence/partner-2026-09-27e/TEAM-REPLY.md",
+   "original_sha256": "9e37d1fff41bd5792929ef85432a9c2c7be839882e6d83133ea2281e5e70ee19",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0293",
+   "original_path": "tests/review-evidence/partner-2026-09-27e/four-way-comparison.log",
+   "original_sha256": "e3dd47d908aafa63367bcecfee85e6e6c30f6beabc648fea95d71a84ee95b76f",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0294",
+   "original_path": "tests/review-evidence/partner-2026-09-27e/preservation-summary.json",
+   "original_sha256": "082af94ffd8a9334ec2053b1c07e12d75dbf0c8b6d6d581ed9d636580d810e98",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0295",
+   "original_path": "tests/review-evidence/partner-2026-09-27e/probe-results.json",
+   "original_sha256": "713ae764478cb26f5e8782b6cf98fcb36cbca8485082c0dd462e59ad12b2db65",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0296",
+   "original_path": "tests/review-evidence/partner-2026-09-27e/probe_boundaries.py",
+   "original_sha256": "afa21755f73de32f118c8ac36aadfef0ffd672f035f12179db81bcd9e6a20e51",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0297",
+   "original_path": "tests/review-evidence/partner-2026-09-27e/verification-summary.json",
+   "original_sha256": "cdf0bb42e09ae1e4394f8f5184586de88656528cbcd318901c7e97be7e058bdb",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0298",
+   "original_path": "tests/review-evidence/round-10/Partner-Note.md",
+   "original_sha256": "ecd86454f62fe544b38996e5e7e16effbbb3061ae729fa4af668947865e3342b",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0299",
+   "original_path": "tests/review-evidence/round-10/ROUND-10-COVER-NOTE.md",
+   "original_sha256": "837084f41377c98d6d2e80a8e65907e91a0976c3aab912a9443c4e0a82d4f5bd",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0300",
+   "original_path": "tests/review-evidence/round-10/Review.md",
+   "original_sha256": "2f59a003296389e4212793e32e5305010597e57a7163f9fcc79d5265fc6d1ab8",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0301",
+   "original_path": "tests/review-evidence/round-10/artifact-identities.json",
+   "original_sha256": "d83daca224f1ec55d3a594adac7df9596fdb7579923ef67496840ecf44301bf5",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0302",
+   "original_path": "tests/review-evidence/round-10/probes/probe_adapter_coverage.py",
+   "original_sha256": "3462636a9e2e46bf8944be543dee1424c32a11ed4a27b83bdf1961bd80678890",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0303",
+   "original_path": "tests/review-evidence/round-10/probes/probe_comparator.py",
+   "original_sha256": "1f3385fb40865e0905b42bab70d4825f235b9bd686d604f1600459097ab1a54f",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0304",
+   "original_path": "tests/review-evidence/round-11/Review.md",
+   "original_sha256": "d385a8973c71298af3392146a218050c05cba473205190a2627d92ec67e020ae",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0305",
+   "original_path": "tests/review-evidence/round-11/Test-Results.md",
+   "original_sha256": "2364a51f5e382e68549941d51c30a4fb44918a641aed4fe77b8520a70d32b50b",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0306",
+   "original_path": "tests/review-evidence/round-11/artifact-identities.json",
+   "original_sha256": "6701d0e878d4767587fcadb23813fc63f483c84563c6cc187527148c3185c4a1",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0307",
+   "original_path": "tests/review-evidence/round-12/Review.md",
+   "original_sha256": "d2a3e4ea9b421cfad220071ec02e77d1753331bd725699bb03245a85c9c6f090",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0308",
+   "original_path": "tests/review-evidence/round-12/Test-Results.md",
+   "original_sha256": "9ffa8248f8a642e70932ddd6ea1d2cb460d499f015cbe4117962a41dc97b91a4",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0309",
+   "original_path": "tests/review-evidence/round-2/Point-File-Units-v3-Independent-Recheck.md",
+   "original_sha256": "7056912ec5fd31716041ac23db0d3ffd2cb03649811bc7a6d03439036ce91851",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0310",
+   "original_path": "tests/review-evidence/round-2/README.md",
+   "original_sha256": "344fca281176762933b7cd32f509b0b5e90f4fcd8cbb930e1ad9ab34aa7ad3e8",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0311",
+   "original_path": "tests/review-evidence/round-2/audit_js.cjs",
+   "original_sha256": "3cf31bcf3a9cd63e75d5e26fd288a87c9f56c40f6f3223f85da0fccf9f220867",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0312",
+   "original_path": "tests/review-evidence/round-2/audit_python.py",
+   "original_sha256": "4511f9a7c9e01335f8811b80d3fb12e2158dbbadf49d29c1f31d0e62dce0ae48",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0313",
+   "original_path": "tests/review-evidence/round-2/source-hashes.json",
+   "original_sha256": "1623b1803a5ce4a5891b14fb03c2a658adabe770c0c8c76314690854e07200bf",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0314",
+   "original_path": "tests/review-evidence/round-3/Point-File-Units-v3.1-Review.md",
+   "original_sha256": "2d1e318acb5150eecbf9c866509be9e6490f2be58e9b3b45c643111a66ae441e",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0315",
+   "original_path": "tests/review-evidence/round-3/README.md",
+   "original_sha256": "4e6e79f8d550d26307d7b2274a3e52b34dbaac30643066b731f0f79aae2d492a",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0316",
+   "original_path": "tests/review-evidence/round-3/coverage.json",
+   "original_sha256": "f478603d0921d2afd06ca62ee31c3c487391fa75c9aea832edbfefaf38290ff8",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0317",
+   "original_path": "tests/review-evidence/round-3/examine_js.cjs",
+   "original_sha256": "99ec620ef4d5df7d0877c503d2dcb819343029269d9d9844036c0477e0103d28",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0318",
+   "original_path": "tests/review-evidence/round-3/examine_python.py",
+   "original_sha256": "756d72af635aab763d5cbf674a15c482b0e7dfbe569cb046dcea0ef8e8e658a2",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0319",
+   "original_path": "tests/review-evidence/round-3/source-hashes.json",
+   "original_sha256": "e69f25a8a9a6272cc777996302dd9d323082356e207c66f68f0682888b6eafc0",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0320",
+   "original_path": "tests/review-evidence/round-4/Point-File-Units-v3.2-Review.md",
+   "original_sha256": "29464339343d2a7dfa67788eb2d920f7448ebf51b4c5d3a7259646b46f749426",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0321",
+   "original_path": "tests/review-evidence/round-4/README.md",
+   "original_sha256": "136c99f3ae6fcc1cf1a632b1eacf1525ca8eb795eeb689d32ce521025c1223fb",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0322",
+   "original_path": "tests/review-evidence/round-4/independent-oracle-720.json",
+   "original_sha256": "de80d1dc344a870171e28ecb9af6a9dfc4736abd5f539200c602a153a82aebb0",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0323",
+   "original_path": "tests/review-evidence/round-4/oracle-generator.py",
+   "original_sha256": "a513fbbfd6f6fc6950a415318a342fdb4e240a50baa1ecb8459b9311fab3326e",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0324",
+   "original_path": "tests/review-evidence/round-4/recheck_js.cjs",
+   "original_sha256": "6adfc6410410a68ca2272b07f6a02fcbd3da114809c58b97da46321725ef2b18",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0325",
+   "original_path": "tests/review-evidence/round-4/recheck_python.py",
+   "original_sha256": "6ed38b49872622f7c5574807484b0fb92e5f2c7ac8ba34df5a660df00c5802f2",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0326",
+   "original_path": "tests/review-evidence/round-4/source-hashes.json",
+   "original_sha256": "5c4bd863a49f4db15a16a8eef5dba5e28f84c0b46ef6478f46e8b2be3dd520fa",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0327",
+   "original_path": "tests/review-evidence/round-5/EVIDENCE-README.md",
+   "original_sha256": "5d8f8d374d158960418db109aa74e158b5335cfc1f06c6812f0f3d57ec0d7987",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0328",
+   "original_path": "tests/review-evidence/round-5/canonical-probes.json",
+   "original_sha256": "e3f65779f8c86f930708ffbe55172e0153fc95d0fcef8cf2ef3fffa004533108",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0329",
+   "original_path": "tests/review-evidence/round-5/interchange-draft1-review.md",
+   "original_sha256": "be8d68c8afdcf5110cdaec9fc88c86d4adadc9bd1f4624de290c6583b731e97b",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0330",
+   "original_path": "tests/review-evidence/round-5/probe_js.cjs",
+   "original_sha256": "a356c2b25082810b5fea61a55af1a3189a308c58fa0a7c4ec1eb636cefb226fd",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0331",
+   "original_path": "tests/review-evidence/round-5/probe_python.py",
+   "original_sha256": "033e3ccadcbef18fb4d8893b2ed71f142703ea4a7abb82549ff5320e072b0c0e",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0332",
+   "original_path": "tests/review-evidence/round-5/recheck_python.py",
+   "original_sha256": "6ed38b49872622f7c5574807484b0fb92e5f2c7ac8ba34df5a660df00c5802f2",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0333",
+   "original_path": "tests/review-evidence/round-5/reply-to-v3.3.1-contributor.md",
+   "original_sha256": "ddd3e329273409362fce08d9ff7bcef72dafde6674f13d11f241184380208157",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0334",
+   "original_path": "tests/review-evidence/round-5/source-hashes.json",
+   "original_sha256": "d595351fcccc65a7f08c3c78004ff7ffd796932fc3ff48260b80fc931290bed2",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0335",
+   "original_path": "tests/review-evidence/round-5/v3.3.1-review.md",
+   "original_sha256": "a4685cdabcd74c3a265df5a09468fc6f4e8892dc2438ccb39e319c9b6f4c7a04",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0336",
+   "original_path": "tests/review-evidence/round-6/README-REVIEW-EVIDENCE.md",
+   "original_sha256": "012784ae29044e265fbccbaefb8640571f87d1c00b73d44931ca8ed38dccb52a",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0337",
+   "original_path": "tests/review-evidence/round-6/WINDOWS-MAC-RELEASE-WORKFLOW.md",
+   "original_sha256": "a93b8469e2819a6ff680ad5a37e1ce77c45810dc03a19e618521b648c09376ec",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0338",
+   "original_path": "tests/review-evidence/round-6/core-checks.yml",
+   "original_sha256": "c396a0ad4b23c3552d47d1fc889033b2333b52aba7997dab515c2bb10d594a3e",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0339",
+   "original_path": "tests/review-evidence/round-6/new_probes.cjs",
+   "original_sha256": "bb9d7a344c30991ce2189054911f2872a6217ae63ce3d500539d355f6abdd9f9",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0340",
+   "original_path": "tests/review-evidence/round-6/new_probes.py",
+   "original_sha256": "0473e7257aeb3e418ba2d5bd87438062c456cc46ffc22658aa599e3f3d66ee7b",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0341",
+   "original_path": "tests/review-evidence/round-6/reply-to-v3.3.2-contributor.md",
+   "original_sha256": "a033f00da755593ab974cb09dd95c90740500c1027ef16b4ba023a44025bc255",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0342",
+   "original_path": "tests/review-evidence/round-6/source-hashes.json",
+   "original_sha256": "59be199e134ed484944e2a3966b21e19d56c17f6eeba4d464ef3531a9fd3aa74",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0343",
+   "original_path": "tests/review-evidence/round-6/v3.3.2-review.md",
+   "original_sha256": "05a34803a2934915b9ab560e1dda38d261bca9088c88b4f6e3f3bd39c0d01489",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0344",
+   "original_path": "tests/review-evidence/round-7/Civil3D-Acceptance-Pack.zip",
+   "original_sha256": "8f511d0d2f8c76d0cc23d5ac9032979e86eb4df811569a06d0f94d8f66d947f1",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0345",
+   "original_path": "tests/review-evidence/round-7/EVIDENCE-README.md",
+   "original_sha256": "b1a7093edbc3d36cef502915c333e85897fe168ec4afc98878b67f4ab642c418",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0346",
+   "original_path": "tests/review-evidence/round-7/SHA256SUMS.txt",
+   "original_sha256": "ee7e87642826bbce76f3279e1ce6f8fb5a55051dc79ff13d905b3659ea0c38a1",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0347",
+   "original_path": "tests/review-evidence/round-7/START-HERE.md",
+   "original_sha256": "342aa507798e889a2101a3b0980a2aa47511dfea889e02a82e931fb5aef1f38f",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0348",
+   "original_path": "tests/review-evidence/round-7/check_delivery.py",
+   "original_sha256": "5974cc5310780d78b0c2008f0ea2c877e8b14f461d07a766280fb1dae8755542",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0349",
+   "original_path": "tests/review-evidence/round-7/reply-to-v3.3.3-contributor.md",
+   "original_sha256": "779eab8417060cb67f6f49357e29420580384f7f13cdc706b15b12724990fa97",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0350",
+   "original_path": "tests/review-evidence/round-7/round7_body.cjs",
+   "original_sha256": "e15991e80320b2cb88ed5cf7d83ce56d83ae748db23a2a71460041be20bee05e",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0351",
+   "original_path": "tests/review-evidence/round-7/round7_probes.cjs",
+   "original_sha256": "01206ac0308463897310a424c100316c285bd5c48148ec2aacf6c95358d9494e",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0352",
+   "original_path": "tests/review-evidence/round-7/round7_probes.py",
+   "original_sha256": "22eb8c4f7e966e781a2c703b316ed6337146f53087456da9236ee175a0153253",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0353",
+   "original_path": "tests/review-evidence/round-7/v3.3.3-review.md",
+   "original_sha256": "f008f1168c9add190e9bed29d22cc9f7c089e895471bb8239a616fb33a7391b5",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0354",
+   "original_path": "tests/review-evidence/round-8/CHANGELOG.md",
+   "original_sha256": "9da1aa0a0ddd6079e1aa82f58568be7fca72349a461ee62de1679d2acfcace67",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0355",
+   "original_path": "tests/review-evidence/round-8/PointTruth-1.1.0-rc.1.zip.sha256",
+   "original_sha256": "53f99216ca32878511ed5d7352fe00a7ff61ae3cc9b1c69dbc7a3fa627671024",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0356",
+   "original_path": "tests/review-evidence/round-8/PointTruth-Architecture-Options.md",
+   "original_sha256": "78955799db553f8d0344076172e09e6e9cfc9deac54683b61cfae075bcbfc9c7",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0357",
+   "original_path": "tests/review-evidence/round-8/STATUS.md",
+   "original_sha256": "e22a4164008eabf7e971603c8f9c268c9b10ee58ea8eb8e7de73b4a4f6ff20b8",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0358",
+   "original_path": "tests/review-evidence/round-8/v3.3.4-intake.md",
+   "original_sha256": "a988510dea0d4417acf9b6beb969970b307247d7ed3740c5b6fb10303673808a",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0359",
+   "original_path": "tests/review-evidence/round-9/ROUND-9-COVER-NOTE.md",
+   "original_sha256": "5e33ad2e89b5624fd5580e87fde6dccf6ce3d5d4938f496f61497a4669422142",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0360",
+   "original_path": "tests/review-evidence/round-9/Review.md",
+   "original_sha256": "fb6ec8170f42927f10c1d8ffc5a8877897ef2c4b3f5d297a106edb9ce3e8c26f",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0361",
+   "original_path": "tests/review-evidence/round-9/artifact-identities.json",
+   "original_sha256": "85addb45626762cdc3203e08a80a28e750c20553d9b32215cf59c36163b6af22",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0362",
+   "original_path": "tests/review-evidence/round-9/probes/audit_differential.py",
+   "original_sha256": "7366d8a863452abe925edb3de198d1e3cfbc4714c435c0a969fcf2795045af18",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0363",
+   "original_path": "tests/review-evidence/round-9/probes/build_header_fixture.py",
+   "original_sha256": "fb8791e6df446503c1355f6e48ef21d2896d10caa22f4619f22dc9ad4f681169",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0364",
+   "original_path": "tests/review-evidence/round-9/probes/check_download_identity.py",
+   "original_sha256": "ea34213949a434e5d10873a4dbb51d5f5d8a906ee071f2ac68556d2698c534a0",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0365",
+   "original_path": "tests/review-evidence/round-9/probes/run_truth_probes.py",
+   "original_sha256": "ef5df9473527b14f54bcb67af6c2af3aee6d01662431d5f74870eabb283f74f0",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0366",
+   "original_path": "tests/review-evidence/round-9/probes/truth_probe.cjs",
+   "original_sha256": "85644eca104a45ae1fc1303bfac0b20a187e226850f5387263f9e729d8199104",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0367",
+   "original_path": "tests/review-evidence/round-9/reproduced-here/literal-probes-v3.3.4-summary.json",
+   "original_sha256": "bbb9550d6777e9093bce3c882fc0ed89b112c28e829e01f77a7ea1f6a102d864",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  },
+  {
+   "id": "E-0368",
+   "original_path": "tests/review-evidence/round-9/reproduced-here/literal-probes-v3.3.5-summary.json",
+   "original_sha256": "9c0d9fcc3fffda5afdebf327426a604f3effac6a26185777d65734d919b72e8f",
+   "action": "omitted: private area",
+   "private_retention": "private repository, commit b051fe7963b0e4d14d367e6ffe58d20a2c29c060"
+  }
+ ]
+}

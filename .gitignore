@@ -1,0 +1,26 @@
+.DS_Store
+._*
+__MACOSX/
+Thumbs.db
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+node_modules/
+.checks/
+.env
+.env.*
+!.env.example
+*.dwl
+*.dwl2
+*.swp
+/point-file-unit-converter-*.zip
+/point-file-unit-converter-*.zip.record.json
+/point-file-unit-converter-*.candidate-*.json
+/point-file-unit-converter-*.pending
+# Legacy direct runners can write these; scripts/check.py isolates them automatically.
+/tests/differential/corpus.json
+/tests/differential/pt.json
+/tests/differential/py.json
+# Consumer release builds (scripts/build_consumer_release.py)
+/dist/

@@ -1,0 +1,127 @@
+{
+  "schema": "pointfile-units-report/3",
+  "run_id": "b5f13a8039d6addd",
+  "content_fingerprint": "86fd2c186227e5d3",
+  "timestamp_utc": "2026-09-21T19:52:54Z",
+  "tool": {
+    "name": "pointfile_units.py",
+    "version": "3.3.1",
+    "build": "63B4A49A3B4EDB32"
+  },
+  "source": {
+    "path": "C:\\Users\\D\\Documents\\Codex\\2026-09-20\\pl\\work\\review-files-5\\evidence\\run-iuxyyabl\\base.src",
+    "bytes": 8,
+    "sha256": "E896FC96E37D9EBC31402AA1772BA1F66A85F2687E74124D085BDF1DD288A79B",
+    "encoding": "utf-8"
+  },
+  "output": {
+    "path": "C:\\Users\\D\\Documents\\Codex\\2026-09-20\\pl\\work\\review-files-5\\evidence\\run-iuxyyabl\\base.out",
+    "bytes": 23,
+    "sha256": "2D9EF8B9A0F8DB2900CBCBADEE8F7C1BFF99E536E5D4327A8804520C83AD9307",
+    "encoding": "utf-8"
+  },
+  "units": {
+    "conversion": "Custom",
+    "custom_factor_input": "1",
+    "source_unit": "in",
+    "target_unit": "out",
+    "factor_numerator": "1",
+    "factor_denominator": "1",
+    "source_unit_reference": "",
+    "declared_not_checked": [
+      "source_unit",
+      "target_unit",
+      "source_unit_reference"
+    ]
+  },
+  "grammar": {
+    "format": "PENZD",
+    "coordinate_fields": [
+      1,
+      2,
+      3
+    ],
+    "id_field": 0,
+    "delimiter": "whitespace",
+    "header_policy": "no",
+    "comment_prefix": "#"
+  },
+  "rounding": {
+    "rule": "nearest, ties to even",
+    "decimals": 4,
+    "finest_source_decimals": 0,
+    "acceptance": "reverse error <= half source quantum AND source reconstructed at its quantum"
+  },
+  "counts": {
+    "data": 1,
+    "header": 0,
+    "comment": 0,
+    "blank": 0
+  },
+  "checks": {
+    "arithmetic_and_reconstruction": "pass",
+    "record_accounting": "pass",
+    "non_coordinate_preservation": "pass"
+  },
+  "max_error": "0",
+  "max_error_at": null,
+  "ranges": {
+    "1": [
+      "1.0000",
+      "1.0000"
+    ],
+    "2": [
+      "2.0000",
+      "2.0000"
+    ],
+    "3": [
+      "3.0000",
+      "3.0000"
+    ]
+  },
+  "anchors": [
+    {
+      "field": 1,
+      "min": "0",
+      "max": "10",
+      "min_exact": "0",
+      "max_exact": "10",
+      "observed_min": "1.0000",
+      "observed_max": "1.0000",
+      "pass": true
+    }
+  ],
+  "control_points": [
+    {
+      "id": "A",
+      "expected": [
+        "1",
+        "2",
+        "3"
+      ],
+      "expected_exact": [
+        "1",
+        "2",
+        "3"
+      ],
+      "tolerance": "0",
+      "tolerance_exact": "0",
+      "checked_fields": [
+        1,
+        2,
+        3
+      ],
+      "pass": true,
+      "written": [
+        "1.0000",
+        "2.0000",
+        "3.0000"
+      ],
+      "line": 1
+    }
+  ],
+  "warnings": [],
+  "verification_scope": "reread disk bytes",
+  "pass": true,
+  "failures": []
+}

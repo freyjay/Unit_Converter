@@ -1,0 +1,26 @@
+{
+  "schema": "pfu-windows-test-record/1",
+  "tester": "",
+  "date_utc": "",
+  "machine": {"windows_version_build": "", "memory_gib": null, "browser_name_version": "", "python_version": "", "node_version": ""},
+  "artifacts_tested": {"pfu_html_sha256": "", "pointtruth_html_sha256": "", "pointtruth_build_label": "1.0.0 | 1.1.0-rc.1 | other"},
+  "user_track": {
+    "1_opened_by_double_click_file_url": null,
+    "2_self_test_summary_line": "", "2_build_id": "",
+    "3_data_rows": null, "3_max_reverse_error_line": "",
+    "4_output_sha256_observed": "", "4_matches_expected_6a858d7e": null,
+    "5_reopen_status_line": "", "5_confirmation_unchecked_on_reopen": null,
+    "6_second_handoff_output_sha256": "", "6_matches_step_4": null,
+    "7_pointtruth_output_sha256": "", "7_matches_step_4": null,
+    "8_foot_trap_point_110_value_seen": ""
+  },
+  "engineer_track": {
+    "roundtrip_cli_oracle_pass_count": null, "roundtrip_byte_identical_count": null, "roundtrip_output_pasted": "",
+    "run_all_tests_utf8_mode_off": {"exit_code": null, "summary_line": ""},
+    "run_all_tests_utf8_mode_on_if_needed": {"exit_code": null, "summary_line": ""},
+    "require_browser_with_pt_html": {"exit_code": null, "summary_line": ""},
+    "capacity_records_attached": []
+  },
+  "not_run": [],
+  "anything_unexpected": ""
+}

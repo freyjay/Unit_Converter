@@ -1,0 +1,10 @@
+VERIFY PASS
+files pass a fresh verification under the manifest's settings: yes
+report is internally consistent with the fresh observations: yes
+producer build: b6589870c4c2e587   verifier build: b6589870c4c2e587 (pointfile_units.py 3.3.6)
+record file sha256: bc3e7de0825561428b6b2f391af8ef772b5dd70ea5e6a01b0b557fb04735db82   record canonical sha256 (canonical-json/1): ec604d871a358c10193c3ffe6d2a343c58abb369fe947ee629895f567c2b0f8b
+source sha256: be56b5a50e26ca725e147fb18f1df1894b80b9553f198f6f686be3d3f1c7cac6   output sha256: 5c7dce40a806efab98039fb5179b21c7c5d199156077007131b5f072f08e32e3
+rechecked: source and output SHA-256 against the files given (case-insensitive); declared conversion against the exact factor and unit labels; field mapping against the declared format; display and exact fields of anchors and control points agree; fixed rule texts match the implementation; record accounting, non-coordinate preservation, exact rounding (floor-interval procedure), reverse error and reconstruction for every coordinate; recorded observation structure (counts, ranges, max_error, max_error_at, anchors, control_points, warnings, checks, failures, source_bytes, source_encoding, output_bytes, output_encoding, finest_source_decimals) and content fingerprint against fresh observations
+not checked: which foot the survey used, its datum, or that the file belongs to the intended site
+
+STDERR:

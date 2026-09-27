@@ -1,0 +1,69 @@
+{
+ "contract": "canonical-json/1: keys sorted recursively by UTF-16 code unit order of the key string; scalars as strings; booleans as true/false; null as null; every character outside 0x20..0x7E escaped as lowercase \\\\uXXXX (astral characters as surrogate pairs), with \\\\b \\\\f \\\\n \\\\r \\\\t \\\\\\\" \\\\\\\\ short escapes; no whitespace; UTF-8 bytes of that string are hashed",
+ "cases": [
+  {
+   "input": {
+    "z": null,
+    "a": [
+     1,
+     "two",
+     {
+      "c": "café",
+      "b": "測量"
+     }
+    ],
+    "emoji": "😀 ☃",
+    "esc": "q\"uote \\ back\nnl\ttab\u0001ctldel",
+    "nested": {
+     "y": {
+      "x": [
+       [],
+       {}
+      ]
+     }
+    },
+    "t": true,
+    "f": false
+   },
+   "canonical": "{\"a\":[\"1\",\"two\",{\"b\":\"\\u6e2c\\u91cf\",\"c\":\"caf\\u00e9\"}],\"emoji\":\"\\ud83d\\ude00 \\u2603\",\"esc\":\"q\\\"uote \\\\ back\\nnl\\ttab\\u0001ctl\\u007fdel\",\"f\":\"false\",\"nested\":{\"y\":{\"x\":[[],{}]}},\"t\":\"true\",\"z\":null}",
+   "sha256": "6cb716cbce664255bf4ff2940ad69e899af19c9940fe3b80ed6ff5aa5975540b"
+  },
+  {
+   "input": {
+    "k": "plain"
+   },
+   "canonical": "{\"k\":\"plain\"}",
+   "sha256": "1eea9ab28c19e9c616c2872b2bb96a63ffcfe1a8cb6a6cbc4686d631cada0ee5"
+  },
+  {
+   "input": [],
+   "canonical": "[]",
+   "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  {
+   "input": {},
+   "canonical": "{}",
+   "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+  },
+  {
+   "input": "sólo",
+   "canonical": "\"s\\u00f3lo\"",
+   "sha256": "d22f1708e098db33bb30748eb56d9c7f52e3a97d4395fc087e7d48ee19b5d59c"
+  },
+  {
+   "input": 12345,
+   "canonical": "\"12345\"",
+   "sha256": "afc21edad3e1050cde1bde655014dd5929845485b589a66c8a1b744f731b5d50"
+  },
+  {
+   "input": true,
+   "canonical": "\"true\"",
+   "sha256": "18d10c7d2b4b04aaf04254d1ae5d655a5dc0407cbcdd5a8c3986e985370f36ee"
+  },
+  {
+   "input": false,
+   "canonical": "\"false\"",
+   "sha256": "076de6e730df0b4c3860877a0f619c6ac11f8aefd78313ac793a2a703c026869"
+  }
+ ]
+}

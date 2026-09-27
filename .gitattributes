@@ -1,0 +1,7 @@
+# Preserve the exact bytes of source, reports and mixed-newline fixtures on every OS.
+# New source/document edits should use UTF-8 and LF; never normalize existing evidence.
+* -text
+*.png binary
+*.dwg binary
+*.bak binary
+*.zip binary

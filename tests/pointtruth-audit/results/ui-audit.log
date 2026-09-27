@@ -1,0 +1,13 @@
+PASS  downloaded point file == pointfile_units.py bytes
+PASS  handoff saved
+PASS  check saved point file: good copy
+PASS  check saved point file: tampered copy fails
+PASS  handoff re-verifies on open
+PASS  handoff manifest carries hashes and fingerprint
+PASS  handoff build == original build
+PASS  tampered handoff refused on open
+PASS  settings change mid-run: nothing published, confirmation cleared
+PASS  60,000-line file converts (2.9s) with UI responsive (worker)
+PASS  no page errors
+
+UI: passed 11 failed 0

@@ -1,0 +1,87 @@
+{
+  "schema": "pointfile-units-report/2",
+  "run_id": "8f20d43389f7e940",
+  "timestamp_utc": "2026-09-21T11:16:50Z",
+  "tool": {
+    "name": "Point-File-Unit-Converter.html",
+    "version": "3.1.0",
+    "build": "C3FCA3237C51506B"
+  },
+  "source": {
+    "path": "same.txt",
+    "bytes": 6,
+    "sha256": "1DEF07DBE06EEB097AAFEC8A40329937CD20C93A83634B8221EA2B41A894310C",
+    "encoding": "utf-8"
+  },
+  "output": {
+    "path": "same-OUT.txt",
+    "bytes": 21,
+    "sha256": "291B7E62AB5FCF7478A8172520A2482D4BB333E5D205B6BEB80B1B816F057D4E",
+    "encoding": "utf-8"
+  },
+  "units": {
+    "conversion": "Custom",
+    "custom_factor_input": "2",
+    "source_unit": "in",
+    "target_unit": "out",
+    "factor_numerator": "2",
+    "factor_denominator": "1",
+    "source_unit_reference": "",
+    "declared_not_checked": [
+      "source_unit",
+      "target_unit",
+      "source_unit_reference"
+    ]
+  },
+  "grammar": {
+    "format": "ENZ",
+    "coordinate_fields": [
+      0,
+      1,
+      2
+    ],
+    "id_field": null,
+    "delimiter": "whitespace",
+    "header_policy": "auto",
+    "comment_prefix": "#"
+  },
+  "rounding": {
+    "rule": "nearest, ties to even",
+    "decimals": 4,
+    "finest_source_decimals": 0,
+    "acceptance": "reverse error <= half source quantum AND source reconstructed at its quantum"
+  },
+  "counts": {
+    "data": 1,
+    "header": 0,
+    "comment": 0,
+    "blank": 0
+  },
+  "checks": {
+    "arithmetic_and_reconstruction": "pass",
+    "record_accounting": "pass",
+    "non_coordinate_preservation": "pass"
+  },
+  "max_error": "0",
+  "max_error_at": null,
+  "ranges": {
+    "0": [
+      "2.0000",
+      "2.0000"
+    ],
+    "1": [
+      "4.0000",
+      "4.0000"
+    ],
+    "2": [
+      "6.0000",
+      "6.0000"
+    ]
+  },
+  "anchors": [],
+  "control_points": [],
+  "warnings": [],
+  "verification_scope": "candidate bytes in memory; re-upload the saved file for disk verification",
+  "pass": true,
+  "failures": []
+}

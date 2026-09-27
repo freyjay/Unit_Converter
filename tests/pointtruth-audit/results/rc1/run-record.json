@@ -1,0 +1,33 @@
+{
+  "audited_artifact": {
+    "file": "PointTruth.html (1.1.0-rc.1, dist/)",
+    "sha256": "bf98e65dc89eeb77af7d015b2f8b656247236d51a4da3bba10851c06222a9d21",
+    "archive_sha256": "b4883744001debcd20e887005d51ee02e4729d41f93288a6ef6955b34c7dfe15"
+  },
+  "environment": {
+    "os": "Linux-6.18.44-fc-v37-x86_64-with-glibc2.39",
+    "node": "v22.22.2",
+    "python": "3.12.3",
+    "browser": "Chromium via Playwright (headless)"
+  },
+  "run_utc": "2026-09-22T00:03:00Z",
+  "results": {
+    "audit_pt": {
+      "summary": "passed 46 failed 0",
+      "exit": 0
+    },
+    "audit_pt2": {
+      "summary": "passed 17 failed 0",
+      "exit": 0
+    },
+    "ui-audit": {
+      "summary": "UI: passed 11 failed 0",
+      "exit": 0
+    }
+  },
+  "additional_observations": [
+    "a 1.0.0 handoff dropped into the rc.1 app verifies with adapter pointtruth-1.0.0-baseline and a separate pointtruth-reverification/1 record naming producer and verifier builds",
+    "an earlier 'hang' reading was a harness error: the hidden status element retains its last progress text"
+  ],
+  "scope": "same harnesses as the 1.0.0 audit, unchanged; characterization of the named cases only"
+}

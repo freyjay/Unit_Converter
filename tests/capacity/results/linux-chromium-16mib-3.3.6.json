@@ -1,0 +1,82 @@
+{
+  "schema": "pfu-capacity-record/2",
+  "runner": {
+    "file": "measure_lifecycle.py",
+    "sha256": "95e863731d96af537a7d86ae78d9e9b7f6765bc5167e866692ff7943ac9fe559"
+  },
+  "app": {
+    "file": "Point-File-Unit-Converter.html",
+    "sha256": "f43c5fd4e5654add54fe5d956a94a81de76f12ea2316945e5c4b107a0c4c3fb4"
+  },
+  "environment": {
+    "os": "Linux-6.18.44-fc-v37-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "memory_total_mib": 4000,
+    "browser": "Chromium 141.0.7390.37"
+  },
+  "parameters": {
+    "desc_len": 6,
+    "multibyte": false,
+    "close_producer_before_reopen": false,
+    "bypass_csp": false,
+    "browser_launch_args": [],
+    "navigation_watchdog_ms": 1800000
+  },
+  "run_utc": "2026-09-22T04:26:05Z",
+  "sizes": [
+    {
+      "mib_requested": 16,
+      "steps": {
+        "load": {
+          "status": "loaded",
+          "seconds": 0.6
+        },
+        "convert_verify": {
+          "status": "verified (candidate bytes)",
+          "seconds": 14.0
+        },
+        "download_from_producer": {
+          "output_bytes": 18132095,
+          "output_sha256": "0393ca7f3384cdcd1926f1c1f1eff35b20d795311f0506ed318820e161d73c81",
+          "manifest_sha256": "cb48061dadb30e4d1ccd2dc7daf1dc42782a7e3a1e3952a6dbd0c791b1971f11",
+          "seconds": 0.6
+        },
+        "save_handoff": {
+          "bytes": 46899576,
+          "sha256": "7c31d097376b2b488d0ef762c4e23c048a375f10234c635a63eea8896c5cfe18",
+          "seconds": 1.5
+        },
+        "embedded_identity": {
+          "record_text_sha256": "cb48061dadb30e4d1ccd2dc7daf1dc42782a7e3a1e3952a6dbd0c791b1971f11",
+          "embedded_output_sha256": "0393ca7f3384cdcd1926f1c1f1eff35b20d795311f0506ed318820e161d73c81",
+          "record_text_equals_producer_manifest_download": true,
+          "embedded_output_equals_producer_output_download": true,
+          "seconds": 0.5
+        },
+        "reopen": {
+          "status": "handoff verified",
+          "seconds": 11.2
+        },
+        "download_from_reopened": {
+          "output_identical_to_producer_download": true,
+          "manifest_identical_to_producer_download": true,
+          "manifest_identical_to_embedded_record_text": true,
+          "seconds": 0.6
+        }
+      },
+      "producer": {
+        "crashed": false
+      },
+      "reopened": {
+        "crashed": false,
+        "navigation_failed": false
+      },
+      "rows": 364864,
+      "source_bytes": 16777172,
+      "source_sha256": "08574cf9926c595360f8fed798fe892d0d9a8f4b4377638cb89ab165a3dc20b8",
+      "note_size": "generated to at most the target; 16777172 bytes is NOT an exact limit boundary",
+      "outcome": "PASSED",
+      "total_elapsed_seconds": 30.1
+    }
+  ]
+}

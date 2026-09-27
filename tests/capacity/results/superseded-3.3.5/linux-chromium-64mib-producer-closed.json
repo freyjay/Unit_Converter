@@ -1,0 +1,55 @@
+{
+  "schema": "pfu-capacity-record/1",
+  "app": {
+    "file": "Point-File-Unit-Converter.html",
+    "sha256": "610d9c96539ab131b81b38aa835800f8156a8184d98b5aa2042a3293cd6f4769"
+  },
+  "environment": {
+    "os": "Linux-6.18.44-fc-v37-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "browser": "Chromium 141.0.7390.37"
+  },
+  "parameters": {
+    "desc_len": 6,
+    "multibyte": false,
+    "close_producer_before_reopen": true
+  },
+  "run_utc": "2026-09-22T02:15:40Z",
+  "sizes": [
+    {
+      "mib": 64,
+      "steps": {
+        "load": {
+          "status": "loaded",
+          "seconds": 1.2
+        },
+        "convert_verify": {
+          "status": "verified (candidate bytes)",
+          "seconds": 61.3
+        },
+        "save_handoff": {
+          "seconds": 71.1,
+          "bytes": 186455492,
+          "sha256": "fa9082ecd5efb4b00d060f3968d6579f37c460d4e731d8adbaca3c38737c8a12",
+          "crashed": false
+        },
+        "reopen": {
+          "navigation_seconds": 56.6,
+          "verify_seconds": 0.0,
+          "status": "handoff verified",
+          "crashed": false
+        },
+        "download_identity": {
+          "output_identical": true,
+          "manifest_sha256": "a013c5d095350b1f38f03fa555782db17ff3d2c8978b9448d8da6f47d716a662"
+        }
+      },
+      "rows": 1442719,
+      "source_bytes": 67108829,
+      "source_sha256": "03524fc245608a418ff1b29108e5522ae889877d0c6d488ad80c888227ef196c",
+      "output_bytes": 72467565,
+      "output_sha256": "48b575bf0300d47dfcce013ec7b0a91037d15bbac7e5aaecad270215137c6ea9",
+      "outcome": "PASSED"
+    }
+  ]
+}

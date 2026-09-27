@@ -1,0 +1,366 @@
+{
+ "contract": "adapter-vectors/2: semantic boundary probes. Each vector states a boundary a cross-family reader must respect and carries executable probes against three engines - the PFU browser engine (Point-File-Unit-Converter.html, Node vm), pointfile_units.py, and PointTruth 1.1.0-rc.1 (Node vm, optional) - in each engine's own vocabulary. A probe's expected outcome is complete: the full output text and the header/data counts, or a refusal. Expected outputs were derived by hand (0.3048 x value). These are NOT tests of a serialized-record reader across families; no such adapter exists yet. Version 1 (descriptive) is retained as `prose`.",
+ "vectors": [
+  {
+   "id": "index-base",
+   "prose": "PFU coordinate_fields and id_field are zero-based; PointTruth columns and idColumn are one-based. An adapter adds 1 in that direction and subtracts 1 in the other. A record WITHOUT an identifier column is the dangerous case: the naive copy of [1,2,3] selects one-based columns 1-3 (point number, easting, northing), converts the point number, leaves the elevation unconverted, and is reported verified under that wrong declared mapping. The correct translation is [2,3,4].",
+   "source": "7 10.0000 20.0000 30.0000 A\n",
+   "probes": [
+    {
+     "engine": "pfu-browser",
+     "settings": {
+      "format": "CUSTOM",
+      "coords": [
+       1,
+       2,
+       3
+      ],
+      "id": null,
+      "delimiter": "whitespace",
+      "header": "no",
+      "decimals": 4
+     },
+     "expect": {
+      "ok": true,
+      "output": "7 3.0480 6.0960 9.1440 A\n",
+      "counts": {
+       "header": 0,
+       "data": 1
+      }
+     }
+    },
+    {
+     "engine": "pfu-python",
+     "settings": {
+      "format": "CUSTOM",
+      "coords": [
+       1,
+       2,
+       3
+      ],
+      "header": "no",
+      "decimals": 4
+     },
+     "expect": {
+      "ok": true,
+      "output": "7 3.0480 6.0960 9.1440 A\n",
+      "counts": {
+       "header": 0,
+       "data": 1
+      }
+     }
+    },
+    {
+     "engine": "pointtruth",
+     "settings": {
+      "format": "CUSTOM",
+      "columns": [
+       2,
+       3,
+       4
+      ],
+      "idColumn": null,
+      "header": "none",
+      "precision": 4
+     },
+     "expect": {
+      "ok": true,
+      "output": "7 3.0480 6.0960 9.1440 A\n",
+      "counts": {
+       "header": 0,
+       "data": 1
+      }
+     },
+     "note": "the correct translation"
+    },
+    {
+     "engine": "pointtruth",
+     "settings": {
+      "format": "CUSTOM",
+      "columns": [
+       1,
+       2,
+       3
+      ],
+      "idColumn": null,
+      "header": "none",
+      "precision": 4
+     },
+     "expect": {
+      "ok": true,
+      "output": "2.1336 3.0480 6.0960 30.0000 A\n",
+      "counts": {
+       "header": 0,
+       "data": 1
+      }
+     },
+     "note": "the naive copy: converts and passes under the wrong declared mapping - the hazard this vector records"
+    }
+   ]
+  },
+  {
+   "id": "header-auto",
+   "prose": "PFU header policy 'auto' resolves per file at replay: a first content line with no numeric token is a header, otherwise data. PointTruth has 'none' and 'first' only. A reader must resolve auto for the actual file and record the resolution; re-running a different heuristic is not faithful replay. 'first' on a numeric first line silently drops a data row.",
+   "source_a": "bad bad bad\n1 2 3\n",
+   "source_b": "1 2 3\n4 5 6\n",
+   "probes": [
+    {
+     "engine": "pfu-browser",
+     "source": "a",
+     "settings": {
+      "format": "ENZ",
+      "delimiter": "whitespace",
+      "header": "auto",
+      "decimals": 4
+     },
+     "expect": {
+      "ok": true,
+      "output": "bad bad bad\n0.3048 0.6096 0.9144\n",
+      "counts": {
+       "header": 1,
+       "data": 1
+      }
+     }
+    },
+    {
+     "engine": "pfu-browser",
+     "source": "b",
+     "settings": {
+      "format": "ENZ",
+      "delimiter": "whitespace",
+      "header": "auto",
+      "decimals": 4
+     },
+     "expect": {
+      "ok": true,
+      "output": "0.3048 0.6096 0.9144\n1.2192 1.5240 1.8288\n",
+      "counts": {
+       "header": 0,
+       "data": 2
+      }
+     }
+    },
+    {
+     "engine": "pfu-python",
+     "source": "a",
+     "settings": {
+      "format": "ENZ",
+      "header": "auto",
+      "decimals": 4
+     },
+     "expect": {
+      "ok": true,
+      "output": "bad bad bad\n0.3048 0.6096 0.9144\n",
+      "counts": {
+       "header": 1,
+       "data": 1
+      }
+     }
+    },
+    {
+     "engine": "pfu-python",
+     "source": "b",
+     "settings": {
+      "format": "ENZ",
+      "header": "auto",
+      "decimals": 4
+     },
+     "expect": {
+      "ok": true,
+      "output": "0.3048 0.6096 0.9144\n1.2192 1.5240 1.8288\n",
+      "counts": {
+       "header": 0,
+       "data": 2
+      }
+     }
+    },
+    {
+     "engine": "pointtruth",
+     "source": "a",
+     "settings": {
+      "format": "ENZ",
+      "columns": [],
+      "idColumn": null,
+      "header": "none",
+      "precision": 4
+     },
+     "expect": {
+      "ok": false,
+      "code": "DATA"
+     },
+     "note": "'none' is the wrong resolution for file a"
+    },
+    {
+     "engine": "pointtruth",
+     "source": "a",
+     "settings": {
+      "format": "ENZ",
+      "columns": [],
+      "idColumn": null,
+      "header": "first",
+      "precision": 4
+     },
+     "expect": {
+      "ok": true,
+      "output": "bad bad bad\n0.3048 0.6096 0.9144\n",
+      "counts": {
+       "header": 1,
+       "data": 1
+      }
+     },
+     "note": "the only correct resolution for file a"
+    },
+    {
+     "engine": "pointtruth",
+     "source": "b",
+     "settings": {
+      "format": "ENZ",
+      "columns": [],
+      "idColumn": null,
+      "header": "none",
+      "precision": 4
+     },
+     "expect": {
+      "ok": true,
+      "output": "0.3048 0.6096 0.9144\n1.2192 1.5240 1.8288\n",
+      "counts": {
+       "header": 0,
+       "data": 2
+      }
+     },
+     "note": "the only correct resolution for file b"
+    },
+    {
+     "engine": "pointtruth",
+     "source": "b",
+     "settings": {
+      "format": "ENZ",
+      "columns": [],
+      "idColumn": null,
+      "header": "first",
+      "precision": 4
+     },
+     "expect": {
+      "ok": true,
+      "output": "1 2 3\n1.2192 1.5240 1.8288\n",
+      "counts": {
+       "header": 1,
+       "data": 1
+      }
+     },
+     "note": "'first' silently drops a data row - the hazard this vector records"
+    }
+   ]
+  },
+  {
+   "id": "identifier-policy",
+   "prose": "PFU converts duplicate identifiers unless a control point references one; PointTruth refuses duplicates (unique-identifier policy). A reader of a PFU record with duplicates under PointTruth's policy must report UNSUPPORTED naming the policy, not FAIL and not silently renumber; a file violating a KNOWN unique policy is a FAIL.",
+   "source": "1 10 20 30 A\n1 11 21 31 B\n",
+   "probes": [
+    {
+     "engine": "pfu-browser",
+     "settings": {
+      "format": "PENZD",
+      "delimiter": "whitespace",
+      "header": "no",
+      "decimals": 4
+     },
+     "expect": {
+      "ok": true,
+      "output": "1 3.0480 6.0960 9.1440 A\n1 3.3528 6.4008 9.4488 B\n",
+      "counts": {
+       "header": 0,
+       "data": 2
+      }
+     }
+    },
+    {
+     "engine": "pfu-python",
+     "settings": {
+      "format": "PENZD",
+      "header": "no",
+      "decimals": 4
+     },
+     "expect": {
+      "ok": true,
+      "output": "1 3.0480 6.0960 9.1440 A\n1 3.3528 6.4008 9.4488 B\n",
+      "counts": {
+       "header": 0,
+       "data": 2
+      }
+     }
+    },
+    {
+     "engine": "pointtruth",
+     "settings": {
+      "format": "PENZD",
+      "columns": [],
+      "idColumn": null,
+      "header": "none",
+      "precision": 4
+     },
+     "expect": {
+      "ok": false,
+      "code": "DATA"
+     }
+    }
+   ]
+  },
+  {
+   "id": "csv-quote-in-unquoted-field",
+   "prose": "PFU preserves an unquoted quote character inside a description field as text; PointTruth refuses the row. A named policy difference (see tests/differential).",
+   "source": "1,10.5,20.5,30.5,12\" pipe\n",
+   "probes": [
+    {
+     "engine": "pfu-browser",
+     "settings": {
+      "format": "PENZD",
+      "delimiter": "comma",
+      "header": "no",
+      "decimals": 4
+     },
+     "expect": {
+      "ok": true,
+      "output": "1,3.2004,6.2484,9.2964,12\" pipe\n",
+      "counts": {
+       "header": 0,
+       "data": 1
+      }
+     }
+    },
+    {
+     "engine": "pfu-python",
+     "settings": {
+      "format": "PENZD",
+      "delimiter": "comma",
+      "header": "no",
+      "decimals": 4
+     },
+     "expect": {
+      "ok": true,
+      "output": "1,3.2004,6.2484,9.2964,12\" pipe\n",
+      "counts": {
+       "header": 0,
+       "data": 1
+      }
+     }
+    },
+    {
+     "engine": "pointtruth",
+     "settings": {
+      "format": "PENZD",
+      "columns": [],
+      "idColumn": null,
+      "delimiter": "comma",
+      "header": "none",
+      "precision": 4
+     },
+     "expect": {
+      "ok": false,
+      "code": "DATA"
+     }
+    }
+   ]
+  }
+ ]
+}
