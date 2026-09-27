@@ -9,7 +9,9 @@ def load(root):
 class PublicProfile(unittest.TestCase):
     def tree(self, profile=None, areas=()):
         t = Path(tempfile.mkdtemp()); (t / 'tests').mkdir(); (t / 'docs').mkdir(); shutil.copyfile(ROOT / 'tests' / 'release_check.py', t / 'tests' / 'release_check.py')
-        if profile is not None: (t / 'docs' / 'PUBLIC-PROFILE.json').write_text(json.dumps(profile), encoding='utf-8')
+        if profile is not None:
+            (t / 'docs' / 'PUBLIC-PROFILE.json').write_text(json.dumps(profile), encoding='utf-8')
+            (t / 'docs' / 'PUBLIC-EVIDENCE-MAP.json').write_text('{}', encoding='utf-8')
         for a in areas: (t / a).mkdir(parents=True, exist_ok=True)
         return t
     def test_private_tree_keeps_every_required_file(self):
@@ -25,6 +27,11 @@ class PublicProfile(unittest.TestCase):
         m = load(t); self.assertIn('docs/PUBLIC-PROFILE.json', m.REQUIRED); self.assertIn('docs/PUBLIC-EVIDENCE-MAP.json', m.REQUIRED)
     def test_public_tree_with_a_private_area_present_is_refused(self):
         with self.assertRaisesRegex(SystemExit, 'private areas are present'): load(self.tree({'private_areas': ['evidence/']}, areas=['evidence']))
+    def test_public_tree_without_evidence_map_is_refused(self):
+        t = self.tree({'private_areas': ['evidence/']})
+        (t / 'docs' / 'PUBLIC-EVIDENCE-MAP.json').unlink()
+        with self.assertRaisesRegex(SystemExit, 'required metadata missing: docs/PUBLIC-EVIDENCE-MAP.json'):
+            load(t)
 class RepositoryCheckProfile(unittest.TestCase):
     def load_repo_check(self, profile):
         t = Path(tempfile.mkdtemp()); (t / 'scripts').mkdir(); (t / 'docs').mkdir(); shutil.copyfile(ROOT / 'scripts' / 'check_repository.py', t / 'scripts' / 'check_repository.py')
@@ -33,4 +40,14 @@ class RepositoryCheckProfile(unittest.TestCase):
     def test_private_workflow_files_required_only_without_profile(self):
         self.assertIn('GITHUB-PUSH.md', self.load_repo_check(None).REQUIRED)
         self.assertNotIn('GITHUB-PUSH.md', self.load_repo_check({'private_areas': ['GITHUB-PUSH.md', 'START-HERE-MAC.md']}).REQUIRED)
+    def test_repository_checker_refuses_missing_public_map(self):
+        m = self.load_repo_check({'private_areas': ['GITHUB-PUSH.md', 'START-HERE-MAC.md']})
+        for name in m.REQUIRED:
+            if name == 'docs/PUBLIC-EVIDENCE-MAP.json': continue
+            p = m.ROOT / name
+            if not p.exists():
+                p.parent.mkdir(parents=True, exist_ok=True)
+                p.write_text('', encoding='utf-8')
+        with self.assertRaisesRegex(ValueError, "Missing repository files:.*PUBLIC-EVIDENCE-MAP.json"):
+            m.main()
 if __name__ == '__main__': unittest.main(verbosity=1)

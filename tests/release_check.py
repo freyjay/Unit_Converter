@@ -63,7 +63,9 @@ def apply_public_profile(required, root):
     if present: raise SystemExit('public profile: private areas are present in this tree: %s' % ', '.join(present))
     # the profile and the evidence map travel with every candidate built from a public tree, so an extracted
     # candidate applies the same profile as its source
-    own = [f for f in ('docs/PUBLIC-PROFILE.json', 'docs/PUBLIC-EVIDENCE-MAP.json') if (pathlib.Path(root) / f).is_file()]
+    own = ['docs/PUBLIC-PROFILE.json', 'docs/PUBLIC-EVIDENCE-MAP.json']
+    missing = [f for f in own if not (pathlib.Path(root) / f).is_file()]
+    if missing: raise SystemExit('public profile: required metadata missing: %s' % ', '.join(missing))
     return [r for r in required if not any(r.startswith(a) for a in areas)] + [f for f in own if f not in required]
 REQUIRED = apply_public_profile(REQUIRED, ROOT)
 # Archives kept as evidence are not inputs to a tested candidate: each would be packed again into the next candidate

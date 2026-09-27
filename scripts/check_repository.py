@@ -14,6 +14,8 @@ REQUIRED=['Point-File-Unit-Converter.html','pointfile_units.py','README.md','STA
 _PROFILE=ROOT/'docs'/'PUBLIC-PROFILE.json'
 PRIVATE=json.loads(_PROFILE.read_text(encoding='utf-8'))['private_areas'] if _PROFILE.is_file() else []
 REQUIRED=[n for n in REQUIRED if not any(n.startswith(a) for a in PRIVATE)]
+if _PROFILE.is_file():
+    REQUIRED += ['docs/PUBLIC-PROFILE.json', 'docs/PUBLIC-EVIDENCE-MAP.json']
 
 def main():
     present=[a for a in PRIVATE if (ROOT/a).exists()]
