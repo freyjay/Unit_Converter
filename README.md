@@ -1,6 +1,8 @@
 # Unit_Converter: Point File Unit Converter
 
-**Use it:** [QUICK-START.md](QUICK-START.md). **Status:** [docs/CURRENT-STATUS.md](docs/CURRENT-STATUS.md). **All documents:** [docs/README.md](docs/README.md).
+**Start here:** [`START-HERE.html`](START-HERE.html), a one-page guide for Windows and Mac. **Text guide:** [QUICK-START.md](QUICK-START.md). **Status:** [docs/CURRENT-STATUS.md](docs/CURRENT-STATUS.md). **All documents:** [docs/README.md](docs/README.md).
+
+**Supported:** Windows 11 (Edge, Chrome, Brave) and macOS (Safari, Chrome).
 
 Convert survey point-file coordinates between metres, international feet and U.S. survey feet, preserve everything outside the selected coordinate values, and keep a verifiable record of the operation. You establish source units and column meaning; a pass checks arithmetic and preservation under those declarations.
 
@@ -20,7 +22,7 @@ python3 scripts/check.py --suite core
 
 On Windows use `python` instead of `python3` if appropriate. Checks run from a temporary copy with spaces in its path. They leave source and historical evidence unchanged and write logs to `.checks/`. Core checks deliberately exclude browser execution. For the browser suite, see [`docs/BROWSER-TESTS.md`](docs/BROWSER-TESTS.md).
 
-The GitHub Actions workflow has separate core and Chromium jobs for Windows, macOS and Linux. It is prepared, not a record of successful GitHub runs. It never deploys or publishes a release. A 1 MiB browser lifecycle pass does not validate the full file-size limit.
+The GitHub Actions workflow runs the core checks and the Chromium browser checks automatically on every push, including on Windows and macOS; the results are on the Actions tab. It never deploys or publishes a release. A 1 MiB browser lifecycle pass does not validate the full file-size limit.
 
 ## Included
 
@@ -29,7 +31,7 @@ The GitHub Actions workflow has separate core and Chromium jobs for Windows, mac
 | `Point-File-Unit-Converter.html` | Primary app; one complete HTML |
 | `pointfile_units.py` | Exact-arithmetic Python CLI; standard library only |
 | `tests/` | Oracle fixtures, regressions, differential checks and utility failure controls |
-| `scripts/` | Mac/Windows/Linux check entry point and repository checks |
+| `scripts/` | Check entry point (Windows and macOS) and repository checks |
 | `.github/workflows/checks.yml` | Proposed cross-platform GitHub Actions jobs |
 | `acceptance/civil3d-completed/` | Six-point native Civil 3D round trip: source, conversion, export and its checker (screenshots, drawings and operator logs are kept privately) |
 | `acceptance/next-native-tests/` | Three prepared cases; native execution remains NOT RUN |
@@ -40,7 +42,7 @@ The GitHub Actions workflow has separate core and Chromium jobs for Windows, mac
 
 The bundled PointTruth rc.1 file under `tests/differential/` is a comparison dependency, not a second app the user must choose. This package does not imply that PFU and the earlier PointTruth repository have been merged into a shared runtime.
 
-The passing CAD route used Python-produced files and a Windows Civil 3D operator. The core gate has passed on Windows, macOS and Linux, and CI runs on every push. Still pending: hands-on checks in installed browsers (Edge and Chrome on Windows, Safari and Chrome on macOS), browser-to-CAD, the wider native cases, and large-file profiles. See [current status](docs/CURRENT-STATUS.md).
+The passing CAD route used Python-produced files and a Windows Civil 3D operator. The core checks have passed on Windows and macOS, and CI runs on every push. Safari on macOS has been checked by hand (a conversion and its round trip). Still pending: hands-on checks in Edge, Chrome and Brave on Windows and Chrome on macOS, browser-to-CAD, the wider native cases, and large-file profiles. See [current status](docs/CURRENT-STATUS.md).
 
 ## License
 
@@ -52,4 +54,4 @@ MIT, copyright freyjay; see [`LICENSE`](LICENSE) and [`LICENSE-NOTE.md`](LICENSE
 
 ## Evidence
 
-This repository is the public copy of the project. The historical test evidence (runs on Linux, macOS and Windows, review records, screenshots and Civil 3D operator logs) is kept privately, because much of it contains local file paths. Every omitted file is listed with its SHA-256 in [`docs/PUBLIC-EVIDENCE-MAP.json`](docs/PUBLIC-EVIDENCE-MAP.json), and every tested archive in [`docs/EVIDENCE-ARCHIVES.json`](docs/EVIDENCE-ARCHIVES.json). This copy's own checks run fresh on its own commits.
+This repository is the public copy of the project. The historical test evidence (test runs from several machines, review records, screenshots and Civil 3D operator logs) is kept privately, because much of it contains local file paths. Every omitted file is listed with its SHA-256 in [`docs/PUBLIC-EVIDENCE-MAP.json`](docs/PUBLIC-EVIDENCE-MAP.json), and every tested archive in [`docs/EVIDENCE-ARCHIVES.json`](docs/EVIDENCE-ARCHIVES.json). This copy's own checks run fresh on its own commits.

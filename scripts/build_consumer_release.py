@@ -6,7 +6,7 @@ Usage: python3 scripts/build_consumer_release.py [--out DIR]   (default DIR: dis
 from pathlib import Path
 import argparse, hashlib, json, sys, zipfile
 ROOT = Path(__file__).resolve().parent.parent
-MEMBERS = ['Point-File-Unit-Converter.html', 'pointfile_units.py', 'QUICK-START.md', 'LICENSE', 'LICENSE-NOTE.md']
+MEMBERS = ['Point-File-Unit-Converter.html', 'START-HERE.html', 'pointfile_units.py', 'QUICK-START.md', 'LICENSE', 'LICENSE-NOTE.md']
 def sha(b): return hashlib.sha256(b).hexdigest()
 def build(root, out_dir):
     root = Path(root); pv = json.loads((root / 'docs' / 'PROVENANCE.json').read_text(encoding='utf-8')); data = {m: (root / m).read_bytes() for m in MEMBERS}

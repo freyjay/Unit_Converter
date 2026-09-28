@@ -18,6 +18,8 @@ To check a file later, open the app and choose **Verify a file you already have*
 
 Use *Import Points* with the point file format that matches the columns you confirmed (for example, PENZD comma-delimited). Make sure the drawing's units match the units you converted to, and that no coordinate transformation is applied during import unless you intend one. One six-point import-and-export round trip has been verified in Civil 3D 2027 (see *What this release has been checked for* below).
 
+Prefer a page? Open `START-HERE.html`: the same guide for Windows and Mac, side by side.
+
 ## Command line (Python 3, standard library only)
 
 Windows (PowerShell), on one line; use `py -3` instead of `python` if that is how Python is installed:
@@ -26,7 +28,7 @@ Windows (PowerShell), on one line; use `py -3` instead of `python` if that is ho
 python pointfile_units.py convert --in points.txt --out points-m.txt --format PENZD --delimiter comma --header no --conversion USFeetToMeters --source-unit-reference "Survey report, sheet 2"
 ```
 
-macOS and Linux:
+macOS (Terminal):
 
 ```text
 python3 pointfile_units.py convert --in points.txt --out points-m.txt \
@@ -48,12 +50,13 @@ A pass means the arithmetic is exact to the written precision and nothing outsid
 
 ## What this release has been checked for
 
-The app and CLI in this release are identified in `CHECKSUMS.sha256`. For these exact files:
+The files in this release are identified in `CHECKSUMS.sha256`. The conversion engine inside the app and the command-line tool are the same ones that passed the checks below; later versions changed the page's colours and wording, not the conversion.
 
 - **Arithmetic:** exact, and checked against calculations written independently of the converter and against a second implementation (PointTruth).
-- **Automated checks passed:** macOS 15.7.1 on Apple Silicon, Windows (Python 3.13) and Linux (core checks); browser checks on Linux with Chromium.
+- **Automated checks:** every version published on GitHub is tested automatically on Windows and macOS, with core and browser checks. The results are on the project's GitHub Actions page.
+- **By hand:** in Safari on macOS, a conversion (international feet to metres) and its round trip back came out byte-identical to the originals, on the previous page design with the same conversion engine.
 - **Civil 3D:** one six-point import-and-export round trip in Civil 3D 2027 (international feet to metres) came back byte-identical.
-- **Not yet checked:** browser runs on Windows and macOS; Edge, Firefox and Safari; Intel Macs; the U.S. survey foot, metres-to-feet and PNEZD cases in Civil 3D; files produced by the browser app in Civil 3D; accessibility; very large files on typical computers.
+- **Not yet checked:** Edge, Chrome and Brave on Windows and Chrome on macOS, by hand; Intel Macs; the U.S. survey foot, metres-to-feet and PNEZD cases in Civil 3D; files produced by the browser app in Civil 3D; accessibility; very large files on typical computers.
 
 ## Status and license
 

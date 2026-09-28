@@ -12,7 +12,7 @@ One page on what runs, what it proves, and what it does not. Every entry point w
 | ↳ round-trip gate | `tests/roundtrip/roundtrip_cli.py` (+ `--self-test`) | ft→m→ft→m→ft against an exact oracle written independently of the converter; the return trip reproduces the original bytes; mutations must fail |
 | ↳ utility failure controls | `tests/test_utility_repairs.py` | The release builder and capacity runner fail correctly: injected failures, rejected candidates, dropped files |
 | ↳ browser path check | `tests/test_browser_paths.py` | Four deliberately broken navigation variants must be caught |
-| ↳ consumer release | `tests/test_consumer_release.py` | The user ZIP has exactly its six files; it matches provenance; the build is reproducible; a modified app is refused; the shipped CLI reproduces the bytes Civil 3D exported |
+| ↳ consumer release | `tests/test_consumer_release.py` | The user ZIP has exactly its seven files; it matches provenance; the build is reproducible; a modified app is refused; the shipped CLI reproduces the bytes Civil 3D exported |
 | ↳ semantic probes, differential | `tests/differential/` | Index-base, header and identifier boundaries across engines; 83 cases against PointTruth rc.1 (47 identical, 33 both refuse, 3 named policy differences); comparator mutations must be detected |
 | 3. next-fixture-checker | `acceptance/next-native-tests/test_checker.py` | The checker for the three prepared Civil 3D cases accepts correct exports and rejects 27 synthetic bad ones |
 

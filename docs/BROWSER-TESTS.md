@@ -6,7 +6,7 @@ The browser suite drives the app in Chromium through Playwright. It runs the reg
 
 A virtual environment keeps Playwright out of your system Python.
 
-**macOS and Linux**
+**macOS**
 
 ```sh
 python3 -m venv .venv
@@ -32,7 +32,7 @@ python -m playwright install chromium
 python scripts/check.py --suite browser
 ```
 
-Results are written to `.checks/`, with a `run-record.json` that records the environment, the commit and the hashes of the tools used. The GitHub workflow runs the same suite on Ubuntu, Windows and macOS.
+Results are written to `.checks/`, with a `run-record.json` that records the environment, the commit and the hashes of the tools used. The GitHub workflow runs the same suite automatically on every push.
 
 ## What this does and does not cover
 

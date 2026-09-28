@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Point File Unit Converter: start here</title>
+<style>
+:root{/* palette: Mirage, Deep Sea Green, Blaze Orange, Wild Sand */--mirage:#16232A;--sea:#075056;--blaze:#FF5B04;--sand:#E4EEF0;
+  --ink:var(--mirage);--muted:#46565E;--blue:var(--sea);--green:var(--sea);--orange:var(--blaze);--sheet:#FFFFFF;--ground:var(--sand);--rule:#C9D6DA;--seatint:#E2EEEE;
+  --head:"Bahnschrift","Avenir Next Condensed","DIN Alternate","Arial Narrow",sans-serif;
+  --body:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --code:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;color:var(--ink);font:16px/1.6 var(--body);background:var(--ground);background-image:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2768%27 height=%27113%27 viewBox=%270 0 68 113%27%3E%3Cg fill=%27%23CBD2D9%27%3E%3Cpolygon points=%2733.00,-18.83 33.50,18.83 34.50,18.83 35.00,-18.83%27/%3E%3Cpolygon points=%27-0.50,-37.67 -1.00,-0.00 1.00,-0.00 0.50,-37.67%27/%3E%3Cpolygon points=%2767.50,-37.67 67.00,-0.00 69.00,-0.00 68.50,-37.67%27/%3E%3Cpolygon points=%27-0.48,0.87 33.76,19.27 34.24,18.40 0.48,-0.87%27/%3E%3Cpolygon points=%27-0.48,-0.87 -34.24,18.40 -33.76,19.27 0.48,0.87%27/%3E%3Cpolygon points=%27-34.24,19.27 -0.48,38.54 0.48,36.79 -33.76,18.40%27/%3E%3Cpolygon points=%2733.76,18.40 -0.48,36.79 0.48,38.54 34.24,19.27%27/%3E%3Cpolygon points=%27-1.00,37.67 -0.50,75.33 0.50,75.33 1.00,37.67%27/%3E%3Cpolygon points=%2767.52,0.87 101.76,19.27 102.24,18.40 68.48,-0.87%27/%3E%3Cpolygon points=%2767.52,-0.87 33.76,18.40 34.24,19.27 68.48,0.87%27/%3E%3Cpolygon points=%2733.76,19.27 67.52,38.54 68.48,36.79 34.24,18.40%27/%3E%3Cpolygon points=%27101.76,18.40 67.52,36.79 68.48,38.54 102.24,19.27%27/%3E%3Cpolygon points=%2767.00,37.67 67.50,75.33 68.50,75.33 69.00,37.67%27/%3E%3Cpolygon points=%2733.50,18.83 33.00,56.50 35.00,56.50 34.50,18.83%27/%3E%3Cpolygon points=%27-34.48,57.37 -0.24,75.77 0.24,74.90 -33.52,55.63%27/%3E%3Cpolygon points=%27-0.24,74.90 -34.48,93.29 -33.52,95.04 0.24,75.77%27/%3E%3Cpolygon points=%2733.52,57.37 67.76,75.77 68.24,74.90 34.48,55.63%27/%3E%3Cpolygon points=%2733.52,55.63 -0.24,74.90 0.24,75.77 34.48,57.37%27/%3E%3Cpolygon points=%27-0.24,75.77 33.52,95.04 34.48,93.29 0.24,74.90%27/%3E%3Cpolygon points=%2767.76,74.90 33.52,93.29 34.48,95.04 68.24,75.77%27/%3E%3Cpolygon points=%2733.00,94.17 33.50,131.83 34.50,131.83 35.00,94.17%27/%3E%3Cpolygon points=%27-0.50,75.33 -1.00,113.00 1.00,113.00 0.50,75.33%27/%3E%3Cpolygon points=%27101.52,55.63 67.76,74.90 68.24,75.77 102.48,57.37%27/%3E%3Cpolygon points=%2767.76,75.77 101.52,95.04 102.48,93.29 68.24,74.90%27/%3E%3Cpolygon points=%2767.50,75.33 67.00,113.00 69.00,113.00 68.50,75.33%27/%3E%3Cpolygon points=%27-0.48,113.87 33.76,132.27 34.24,131.40 0.48,112.13%27/%3E%3Cpolygon points=%27-0.48,112.13 -34.24,131.40 -33.76,132.27 0.48,113.87%27/%3E%3Cpolygon points=%2767.52,113.87 101.76,132.27 102.24,131.40 68.48,112.13%27/%3E%3Cpolygon points=%2767.52,112.13 33.76,131.40 34.24,132.27 68.48,113.87%27/%3E%3C/g%3E%3C/svg%3E");background-size:68px 113px}
+a{color:var(--blue)}
+a:focus-visible,summary:focus-visible{outline:3px solid var(--orange);outline-offset:3px;border-radius:2px}
+.wrap{max-width:1040px;margin:0 auto;padding:28px 20px 48px}
+.sheet{background:var(--sheet);border:1px solid var(--rule);border-radius:6px;padding:28px 32px;margin:0 0 18px}
+h1,h2,h3{font-family:var(--head);font-weight:600;line-height:1.15;margin:0}
+h1{font-size:clamp(2rem,5vw,3.1rem);letter-spacing:-.01em;font-stretch:condensed}
+h2{font-size:1.55rem;margin-bottom:14px;font-stretch:condensed}
+h3{font-size:1.15rem;font-stretch:condensed}
+p{margin:0 0 12px;max-width:72ch}
+.lead{font-size:1.1rem;color:var(--muted);max-width:60ch;margin-top:10px}
+.open{display:inline-block;margin-top:18px;background:var(--blaze);color:var(--mirage);text-decoration:none;font-family:var(--head);font-size:1.2rem;font-weight:600;padding:12px 22px;border-radius:5px}
+.open:hover{background:#FF7430}
+.hero{background:var(--mirage);color:var(--sand);border-color:var(--mirage)}
+.hero .lead{color:#B9CACF}
+.hero .route{border-color:#3A4A52}.hero .route li{border-color:#3A4A52;color:#B9CACF}.hero .route b{color:var(--sand)}
+.hero .route li.save{background:var(--sea);color:#D6E8E8}.hero .route li.cad{background:#22323A}
+.route{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:22px 0 0;padding:0;list-style:none;border:1px solid var(--rule);border-radius:5px;overflow:hidden}
+.route li{padding:12px 14px;border-left:1px solid var(--rule);font-size:.95rem}
+.route li:first-child{border-left:0}
+.route b{display:block;font-family:var(--head);font-size:1.05rem;font-weight:600}
+
+.pair{display:grid;grid-template-columns:9.5rem minmax(0,1fr) minmax(0,1fr);border-top:1px solid var(--rule)}
+.pair>div{padding:14px 16px;border-bottom:1px solid var(--rule)}
+.pair .h{font-family:var(--head);font-size:1.25rem;font-weight:600;color:var(--sea);background:var(--sand);border-bottom:2px solid var(--sea)}
+.pair .k{font-family:var(--head);font-weight:600;font-size:1.02rem;color:var(--muted)}
+.pair .k span{display:inline-block;min-width:1.4em;color:var(--blue)}
+code,kbd{font-family:var(--code);font-size:.86em}
+kbd{border:1px solid var(--rule);border-bottom-width:2px;border-radius:3px;padding:0 .3em;background:#fff}
+pre{font-family:var(--code);font-size:.82rem;line-height:1.5;background:var(--sand);border:1px solid var(--rule);border-radius:4px;padding:10px 12px;overflow-x:auto;margin:8px 0 0;white-space:pre}
+ol.steps{margin:0;padding:0;list-style:none;counter-reset:s}
+ol.steps>li{counter-increment:s;display:grid;grid-template-columns:2.4rem 1fr;gap:4px 12px;padding:12px 0;border-top:1px solid var(--rule)}
+ol.steps>li::before{content:counter(s);font-family:var(--head);font-size:1.6rem;font-weight:600;color:var(--blue);line-height:1}
+ol.steps>li>*{grid-column:2}
+ol.steps h3{margin-bottom:2px}
+.save-step{background:var(--seatint);margin:0 -12px;padding-left:12px!important;padding-right:12px!important;border-radius:4px}
+.save-step::before{color:var(--green)!important}
+.note{border-left:4px solid var(--blaze);background:#FFF1E8;padding:10px 14px;border-radius:0 4px 4px 0;margin:10px 0 0;max-width:76ch}
+.cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px}
+.cols>*,.pair>div{min-width:0}
+.cols .sheet{margin:0}
+.small{font-size:.92rem;color:var(--muted)}
+footer{font-size:.88rem;color:var(--muted);padding:6px 4px}
+@media (max-width:760px){
+  .sheet{padding:22px 18px}
+  .route{grid-template-columns:1fr 1fr}.route li:nth-child(3){border-left:0}.route li:nth-child(n+3){border-top:1px solid var(--rule)}
+  .pair{grid-template-columns:minmax(0,1fr)}.pair .h.blank{display:none}
+  .pair .h{border-bottom:1px solid var(--rule)}
+  .cols{grid-template-columns:minmax(0,1fr)}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+<section class="sheet hero" aria-labelledby="t">
+  <h1 id="t">Point File Unit Converter</h1>
+  <p class="lead">Converts the coordinates in a survey point file between metres, international feet and U.S. survey feet, with exact arithmetic. Every other character stays as it was, and the result is checked before you can save it.</p>
+  <a class="open" href="Point-File-Unit-Converter.html">Open the converter</a>
+  <ol class="route" aria-label="How a file travels">
+    <li><b>Your point file</b>.txt, .csv or .pnt</li>
+    <li><b>The converter</b>runs in your browser, offline</li>
+    <li class="save"><b>Point data for import</b>saved to Downloads</li>
+    <li class="cad"><b>Civil 3D</b>on a Windows computer</li>
+  </ol>
+</section>
+
+<section class="sheet" aria-labelledby="sys">
+  <h2 id="sys">On your computer</h2>
+  <div class="pair" role="table" aria-label="Windows and Mac instructions">
+    <div class="h blank" role="columnheader"></div><div class="h" role="columnheader">Windows</div><div class="h" role="columnheader">Mac</div>
+    <div class="k" role="rowheader"><span>1</span>Unpack</div>
+    <div role="cell">Right-click the downloaded zip and choose <b>Extract All</b>.</div>
+    <div role="cell">Double-click the zip. The folder appears beside it.</div>
+    <div class="k" role="rowheader"><span>2</span>Open</div>
+    <div role="cell">Double-click <code>Point-File-Unit-Converter.html</code>. It opens in your default browser. To choose Edge, Chrome or Brave, right-click and pick <b>Open with</b>.</div>
+    <div role="cell">Double-click <code>Point-File-Unit-Converter.html</code>. It opens in Safari. For Chrome, Control-click and pick <b>Open With</b>.</div>
+    <div class="k" role="rowheader"><span>3</span>Saved files</div>
+    <div role="cell">Your <b>Downloads</b> folder. If a file with the same name is already there, the browser adds (1) to the new one.</div>
+    <div role="cell">Your <b>Downloads</b> folder. Safari may ask once whether to allow downloads from the page. Choose Allow.</div>
+    <div class="k" role="rowheader"><span>4</span>Civil 3D</div>
+    <div role="cell">Import the saved point data on this computer.</div>
+    <div role="cell">Civil 3D runs only on Windows. Copy the saved point data to your Windows computer and import it there.</div>
+  </div>
+</section>
+
+<section class="sheet" aria-labelledby="conv">
+  <h2 id="conv">In the converter</h2>
+  <ol class="steps">
+    <li><h3>Load your point file</h3><p>Drop it on the page or click to choose it. It is read on your computer and never uploaded.</p></li>
+    <li><h3>Confirm the format</h3><p>Check the column preview. PENZD (point, easting, northing…) and PNEZD (point, northing, easting…) look alike, and the wrong choice swaps easting and northing.</p></li>
+    <li><h3>Declare the units</h3><p>Choose the units your file is <em>actually</em> in, and the units you want. The two feet differ: the international foot is exactly 0.3048 m, while the U.S. survey foot (legacy) is 1200/3937 m. The file itself cannot tell you which one it uses. If you know the true coordinates of one point, enter it under <em>Control points</em>; it can catch a wrong choice.</p></li>
+    <li><h3>Tick the confirmation, then Convert &amp; verify</h3><p>If the button stays grey, read the line beside it. Changing any setting clears the tick, so tick it again after each change.</p></li>
+    <li class="save-step"><h3>Click <em>Point data for import</em> to save</h3><p>Nothing is saved until you click it. This is the file for Civil 3D. The report and manifest are records; don't import them. <em>Save complete handoff</em> keeps everything in one page that re-checks itself when you open it.</p></li>
+  </ol>
+</section>
+
+<div class="cols">
+<section class="sheet" aria-labelledby="cad">
+  <h2 id="cad">Into Civil 3D</h2>
+  <p>Use <b>Import Points</b> and pick the point file format that matches the columns you confirmed, for example <em>PENZD (comma delimited)</em>.</p>
+  <p>Make sure the drawing's units match the units you converted to, and that no coordinate transformation is applied unless you intend one.</p>
+</section>
+<section class="sheet" aria-labelledby="later">
+  <h2 id="later">Check a file later</h2>
+  <p>Open the saved handoff page: it re-checks itself. Or open the converter, convert the same source with the same settings, and use <b>Re-upload saved output to verify</b>.</p>
+  <p class="small">A pass means the arithmetic is exact to the written decimals and nothing else changed. It doesn't confirm that the right units, columns or survey reference were chosen.</p>
+</section>
+</div>
+
+<section class="sheet" aria-labelledby="cli">
+  <h2 id="cli">Command line (optional)</h2>
+  <p>The same converter as a Python 3 script, with nothing else to install. It writes the point file plus a report and a manifest beside it; exit code 0 means converted and verified.</p>
+  <div class="cols">
+    <div><h3>Windows (PowerShell)</h3>
+<pre>py -3 pointfile_units.py convert --in points.txt --out points-m.txt --format PENZD --delimiter comma --header no --conversion USFeetToMeters --source-unit-reference "Survey report, sheet 2"</pre></div>
+    <div><h3>Mac (Terminal)</h3>
+<pre>python3 pointfile_units.py convert --in points.txt --out points-m.txt --format PENZD --delimiter comma --header no --conversion USFeetToMeters --source-unit-reference "Survey report, sheet 2"</pre></div>
+  </div>
+</section>
+
+<section class="sheet" aria-labelledby="sup">
+  <h2 id="sup">Supported</h2>
+  <p><b>Windows 11</b> with Edge, Chrome or Brave, and <b>macOS</b> with Safari or Chrome. The converter works offline. This is a pre-release: see <a href="https://github.com/freyjay/Unit_Converter/blob/master/docs/CURRENT-STATUS.md">what has been verified so far</a>.</p>
+</section>
+
+<footer>Point File Unit Converter. MIT License, copyright freyjay. Also included: <code>QUICK-START.md</code> (the same guide as text), <code>LICENSE</code> and <code>CHECKSUMS.sha256</code>.</footer>
+</main>
+</body>
+</html>
