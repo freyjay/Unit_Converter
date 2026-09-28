@@ -1,7 +1,7 @@
 {
  "package": "Unit_Converter (built from PointTruth team package 2026-09-26 r2)",
  "product_in_this_package": "PFU 3.3.6 browser and Python converter",
- "html_sha256": "dc3a86aae5dac73f9d46364fe60af6dc46486a584e6aefd0caeb0d7f94dfeab1",
+ "html_sha256": "d1f597439db5aaf05b27e46fdbaf8e84b5008ad8b53588287445d04018063d51",
  "python_sha256": "b6589870c4c2e587d3ef5bf21496db19a598d6adb449903e1b0ea61cb2f326cf",
  "application_script_sha256": [
   "242685711184a5078934439c4270654656e2df53d12b8e8ed5a731d377f34eef",
@@ -10,7 +10,7 @@
  ],
  "based_on_advisor_archive_sha256": "3e4967f1b82fccce5ae334b62207a79967fec9a3e37f836f438cfc1285f79446",
  "base_html_sha256": "a4e2b3883f6132d7d370daa1dfdbbc6e120cdb7679deaa628394956af04dc71a",
- "html_change": "Static text only (all script blocks identical): foot box points to control points as the check for a wrong declaration; control-point section summary says what it catches; scope note names international vs U.S. survey foot; download buttons labelled point data vs report/manifest (not for import), with titles. Revision 2: the foot box states that a control reveals a wrong unit choice only when the difference exceeds a justified tolerance. Unit_Converter 2026-09-27: foot box shortened with the tolerance qualification kept; \"Point data for import\" is the primary download; footer shows the page-text revision and states the license as intended. 2026-09-27.2: page background changed from a square grid to a tapered tumbling-blocks pattern (inline SVG in CSS, measured from the owner-supplied image); footer states the MIT license. 2026-09-27.3: background recoloured to light grey (#ECEEF0) with darker grey pattern lines (#9AA1A8), at the owner's request. 2026-09-27.4: pattern three times denser (68x113 px tile, strokes 2.0 to 1.0 px) with lines in #CBD2D9 on #ECEEF0, at the owner's request. 2026-09-28.1: colour theme from the owner's palette (Mirage, Deep Sea Green, Blaze Orange, Wild Sand); dark header band; CSS only, layout and all scripts unchanged. 2026-09-28.2: file drop box in #FFBD76 with a #9A5210 dashed edge, warm-brown small print, a hover shade and a deeper solid drag-over state (CSS only). 2026-09-28.3: next-step emphasis in #3CAEA3 (confirmation box once a file is loaded and unticked; Convert & verify when enabled; Point data for import once shown, with Convert returning to Mirage); CSS only, reacting to existing page states.",
+ "html_change": "Static text only (all script blocks identical): foot box points to control points as the check for a wrong declaration; control-point section summary says what it catches; scope note names international vs U.S. survey foot; download buttons labelled point data vs report/manifest (not for import), with titles. Revision 2: the foot box states that a control reveals a wrong unit choice only when the difference exceeds a justified tolerance. Unit_Converter 2026-09-27: foot box shortened with the tolerance qualification kept; \"Point data for import\" is the primary download; footer shows the page-text revision and states the license as intended. 2026-09-27.2: page background changed from a square grid to a tapered tumbling-blocks pattern (inline SVG in CSS, measured from the owner-supplied image); footer states the MIT license. 2026-09-27.3: background recoloured to light grey (#ECEEF0) with darker grey pattern lines (#9AA1A8), at the owner's request. 2026-09-27.4: pattern three times denser (68x113 px tile, strokes 2.0 to 1.0 px) with lines in #CBD2D9 on #ECEEF0, at the owner's request. 2026-09-28.1: colour theme from the owner's palette (Mirage, Deep Sea Green, Blaze Orange, Wild Sand); dark header band; CSS only, layout and all scripts unchanged. 2026-09-28.2: file drop box in #FFBD76 with a #9A5210 dashed edge, warm-brown small print, a hover shade and a deeper solid drag-over state (CSS only). 2026-09-28.3: next-step emphasis in #3CAEA3 (confirmation box once a file is loaded and unticked; Convert & verify when enabled; Point data for import once shown, with Convert returning to Mirage); CSS only, reacting to existing page states. 2026-09-28.4: the drop box keeps its resting colour on hover and drag-over (owner preference, most subtle); only the dashed edge turns solid while a file is dragged over it.",
  "packaging_changes": [
   "Mac and GitHub instructions",
   "Pinned cross-platform CI definitions (not yet executed)",
@@ -50,8 +50,8 @@
    "note": "Edge/Firefox targeted runs pending; Safari unclaimed"
   }
  },
- "html_text_revision": "2026-09-28.3",
+ "html_text_revision": "2026-09-28.4",
  "license": "MIT (see LICENSE), copyright freyjay, the sole contributor; confirmed by the owner on 2026-09-27",
- "release_revision": "2026-09-28.3",
+ "release_revision": "2026-09-28.4",
  "consumer_release_cross_platform": "Unit_Converter-2026-09-27.5.zip rebuilt on Windows by the partner is byte-identical to the Linux build (sha256 f3250b19b14cd8206d5bbd1226f12e8841fc0b90981741b0c7f611923a6fb371), confirming the pinned ZIP metadata on real Windows; identical compression output across future zlib versions is not claimed."
 }
