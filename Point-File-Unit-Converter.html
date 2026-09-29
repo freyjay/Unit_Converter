@@ -144,6 +144,16 @@ h3 .n,.prin .pl,.rl.hot .rlh,details.sfold>summary:hover h2,.btn.warn{color:#B83
 .drop{background:#FFBD76;border-color:#9A5210}
 .drop .ts{color:#3A2A1C}
 .drop.over{background:#FFBD76;border-color:#9A5210;border-style:solid}
+/* Guidance: declaration summary, unit clues (three levels), legacy note, readiness line */
+.decl{margin:12px 0 0;padding:8px 12px;border-left:4px solid var(--grid-strong);background:var(--vellum);font-size:14.5px}
+.clue{margin:10px 0 0;padding:10px 14px;border-radius:0 4px 4px 0;font-size:14.5px}
+.clue.against{border-left:4px solid #FF5B04;background:#FFF1E8}
+.clue.agree{border-left:4px solid #2B8A81;background:#E3F4F2}
+.clue.mixed,.clue.info{border-left:4px solid var(--grid-strong);background:var(--vellum)}
+.clue .ct{display:block;font-weight:700;margin-bottom:2px}
+.clue .acts{margin-top:8px;display:flex;gap:8px;flex-wrap:wrap}
+.legacy{margin:8px 0 0;font-size:14px;color:var(--ink-soft)}
+.ready{margin:10px 0 0;font-size:14.5px;color:var(--ink-soft)}
 /* Next step, #3CAEA3: the action that moves the user forward. Styling reacts to states the page already sets. */
 .btn.primary:not(:disabled){background:#3CAEA3;border-color:#2B8A81;color:#16232A}
 body:has(#dlBtn:not(.hidden)) #convertBtn:not(:disabled){background:#16232A;border-color:#16232A;color:#fff}
@@ -244,7 +254,10 @@ body:has(#fileMeta:not(:empty)) .confirm:has(#confirm:not(:checked)){border-colo
     <div class="field"><label>Decimals to write</label><select id="decimals"><option value="auto">Auto (find a precision that passes every check)</option><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option></select></div>
     <div class="field" style="min-width:260px"><label>Source unit reference (recorded, not checked)</label><input type="text" id="unitRef" placeholder="e.g. survey report &sect;2.1, LandXML header"></div>
   </div>
-  <div class="status warn"><span class="pl">Which foot?</span>International foot = 0.3048 m exactly; US survey foot = 1200/3937 m. They differ by 2 ppm (about 2 ft on a 1,000,000 ft coordinate), and the file cannot tell you which it is: the choice is yours and is recorded as declared. <strong>To check it,</strong> enter an independently known point under <em>Control points</em> below with the tolerance its source justifies. A wrong choice is refused only when the difference it causes exceeds that tolerance, so a point near zero or a loose tolerance may not tell the two feet apart.</div>
+  <div id="declSummary" class="decl hidden" aria-live="polite"></div>
+<div id="unitClue" class="clue hidden" role="status" aria-live="polite"></div>
+<div id="legacyHint" class="legacy hidden">U.S. survey foot (legacy): no longer used for new work in the United States since 1 January 2023, but still needed for data originally recorded in it.</div>
+<div class="status warn"><span class="pl">Which foot?</span>International foot = 0.3048 m exactly; US survey foot = 1200/3937 m. They differ by 2 ppm (about 2 ft on a 1,000,000 ft coordinate), and the file cannot tell you which it is: the choice is yours and is recorded as declared. <strong>To check it,</strong> enter an independently known point under <em>Control points</em> below with the tolerance its source justifies. A wrong choice is refused only when the difference it causes exceeds that tolerance, so a point near zero or a loose tolerance may not tell the two feet apart.</div>
   <details><summary class="ts" style="cursor:pointer">Optional: control points and anchors. An independently known point can catch a wrong unit or foot declaration (checked on the written values; recorded in the report)</summary>
     <div class="anch" id="anchors"></div>
     <div class="ts" style="margin-top:10px">Control points, one per line: <span class="mono">id v1 v2 v3 tolerance</span> in target units, separated by spaces, commas or | (needs a point-number column)</div>
@@ -265,6 +278,7 @@ body:has(#fileMeta:not(:empty)) .confirm:has(#confirm:not(:checked)){border-colo
     <button class="btn hidden" id="dlRepBtn" type="button" title="Human-readable record of the conversion. Not point data: do not import this file">&#8681; Report (.txt, not for import)</button>
     <button class="btn hidden" id="dlManBtn" type="button" title="Machine-readable record used to re-verify the conversion. Not point data">&#8681; Manifest (.json, not for import)</button>
   </div>
+<div id="readyHint" class="ready" aria-live="polite"></div>
   <div id="status"></div>
   <pre class="log hidden" id="log"></pre>
   <div id="reverify" class="hidden" style="margin-top:14px">
@@ -290,7 +304,7 @@ body:has(#fileMeta:not(:empty)) .confirm:has(#confirm:not(:checked)){border-colo
     <div class="rule"><b>Privacy</b>No network: the page&rsquo;s content policy blocks every connection. A complete handoff embeds the original source; share it only with people who should have that data. A handoff contains this app&rsquo;s code; open only copies from a source you trust.</div>
   </div></details>
 </div>
-<footer class="sheetfoot">TOOL-01 v3.3.6 &#183; PAGE TEXT 2026-09-28.5 &#183; UNITS ARE NOT COORDINATE SYSTEMS &#183; A PASS IS ABOUT BYTES AND ARITHMETIC, NOT ABOUT THE SURVEY &#183; MIT LICENSE</footer>
+<footer class="sheetfoot">TOOL-01 v3.3.6 &#183; PAGE TEXT 2026-09-29.1 &#183; UNITS ARE NOT COORDINATE SYSTEMS &#183; A PASS IS ABOUT BYTES AND ARITHMETIC, NOT ABOUT THE SURVEY &#183; MIT LICENSE</footer>
 </div>
 <script id="savedPackage" type="application/json">null</script>
 <script id="engine">
@@ -620,9 +634,100 @@ var WORKER_SRC=ENGINE+'\nself.onmessage=function(ev){var d=ev.data;var progress=
 var S={gen:0,rev:0,runToken:0,name:'',bytes:null,text:'',bom:false,lines:[],hash:null,roles:[],ncol:0,out:null,worker:null};
 function setStatus(kind,label,msg,hdr){ var st=$('status'); st.innerHTML=''; var d=document.createElement('div'); d.className='status '+kind; var pl=document.createElement('span'); pl.className='pl'; pl.textContent=label; d.appendChild(pl); d.appendChild(document.createTextNode(msg)); st.appendChild(d); $('hdrStatus').textContent=(hdr||label).toLowerCase(); }
 function stopWorker(){ if(S.worker){ S.worker.terminate(); S.worker=null; } $('cancelBtn').classList.add('hidden'); }
-function invalidate(){ S.rev++; stopWorker(); S.out=null; $('ackWarn').checked=false; $('ackWrap').classList.add('hidden'); ['dlBtn','dlRepBtn','dlManBtn','dlHandoffBtn','reverify'].forEach(function(id){$(id).classList.add('hidden');}); $('log').classList.add('hidden'); $('reupResult').textContent=''; $('confirm').checked=false; updateButtons(); if(S.bytes)setStatus('warn','Not verified','Settings changed. Preview or convert again.'); }
+function invalidate(){ S.rev++; stopWorker(); S.out=null; $('ackWarn').checked=false; $('ackWrap').classList.add('hidden'); ['dlBtn','dlRepBtn','dlManBtn','dlHandoffBtn','reverify'].forEach(function(id){$(id).classList.add('hidden');}); $('log').classList.add('hidden'); $('reupResult').textContent=''; $('confirm').checked=false; updateButtons(); if(S.bytes)setStatus('warn','Not verified','Settings changed. Review them and tick the confirmation box again to enable Preview and Convert & verify.'); }
 function convName(){ var mode=$('mode').value; if(mode==='custom')return 'Custom'; var f=$('from').value,t=$('to').value; if(!f||!t)return ''; if(f===t)return ''; return P.CONV_BY_UNITS[f+'>'+t]||''; }
-function updateButtons(){ var ok=!!(S.bytes&&$('format').value&&convName()&&$('confirm').checked&&(convName()!=='Custom'||$('customFactor').value.trim()!=='')&&!S.worker); $('previewBtn').disabled=!ok; $('convertBtn').disabled=!ok; $('customWrap').classList.toggle('hidden',$('mode').value!=='custom'); $('unitsWrap').classList.toggle('hidden',$('mode').value==='custom'); }
+var UN={m:'metres',ft:'international feet',usft:'U.S. survey feet'};
+  var CLUE_WORD={m:'metres',feet:'feet (they don\u2019t say which foot)',ft:'international feet',usft:'U.S. survey feet'};
+  var FAM={m:'m',feet:'f',ft:'f',usft:'f'};
+  var clueDismiss=null;
+  // Unit words in a label. Only unambiguous text counts; a label naming two units is 'ambiguous'.
+  function unitClass(txt){ var t=String(txt).toLowerCase(), hit={};
+    if(/\busft\b|\bu\.?s\.?\s*(survey\s*)?(ft|feet|foot)\b|\bsurvey\s*(ft|feet|foot)\b/.test(t))hit.usft=1;
+    else if(/\b(international|intl|int'l)\s*(ft|feet|foot)\b|\bift\b/.test(t))hit.ft=1;
+    else if(/\(ft\)|\[ft\]|\bft\b|\bfeet\b|\bfoot\b/.test(t))hit.feet=1;
+    if(/\(m\)|\[m\]|\bmetres?\b|\bmeters?\b/.test(t))hit.m=1;
+    var k=Object.keys(hit); return k.length===1?k[0]:(k.length>1?'ambiguous':null); }
+  // Clues come only from the file's own text: coordinate fields of a header row, and '# units: ...' comments. Never the file name.
+  function clueScan(){ if(!S.bytes||!S.lines||!S.lines.length||$('mode').value==='custom')return null;
+    var items=[], delim=$('delim').value, hdr=$('header').value==='yes', seen=false, n=0, LIMIT=500, i;
+    for(i=0;i<S.lines.length&&n<LIMIT;i++){ var raw=S.lines[i][0].replace(/^\ufeff/,''), s=P.wsTrim(raw); if(s==='')continue; n++;
+      if(s[0]==='#'){ var m=/^#\s*(?:coordinate\s+)?units?\s*[:=]\s*(.+)$/i.exec(s);
+        if(m){ var v=P.wsTrim(m[1]), c=/^(m|metres?|meters?)$/i.test(v)?'m':unitClass(v); if(c)items.push({kind:'comment',line:i+1,text:s,cls:c}); } continue; }
+      if(!seen){ seen=true; if(hdr){ var f=safeTok(raw,delim);
+        for(var k=0;k<S.roles.length;k++){ if(S.roles[k]!=='coord'||!f[k])continue; var cc=unitClass(f[k].value); if(cc)items.push({kind:'header',line:i+1,col:k+1,text:f[k].value,cls:cc}); } } } }
+    return {items:items,bounded:i<S.lines.length&&n>=LIMIT}; }
+  function clueVerdict(scan,from){ if(!scan||!scan.items.length)return null; var cls={}; scan.items.forEach(function(it){cls[it.cls]=1;});
+    if(cls.ambiguous||(cls.m&&(cls.feet||cls.ft||cls.usft))||(cls.ft&&cls.usft))return {level:'mixed',items:scan.items};
+    var c=cls.usft?'usft':cls.ft?'ft':cls.feet?'feet':'m';
+    if(!from)return {level:'info',cls:c,items:scan.items};
+    var agree=c==='m'?from==='m':(c==='feet'?(from==='ft'||from==='usft'):from===c);
+    return {level:agree?'agree':'against',cls:c,items:scan.items}; }
+  function clip(s){ s=String(s); return s.length>60?s.slice(0,57)+'\u2026':s; }
+  function describeItems(items){ return items.slice(0,4).map(function(it){ return (it.kind==='header'?'header line '+it.line+', column '+it.col:'line '+it.line)+': \u201c'+clip(it.text)+'\u201d'; }).join('; ')+(items.length>4?'; and '+(items.length-4)+' more':''); }
+  function clueKey(){ return [S.gen,S.hash||S.name,$('format').value,$('delim').value,$('header').value,$('mode').value,$('from').value,$('to').value,S.roles.join(',')].join('|'); }
+  function updateClue(){ var box=$('unitClue'); box.textContent=''; box.className='clue hidden';
+    if(clueDismiss!==null&&clueDismiss!==clueKey())clueDismiss=null; // any relevant change ends a dismissal for good
+    var v=clueVerdict(clueScan(),$('from').value); if(!v)return; if(v.level==='against'&&clueDismiss===clueKey())return;
+    var t=document.createElement('span'), p=document.createElement('div'), fromName=UN[$('from').value]; t.className='ct';
+    if(v.level==='against'){ t.textContent='Check your units'; p.textContent='This file\u2019s own labels say '+CLUE_WORD[v.cls]+' ('+describeItems(v.items)+'), but you declared the source as '+fromName+'. Labels can be outdated if this file came from an earlier conversion, so check the survey source before changing anything. You make the final call.'; }
+    else if(v.level==='agree'){ t.textContent='The file\u2019s labels agree'; p.textContent='This file\u2019s own labels say '+CLUE_WORD[v.cls]+' ('+describeItems(v.items)+'), consistent with your declaration of '+fromName+'. Labels can be outdated, so this is not proof.'; }
+    else if(v.level==='info'){ t.textContent='The file\u2019s labels'; p.textContent='This file\u2019s own labels say '+CLUE_WORD[v.cls]+' ('+describeItems(v.items)+'). Labels can be outdated after an earlier conversion.'; }
+    else { t.textContent='Unit labels disagree'; p.textContent='The unit labels in this file don\u2019t agree with each other ('+describeItems(v.items)+'). No suggestion is made: check the survey source.'; }
+    box.appendChild(t); box.appendChild(p);
+    if(v.level==='against'){ var acts=document.createElement('div'); acts.className='acts';
+      (v.cls==='feet'?['ft','usft']:[v.cls]).forEach(function(u){ var b=document.createElement('button'); b.type='button'; b.className='btn small'; b.textContent='Use '+UN[u]+' as source';
+        b.addEventListener('click',function(){ $('from').value=u; $('from').dispatchEvent(new Event('change')); }); acts.appendChild(b); });
+      var keep=document.createElement('button'); keep.type='button'; keep.className='btn small'; keep.textContent='Keep my choice';
+      keep.addEventListener('click',function(){ clueDismiss=clueKey(); updateClue(); }); acts.appendChild(keep); box.appendChild(acts); }
+    box.className='clue '+v.level; }
+  function clueResultLine(r){ var v=clueVerdict(clueScan(),$('from').value); if(!v)return ''; var t=r&&r.F&&r.F.outU, out=[];
+    if(v.level==='against')out.push('You kept this choice although the file\u2019s own labels say '+CLUE_WORD[v.cls]+'.');
+    else if(v.level==='agree')out.push('The file\u2019s own labels agree with your declaration; labels can be outdated, so this is not proof.');
+    else if(v.level==='mixed')out.push('The unit labels in this file disagree with each other; check the survey source.');
+    if(v.level!=='mixed'&&t&&FAM[t]&&FAM[v.cls]!==FAM[t])out.push('The header and comment text was copied unchanged and still says '+CLUE_WORD[v.cls]+'; the coordinates are now in '+UN[t]+'.');
+    return out.join('\n'); }
+  // Declaration summary, using the engine's own exact factor.
+  function terminates(r){ var d=r.d<0n?-r.d:r.d; while(d%2n===0n)d/=2n; while(d%5n===0n)d/=5n; return d===1n; }
+  function trimDec(s){ return s.indexOf('.')>=0?s.replace(/0+$/,'').replace(/\.$/,''):s; }
+  function updateDecl(){ var d=$('declSummary'), name=convName(); d.textContent=''; d.classList.add('hidden'); if(!S.bytes||!name)return;
+    var dec=$('decimals').value, decTxt=dec==='auto'?'Auto precision':dec+' decimals';
+    if(name==='Custom'){ var cf=$('customFactor').value.trim(); if(!cf)return; d.textContent='You are converting with a custom factor of '+cf+' (applied exactly), writing '+decTxt+'.'; d.classList.remove('hidden'); return; }
+    var fr=P.FACTORS[name]; if(!fr)return; var r=fr[0], exact=terminates(r);
+    var b=document.createElement('b'); b.textContent=UN[fr[1]]+' \u2192 '+UN[fr[2]];
+    d.appendChild(document.createTextNode('You are converting: ')); d.appendChild(b);
+    d.appendChild(document.createTextNode(', factor '+P.ratStr(r)+(exact?' = '+trimDec(P.ratDec(r,12))+' exactly':' \u2248 '+P.ratDec(r,8)+' (the exact fraction is applied)')+', writing '+decTxt+'.'));
+    d.classList.remove('hidden'); }
+  // Before/after example: the largest coordinate, and the value actually written for it.
+  function coordNames(){ var f=$('format').value, sp=P.FORMATS[f], names={};
+    if(!sp||f==='CUSTOM'){ S.roles.forEach(function(r,i){ if(r==='coord')names[i]='column '+(i+1); }); return names; }
+    var letters=f.replace(/[PD]/g,''), N={E:'Easting',N:'Northing',Z:'Elevation',X:'X',Y:'Y'};
+    sp.coords.forEach(function(c,k){ names[c]=(N[letters[k]]||'coordinate')+' (column '+(c+1)+')'; }); return names; }
+  function absGreater(a,b){ if(/[eE]/.test(a+b))return Math.abs(Number(a))>Math.abs(Number(b));
+    function norm(s){ s=String(s).trim().replace(/^[+-]/,''); var q=s.split('.'); return [q[0].replace(/^0+/,''),(q[1]||'').replace(/0+$/,'')]; }
+    var x=norm(a), y=norm(b); if(x[0].length!==y[0].length)return x[0].length>y[0].length; if(x[0]!==y[0])return x[0]>y[0];
+    var L=Math.max(x[1].length,y[1].length); return (x[1]+'0'.repeat(L-x[1].length))>(y[1]+'0'.repeat(L-y[1].length)); }
+  function exampleLine(r){ try{ if(!r||!r.bytes)return ''; var names=coordNames(), delim=$('delim').value, hdr=$('header').value==='yes';
+    var ol=P.splitLines(new TextDecoder('utf-8').decode(r.bytes).replace(/^\ufeff/,'')), sl=S.lines; if(ol.length!==sl.length)return '';
+    var best=null, seen=false, rows=0, LIMIT=20000, bounded=false;
+    for(var i=0;i<sl.length;i++){ var s=P.wsTrim(sl[i][0]); if(s===''||s[0]==='#')continue; if(!seen){seen=true; if(hdr)continue;} if(++rows>LIMIT){bounded=true;break;}
+      var a=safeTok(sl[i][0].replace(/^\ufeff/,''),delim), o=safeTok(ol[i][0],delim);
+      for(var c=0;c<S.roles.length;c++){ if(S.roles[c]!=='coord'||!a[c]||!o[c])continue;
+        if(best===null||absGreater(a[c].value,best.src)){ var id=null; for(var k=0;k<S.roles.length;k++){ if(S.roles[k]==='id'&&a[k]){id=a[k].value;break;} }
+          best={src:a[c].value,out:o[c].value,col:c,line:i+1,id:id}; } } }
+    if(!best)return ''; var fu=r.F&&r.F.inU, tu=r.F&&r.F.outU;
+    return 'Example ('+(bounded?'largest value in the first 20,000 rows':'largest value')+'): '+(best.id!==null?'point '+best.id:'line '+best.line)+', '+(names[best.col]||('column '+(best.col+1)))+': '+best.src+(UN[fu]?' '+UN[fu]:'')+' \u2192 '+best.out+(UN[tu]?' '+UN[tu]:'')+'.';
+  }catch(e){ return ''; } }
+  function readinessText(){ if(!S.bytes)return 'Load a point file to begin.'; if(!$('format').value)return 'Choose the file format in step 2.';
+    if($('mode').value==='custom'){ if($('customFactor').value.trim()==='')return 'Enter the custom factor in step 3.'; }
+    else { var f=$('from').value,t=$('to').value; if(!f||!t)return 'Choose the source units and the target units in step 3.'; if(f===t)return 'Source and target are both '+UN[f]+'. Choose a different target unit.'; }
+    if(S.worker)return 'Working\u2026';
+    if(!$('confirm').checked)return 'Review the settings, then tick the confirmation box in step 3. Changing any setting clears it.';
+    return 'Ready: Preview or Convert & verify.'; }
+  function updateGuidance(){ updateDecl(); updateClue();
+    $('legacyHint').classList.toggle('hidden',!($('mode').value!=='custom'&&($('from').value==='usft'||$('to').value==='usft')));
+    $('readyHint').textContent=readinessText(); }
+  
+function updateButtons(){ var ok=!!(S.bytes&&$('format').value&&convName()&&$('confirm').checked&&(convName()!=='Custom'||$('customFactor').value.trim()!=='')&&!S.worker); $('previewBtn').disabled=!ok; $('convertBtn').disabled=!ok; $('customWrap').classList.toggle('hidden',$('mode').value!=='custom'); $('unitsWrap').classList.toggle('hidden',$('mode').value==='custom'); updateGuidance(); }
 
 // ---------------- load ----------------
 function loadBytes(name,u8){
@@ -695,9 +800,9 @@ function run(dry){
         if(!dry&&!replay.ok){ setStatus('bad','Refused','The record this conversion would publish does not re-verify from its own serialized form; nothing published:\n  '+(replay.unsupported||(replay.fresh.concat(replay.consistency)).slice(0,6).join('\n  '))); window._lastRun={error:'self-replay failed'}; return; }
         var report=renderReport(manifest,r,dry,st,sp,unitRef);
         $('log').textContent=report; $('log').classList.remove('hidden');
-        var warnTxt=r.rep.warnings.join('\n'); var srcName={m:'metres',ft:'international feet',usft:'U.S. survey feet'}[r.F.inU]; var unitNote=srcName?"The tool can't tell what units your file is in. Please make sure the source file is really in "+srcName+".":"The tool can't tell what units your file is in. Please make sure the custom factor matches the units your file is really in.";
-        if(dry){ S.out=null; setStatus(warnTxt?'warn':'ok','Dry run passed',unitNote+'\n'+(warnTxt?warnTxt+'\n':'')+r.rep.counts.data.toLocaleString()+' data rows would convert at '+r.d+' decimals. Max reverse error '+r.rep.max_error+' '+r.F.inU+'. Check the ranges against your site, then Convert.'); }
-        else { var manifestText=JSON.stringify(manifest,null,2); S.out={bytes:r.bytes,name:outName,report:report,manifest:manifest,manifestText:manifestText,manifestBytes:new TextEncoder().encode(manifestText),hash:r.outHash,gen:gen,rev:rev,st:st,decimals:r.d}; ['dlBtn','dlRepBtn','dlManBtn','dlHandoffBtn','reverify'].forEach(function(id){$(id).classList.remove('hidden');}); setStatus(warnTxt?'warn':'ok','Arithmetic and preservation checks passed',unitNote+'\n'+(warnTxt?warnTxt+'\n':'')+r.rep.counts.data.toLocaleString()+' data rows converted at '+r.d+' decimals and independently re-verified. Output SHA-256 '+r.outHash.slice(0,16)+'\u2026 Save the complete handoff, or download the file with its report and manifest.','checks passed'); }
+        var warnTxt=r.rep.warnings.join('\n'); var srcName={m:'metres',ft:'international feet',usft:'U.S. survey feet'}[r.F.inU]; var unitNote=srcName?"The tool can't tell what units your file is in. Please make sure the source file is really in "+srcName+".":"The tool can't tell what units your file is in. Please make sure the custom factor matches the units your file is really in."; var guideLines=(function(){ var a=[clueResultLine(r),exampleLine(r)].filter(Boolean); return a.length?a.join('\n')+'\n':''; })();
+        if(dry){ S.out=null; setStatus(warnTxt?'warn':'ok','Dry run passed',unitNote+'\n'+guideLines+(warnTxt?warnTxt+'\n':'')+r.rep.counts.data.toLocaleString()+' data rows would convert at '+r.d+' decimals. Max reverse error '+r.rep.max_error+' '+r.F.inU+'. Check the ranges against your site, then Convert.'); }
+        else { var manifestText=JSON.stringify(manifest,null,2); S.out={bytes:r.bytes,name:outName,report:report,manifest:manifest,manifestText:manifestText,manifestBytes:new TextEncoder().encode(manifestText),hash:r.outHash,gen:gen,rev:rev,st:st,decimals:r.d}; ['dlBtn','dlRepBtn','dlManBtn','dlHandoffBtn','reverify'].forEach(function(id){$(id).classList.remove('hidden');}); setStatus(warnTxt?'warn':'ok','Arithmetic and preservation checks passed',unitNote+'\n'+guideLines+(warnTxt?warnTxt+'\n':'')+r.rep.counts.data.toLocaleString()+' data rows converted at '+r.d+' decimals and independently re-verified. Output SHA-256 '+r.outHash.slice(0,16)+'\u2026 Save the complete handoff, or download the file with its report and manifest.','checks passed'); }
         window._lastRun={out:r.text,report:report,manifest:manifest,name:outName,byteLength:r.bytes.length,sha256:r.outHash,bytes:window.PFU_TEST_FULL_DIAGNOSTICS===true?Array.prototype.slice.call(r.bytes):null};   // F11-04: no duplicate payload copy in production
       }); });
     });

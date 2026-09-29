@@ -306,6 +306,50 @@ with sync_playwright() as p:
     pgH=ctx.new_page(); pgH.goto(file_uri(hH)); okH=wait_hdr(pgH,'handoff verified'); stH=pgH.text_content('#status') or ''
     check('R9-02 restored editor shows the resolved header (yes) and the written decimals (8), confirmation cleared, and says the editor is for a NEW run', okH and pgH.input_value('#header')=='yes' and pgH.input_value('#decimals')=='8' and not pgH.is_checked('#confirm') and 'NEW run' in stH and 'auto' in stH, (pgH.input_value('#header'),pgH.input_value('#decimals'),pgH.is_checked('#confirm'),stH[-200:]))
     pgH.check('#confirm'); pgH.click('#convertBtn'); check('R9-02 a new run with the pre-filled editor reproduces the recorded operation (header row skipped, 8 decimals)', wait_hdr(pgH,'checks passed',15) and 'data 1' in pgH.text_content('#log') and 'header 1' in pgH.text_content('#log')); pgH.close()
+    # ---- guidance (owner, 2026-09-29): readiness, declaration summary, unit clues from the file's own text, before/after example ----
+    SIXROWS=['101,19857.2577,20260.4556,100.3058,PT_BASE','102,19875.4801,20207.7198,101.0929,PT_CHECK','110,1000000.0000,2000000.0000,0.0000,UNIT_CHECK','150,-100.0000,250.0000,-5.0000,NEGATIVE_TEST','201,123.4567,765.4321,0.1250,AXIS_CHECK','901,0.0000,10.0000,1.0000,ORIGIN_CHECK']
+    def gbytes(lines): return ('\r\n'.join(lines)+'\r\n').encode()
+    pgG=ctx.new_page(); pgG.goto(APP); pgG.wait_for_timeout(400)
+    gt=lambda sel: ' '.join((pgG.text_content(sel) or '').split())
+    def gload(name, lines, src=None, dst=None, dec='8'):
+        pgG.evaluate("window._loadBytes(%r, %s)" % (name, list(gbytes(lines)))); pgG.wait_for_timeout(250); pgG.select_option('#mode','units')
+        if src is not None: pgG.select_option('#from',src)
+        if dst is not None: pgG.select_option('#to',dst)
+        pgG.select_option('#decimals',dec); pgG.wait_for_timeout(80)
+    def grun(dry=False):
+        pgG.check('#confirm'); pgG.click('#previewBtn' if dry else '#convertBtn'); t0=time.time()
+        while time.time()-t0<20 and not (pgG.text_content('#hdrStatus') or '').startswith(('checks passed','dry run passed','refused')): pgG.wait_for_timeout(100)
+        return gt('#status')
+    gclass=lambda: pgG.get_attribute('#unitClue','class') or ''
+    gbtns=lambda: [x.strip() for x in pgG.eval_on_selector_all('#unitClue button','e=>e.map(b=>b.textContent)')]
+    check('G1 fresh page: readiness asks for a file', gt('#readyHint')=='Load a point file to begin.')
+    gload('six.csv', SIXROWS, '', ''); check('G2 no units: readiness names them', gt('#readyHint').startswith('Choose the source units and the target units'))
+    pgG.select_option('#from','ft'); pgG.select_option('#to','ft'); check('G2b same units: readiness names the problem', gt('#readyHint')=='Source and target are both international feet. Choose a different target unit.')
+    pgG.select_option('#to','m'); check('G3 summary shows the exact factor', '381/1250 = 0.3048 exactly' in gt('#declSummary') and 'international feet \u2192 metres' in gt('#declSummary'), gt('#declSummary'))
+    check('G3b unticked: readiness says to tick', 'tick the confirmation box' in gt('#readyHint')); pgG.check('#confirm'); check('G3c ticked: ready', gt('#readyHint').startswith('Ready'))
+    s=grun(); check('G4 pass: reminder names the source and the example uses the written value', 'really in international feet.' in s and 'Example (largest value): point 110, Northing (column 3): 2000000.0000 international feet \u2192 609600.00000000 metres.' in s, s[:300])
+    pgG.select_option('#decimals','6'); check('G4b settings change: the message says to tick again', 'tick the confirmation box again' in gt('#status'))
+    gload('six-M-FT.csv', SIXROWS, 'm', 'ft'); check('G5 owner incident, unlabelled file declared metres: no clue notice (file name ignored)', 'hidden' in gclass())
+    s=grun(); check('G5b owner incident: the example makes the 3.28x jump visible', 'point 110, Northing (column 3): 2000000.0000 metres \u2192 6561679.79002625 international feet.' in s and pgG.text_content('#hdrStatus')=='checks passed', s[:300])
+    HFT=['Point,Easting (ft),Northing (ft),Elevation (ft),Description']+SIXROWS
+    gload('hft.csv', HFT, 'm', 'ft'); check('G6 feet header, declared metres: warning with explicit choices', 'against' in gclass() and gbtns()==['Use international feet as source','Use U.S. survey feet as source','Keep my choice'] and 'can be outdated' in gt('#unitClue'), (gclass(), gbtns()))
+    pgG.click('#unitClue button:has-text("Use international feet as source")'); pgG.wait_for_timeout(100)
+    check('G6b [Use ...] changes only the source and clears the tick', pgG.input_value('#from')=='ft' and pgG.input_value('#to')=='ft' and not pgG.is_checked('#confirm') and 'agree' in gclass())
+    gload('hft.csv', HFT, 'ft', 'm'); check('G7 feet header, declared feet: calm agreement', 'agree' in gclass() and not gbtns())
+    s=grun(); check('G7b result: agreement and the preserved-label note', 'labels agree' in s and 'still says feet' in s and 'coordinates are now in metres' in s, s[:400])
+    gload('hm.csv', ['Point,Easting (m),Northing (m),Elevation (m),Description']+SIXROWS, 'ft', 'm'); check('G8 metre header, declared feet: one explicit choice', 'against' in gclass() and gbtns()==['Use metres as source','Keep my choice'], gbtns())
+    gload('hmix.csv', ['Point,Easting (m),Northing (m),Elevation (ft),Description']+SIXROWS, 'ft', 'm'); check('G9 mixed labels: neutral note, no suggestion', 'mixed' in gclass() and not gbtns())
+    gload('cf.csv', ['# units: feet']+SIXROWS, 'm', 'ft'); check('G10 "# units: feet" comment counts', 'against' in gclass())
+    gload('ct.csv', ['# target units: metres','# converted from ft to m']+SIXROWS, 'ft', 'm'); check('G10b other comments do not count', 'hidden' in gclass())
+    gload('cd.csv', ['Point,Easting,Northing,Elevation,Description (ft)']+SIXROWS, 'm', 'ft'); check('G10c a description column does not count', 'hidden' in gclass())
+    gload('hft.csv', HFT, 'm', 'ft'); pgG.click('#unitClue button:has-text("Keep my choice")'); hid='hidden' in gclass()
+    pgG.select_option('#to','usft'); back='against' in gclass(); pgG.select_option('#to','ft')
+    check('G11 Keep my choice hides; a units change ends the dismissal for good', hid and back and 'against' in gclass())
+    gload('hft.csv', HFT, 'usft', 'm'); check('G12 bare "ft" is compatible with the U.S. survey foot', 'agree' in gclass())
+    gload('hft.csv', HFT, 'm', 'usft'); check('G13 legacy note and a non-terminating factor', pgG.is_visible('#legacyHint') and '3937/1200 \u2248 3.28083333' in gt('#declSummary'), gt('#declSummary'))
+    gload('hx.csv', ['Point,<b>E</b> (m),Northing (m),Elevation (m),Description']+SIXROWS, 'ft', 'm')
+    check('G14 label text is shown literally, never as markup', '<b>E</b> (m)' in pgG.text_content('#unitClue') and pgG.query_selector('#unitClue b') is None)
+    pgG.close()
     # ---- slow lifecycle at scale (PFU_SLOW=1): the construction defect found at the 64 MiB cap is only visible at scale ----
     if os.environ.get('PFU_SLOW')=='1':
         import random; random.seed(5); parts=[]; size=0; i=0
