@@ -137,8 +137,8 @@ class PlaywrightDriver:
         if not st.startswith("loaded"): raise RuntimeError("load: " + st)
         return {"status": st[:40]}
     def convert(self):
-        pg = self.pg; pg.select_option("#format", "PENZD"); pg.select_option("#header", "no"); pg.select_option("#mode", "units"); pg.select_option("#from", "ft"); pg.select_option("#to", "m"); pg.check("#confirm"); pg.click("#convertBtn"); st = self._wait(pg, ["verified", "refused"], 3600)
-        if not st.startswith("verified"): raise RuntimeError("convert: " + st)
+        pg = self.pg; pg.select_option("#format", "PENZD"); pg.select_option("#header", "no"); pg.select_option("#mode", "units"); pg.select_option("#from", "ft"); pg.select_option("#to", "m"); pg.check("#confirm"); pg.click("#convertBtn"); st = self._wait(pg, ["checks passed", "refused"], 3600)
+        if not st.startswith("checks passed"): raise RuntimeError("convert: " + st)
         return {"status": st[:40]}
     def download(self, pg, button, dest):
         with pg.expect_download(timeout=3600000) as d: pg.click(button)
@@ -172,7 +172,7 @@ class FakeDriver:
         if self.fail_at == stage: raise RuntimeError("injected failure at " + stage)
     def new_context(self, entry): self._maybe("browser_context")
     def load(self, src): self._maybe("load"); return {"status": "loaded"}
-    def convert(self): self._maybe("convert_verify"); return {"status": "verified"}
+    def convert(self): self._maybe("convert_verify"); return {"status": "checks passed"}
     def download_producer(self, o0, m0): self._maybe("download_from_producer"); o0.write_bytes(b"1 3.0480 6.0960 9.1440 \"G\"\n"); m0.write_text('{"fake":1}', encoding="utf-8")
     def save_handoff(self, hp):
         self._maybe("save_handoff"); import base64

@@ -48,7 +48,8 @@ with sync_playwright() as p:
         return pg.text_content('#status').replace('\n',' '), (pg.evaluate('window._lastRun') or {})
     def same(pyfile, r): return r.get('bytes') is not None and bytes(r['bytes'])==rd(pyfile)   # full bytes, BOM included
     check('buttons disabled until confirmed', pg.is_disabled('#convertBtn'))
-    load('penzd.txt','PENZD','IntlFeetToMeters'); s,r=go(); check('T1 verified and == python bytes', 'Verified' in s and same('penzd_m.txt',r))
+    load('penzd.txt','PENZD','IntlFeetToMeters'); s,r=go(); check('T1 verified and == python bytes', 'checks passed' in s and same('penzd_m.txt',r))
+    check('pass message names the declared source (international feet), no bare Verified', 'Arithmetic and preservation checks passed' in s and 'really in international feet.' in s and 'Verified' not in s and pg.text_content('#hdrStatus')=='checks passed')
     pg.select_option('#to','usft'); pg.wait_for_timeout(100); check('3.5 settings change invalidates result', pg.is_hidden('#dlBtn') and not pg.is_checked('#confirm'))
     load('penzd.txt','PENZD','IntlFeetToMeters'); pg.evaluate("window._lastRun=null"); pg.click('#convertBtn'); pg.evaluate("window._loadBytes('sci.txt', %s)"%list(rd('sci.txt'))); pg.wait_for_timeout(1200)
     check('3.5 loading B mid-run cannot publish A', pg.evaluate('window._lastRun')==None and pg.is_hidden('#dlBtn') and 'sci.txt' in pg.text_content('#fileMeta'))
@@ -75,10 +76,11 @@ with sync_playwright() as p:
     load('deccomma.txt','PENZD','IntlFeetToMeters'); s,r=go(); check('4.5 decimal comma ws refused', 'Refused' in s)
     load('deccomma2.csv','PENZD','IntlFeetToMeters'); s,r=go(); check('4.5 decimal comma csv refused', 'found 8' in s)
     load('intcoords.txt','ENZ','IntlFeetToMeters'); s,r=go(); check('integer coords need acknowledgement', 'mapping warning' in s and not pg.is_hidden('#ackWrap'))
-    pg.check('#ackWarn'); s,r=go(); check('integer coords pass after acknowledgement', 'Verified' in s)
+    pg.check('#ackWarn'); s,r=go(); check('integer coords pass after acknowledgement', 'checks passed' in s)
     load('neg.txt','PENZD','Custom','1'); s,r=go(); check('negatives == python', same('o.txt',r))
     load('penzd.txt','PENZD','IntlFeetToMeters'); pg.select_option('#decimals','4'); pg.check('#confirm'); s,r=go(); check('too few decimals refused (4-dp feet to 4-dp metres)', 'verification failed' in s)
-    load('penzd_m.txt','PENZD','MetersToIntlFeet'); pg.select_option('#decimals','4'); pg.check('#confirm'); s,r=go(); check('exact round trip reproduces source bytes', 'Verified' in s and r['out'].encode()==rd('penzd.txt'))
+    load('penzd_m.txt','PENZD','MetersToIntlFeet'); pg.select_option('#decimals','4'); pg.check('#confirm'); s,r=go(); check('exact round trip reproduces source bytes', 'checks passed' in s and r['out'].encode()==rd('penzd.txt'))
+    check('pass message names the declared source (metres)', 'really in metres.' in s)
     load('penzd.txt','PENZD','IntlFeetToMeters'); pg.click('#cardSettings details summary'); pg.fill('#anchors input[data-a="max-3"]','20'); pg.check('#confirm'); s,r=go(); check('anchor miss refused', 'anchor field 3 failed' in s)
     pg.fill('#anchors input[data-a="max-3"]',''); pg.fill('#control','6 6065.5576 6187.6131 30.48 0.001'); pg.check('#confirm'); s,r=go(); check('control point recorded with exact fields', 'Control point 6 : pass' in r['report'] and r['manifest']['control_points'][0]['tolerance']=='0.001' and r['manifest']['control_points'][0]['checked_fields']==[1,2,3])
     load('lf.csv','ENZ','MetersToIntlFeet'); pg.select_option('#header','yes'); pg.check('#confirm'); s,r=go(); check('csv header == python', same('lf_ft.csv',r) and r['manifest']['counts']['header']==1)
@@ -128,8 +130,8 @@ with sync_playwright() as p:
     pg.set_input_files('#fileInput',os.path.join(W,'big.txt')); pg.wait_for_timeout(1500); pg.select_option('#format','PENZD'); pg.select_option('#header','no'); setconv('IntlFeetToMeters'); pg.check('#confirm'); pg.click('#convertBtn'); pg.wait_for_timeout(150); busy=not pg.is_hidden('#cancelBtn'); pg.click('#cancelBtn'); pg.wait_for_timeout(300)
     check('cancel stops a running worker', busy and pg.is_hidden('#cancelBtn') and pg.text_content('#hdrStatus').startswith('cancelled'))
     strict=b.new_context(); ps=strict.new_page(); cspErr=[]; ps.on('console',lambda m: cspErr.append(m.text) if m.type=='error' else None); ps.goto(APP); ps.wait_for_timeout(600); ps.set_input_files('#fileInput',os.path.join(W,'penzd.txt')); ps.wait_for_timeout(400); ps.select_option('#mode','units'); ps.select_option('#from','ft'); ps.select_option('#to','m'); ps.check('#confirm'); ps.click('#convertBtn'); t0=time.time()
-    while time.time()-t0<30 and not ps.text_content('#hdrStatus').startswith('verified'): ps.wait_for_timeout(100)
-    check('strict CSP: blob worker runs, conversion verifies, no CSP console errors', ps.text_content('#hdrStatus').startswith('verified') and not [x for x in cspErr if 'Content Security' in x], cspErr[:2]); strict.close()
+    while time.time()-t0<30 and not ps.text_content('#hdrStatus').startswith('checks passed'): ps.wait_for_timeout(100)
+    check('strict CSP: blob worker runs, conversion verifies, no CSP console errors', ps.text_content('#hdrStatus').startswith('checks passed') and not [x for x in cspErr if 'Content Security' in x], cspErr[:2]); strict.close()
     # ---- round 4 (review of v3.2) ----
     pg.click('#modeVerify')
     py('penzd.txt','q4v_m.txt','PENZD','IntlFeetToMeters'); open('wrong.out','wb').write(b'9 9 9 9 nope\n')
@@ -214,7 +216,7 @@ with sync_playwright() as p:
     pg.evaluate("(function(){ var q=window._q5.splice(0); q.forEach(function(x){x[1]();}); window._restore5(); })()"); pg.wait_for_timeout(900); fin=pg.text_content('#reupResult')
     check('R5-02 older good read cannot overwrite the newer wrong-file verdict', 'FAILED' in mid and 'r5_bad.txt' in mid and 'FAILED' in fin and 'r5_bad.txt' in fin, (mid[:80], fin[:80]))
     # R5-04: entered limits are uniform (40 digits); a boundary control converts and its record re-verifies (self-replay ran before publish)
-    load('penzd.txt','PENZD','IntlFeetToMeters'); pg.evaluate("document.querySelector('#cardSettings details').open=true"); pg.fill('#control','6 6065.5576 6187.6131 30.48 '+'1'*40+'e30'); pg.check('#confirm'); s,r=go(); check('R5-04 max entered tolerance converts and self-replays', 'Verified' in s, s[:120])
+    load('penzd.txt','PENZD','IntlFeetToMeters'); pg.evaluate("document.querySelector('#cardSettings details').open=true"); pg.fill('#control','6 6065.5576 6187.6131 30.48 '+'1'*40+'e30'); pg.check('#confirm'); s,r=go(); check('R5-04 max entered tolerance converts and self-replays', 'checks passed' in s, s[:120])
     pg.fill('#control','6 6065.5576 6187.6131 30.48 '+'1'*41); pg.check('#confirm'); s,r=go(); check('R5-04 41-digit control refused at entry', 'Refused' in s and '40 digits' in s)
     # R5-05/06/07 in the browser verifier
     pg.fill('#control',''); pg.check('#confirm'); s,r=go(); m5=r['manifest']
@@ -269,7 +271,7 @@ with sync_playwright() as p:
         check('R7-01 handoff with acceptance=%s is refused (not verified)'%name, st7.startswith('handoff failed'), st7)
     # R7-02: a valid 1.6 MB comment-heavy source converts, saves a handoff, and the handoff reopens with the same verdict
     big7=os.path.join(W,'r7_big.txt'); open(big7,'wb').write(('#'+'x'*78+'\n').encode()*20000+b'A 1 2 3\n')
-    pg.set_input_files('#fileInput',big7); pg.wait_for_timeout(1500); pg.select_option('#format','PENZD'); pg.select_option('#header','no'); setconv('Custom'); pg.fill('#customFactor','1'); pg.check('#confirm'); s,r=go(); check('R7-02 1.6 MB comment-heavy source converts', 'Verified' in s, s[:100])
+    pg.set_input_files('#fileInput',big7); pg.wait_for_timeout(1500); pg.select_option('#format','PENZD'); pg.select_option('#header','no'); setconv('Custom'); pg.fill('#customFactor','1'); pg.check('#confirm'); s,r=go(); check('R7-02 1.6 MB comment-heavy source converts', 'checks passed' in s, s[:100])
     with pg.expect_download() as d5: pg.click('#dlHandoffBtn')
     hp7b=os.path.join(W,'r7_big.handoff.html'); d5.value.save_as(hp7b); pg7b=ctx.new_page(); pg7b.goto(file_uri(hp7b)); ok7b=wait_hdr(pg7b,'handoff verified',40); lg7b=pg7b.text_content('#log'); check('R7-02 its 4.3 MB handoff reopens and re-verifies (record budget applies to the record only)', ok7b and 'data 1' in lg7b and 'comment 20000' in lg7b and 'VERIFY PASS' in lg7b, lg7b[-200:]); pg7b.close()
     # R7-02: over-budget is refused at save time, before a handoff is offered (budget lowered through the test hook)
@@ -294,7 +296,7 @@ with sync_playwright() as p:
     with pgB.expect_download() as dBm: pgB.click('#dlManBtn')
     mB=os.path.join(W,'r9_B.manifest.json'); dBm.value.save_as(mB); hb=open(hB,encoding='utf-8').read(); i9=hb.index('<script id="savedPackage" type="application/json">')+len('<script id="savedPackage" type="application/json">'); j9=hb.index('</script>',i9); pkgB=json.loads(hb[i9:j9].replace('\\u003c','<'))
     check('R9-01 fresh -> save A -> reopen A -> save B -> reopen B: output and manifest downloads identical to the embedded bytes', okA and okB and rd(oB)==outA and pkgB['recordText'].encode('utf-8')==rd(mB))
-    pgA.set_input_files('#fileInput','sci.txt'); pgA.wait_for_timeout(500); pgA.select_option('#format','ENZ'); pgA.select_option('#header','no'); pgA.select_option('#mode','units'); pgA.select_option('#from','ft'); pgA.select_option('#to','m'); pgA.select_option('#decimals','auto'); pgA.check('#confirm'); pgA.click('#convertBtn'); okC1=wait_hdr(pgA,'verified',20)
+    pgA.set_input_files('#fileInput','sci.txt'); pgA.wait_for_timeout(500); pgA.select_option('#format','ENZ'); pgA.select_option('#header','no'); pgA.select_option('#mode','units'); pgA.select_option('#from','ft'); pgA.select_option('#to','m'); pgA.select_option('#decimals','auto'); pgA.check('#confirm'); pgA.click('#convertBtn'); okC1=wait_hdr(pgA,'checks passed',20)
     with pgA.expect_download() as dC: pgA.click('#dlHandoffBtn')
     hC=os.path.join(W,'r9_C.html'); dC.value.save_as(hC); pgC=ctx.new_page(); pgC.goto(file_uri(hC)); okC=wait_hdr(pgC,'handoff verified'); check('R9-01 reopen A -> different source -> convert -> save C -> reopen C', okC1 and okC and 'sci' in pgC.text_content('#log')); pgA.close(); pgB.close(); pgC.close()
     # R9-02: a CLI record with header auto and 8 written decimals, wrapped as a /3 envelope
@@ -303,15 +305,15 @@ with sync_playwright() as p:
     ha=open(hA,encoding='utf-8').read(); ia=ha.index('<script id="savedPackage" type="application/json">')+len('<script id="savedPackage" type="application/json">'); ja=ha.index('</script>',ia); hH=os.path.join(W,'r9_hdr.handoff.html'); open(hH,'w',encoding='utf-8').write(ha[:ia]+json.dumps(pkgH).replace('<','\\u003c')+ha[ja:])
     pgH=ctx.new_page(); pgH.goto(file_uri(hH)); okH=wait_hdr(pgH,'handoff verified'); stH=pgH.text_content('#status') or ''
     check('R9-02 restored editor shows the resolved header (yes) and the written decimals (8), confirmation cleared, and says the editor is for a NEW run', okH and pgH.input_value('#header')=='yes' and pgH.input_value('#decimals')=='8' and not pgH.is_checked('#confirm') and 'NEW run' in stH and 'auto' in stH, (pgH.input_value('#header'),pgH.input_value('#decimals'),pgH.is_checked('#confirm'),stH[-200:]))
-    pgH.check('#confirm'); pgH.click('#convertBtn'); check('R9-02 a new run with the pre-filled editor reproduces the recorded operation (header row skipped, 8 decimals)', wait_hdr(pgH,'verified',15) and 'data 1' in pgH.text_content('#log') and 'header 1' in pgH.text_content('#log')); pgH.close()
+    pgH.check('#confirm'); pgH.click('#convertBtn'); check('R9-02 a new run with the pre-filled editor reproduces the recorded operation (header row skipped, 8 decimals)', wait_hdr(pgH,'checks passed',15) and 'data 1' in pgH.text_content('#log') and 'header 1' in pgH.text_content('#log')); pgH.close()
     # ---- slow lifecycle at scale (PFU_SLOW=1): the construction defect found at the 64 MiB cap is only visible at scale ----
     if os.environ.get('PFU_SLOW')=='1':
         import random; random.seed(5); parts=[]; size=0; i=0
         while size<16*1024*1024: i+=1; ln='%d %.4f %.4f %.4f "G"\n'%(i,19800+random.random()*400,20200+random.random()*900,95+random.random()*7); parts.append(ln); size+=len(ln)
         big16=os.path.join(W,'big16.txt'); open(big16,'w',newline='').write(''.join(parts)); crashed=[]; pg.on('crash',lambda: crashed.append('crash'))
         pg.set_input_files('#fileInput',big16); pg.wait_for_timeout(2500); pg.select_option('#format','PENZD'); pg.select_option('#header','no'); setconv('IntlFeetToMeters'); pg.check('#confirm'); pg.click('#convertBtn'); t0=time.time()
-        while time.time()-t0<300 and not pg.text_content('#hdrStatus').startswith(('verified','refused')): pg.wait_for_timeout(500)
-        check('SLOW 16 MiB source converts and verifies', pg.text_content('#hdrStatus').startswith('verified'), pg.text_content('#hdrStatus'))
+        while time.time()-t0<300 and not pg.text_content('#hdrStatus').startswith(('checks passed','refused')): pg.wait_for_timeout(500)
+        check('SLOW 16 MiB source converts and verifies', pg.text_content('#hdrStatus').startswith('checks passed'), pg.text_content('#hdrStatus'))
         with pg.expect_download(timeout=300000) as dls: pg.click('#dlHandoffBtn')
         hps=os.path.join(W,'big16.handoff.html'); dls.value.save_as(hps); check('SLOW 16 MiB handoff saved without crashing the tab (%d MB)'%(os.path.getsize(hps)//1000000), not crashed and os.path.getsize(hps)>40000000)
         pgs=ctx.new_page(); pgs.goto(file_uri(hps), timeout=1800000); t0=time.time()
