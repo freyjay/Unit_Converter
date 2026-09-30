@@ -216,7 +216,7 @@ with sync_playwright() as p:
     pg.evaluate("(function(){ var q=window._q5.splice(0); q.forEach(function(x){x[1]();}); window._restore5(); })()"); pg.wait_for_timeout(900); fin=pg.text_content('#reupResult')
     check('R5-02 older good read cannot overwrite the newer wrong-file verdict', 'FAILED' in mid and 'r5_bad.txt' in mid and 'FAILED' in fin and 'r5_bad.txt' in fin, (mid[:80], fin[:80]))
     # R5-04: entered limits are uniform (40 digits); a boundary control converts and its record re-verifies (self-replay ran before publish)
-    load('penzd.txt','PENZD','IntlFeetToMeters'); pg.evaluate("document.querySelector('#cardSettings details').open=true"); pg.fill('#control','6 6065.5576 6187.6131 30.48 '+'1'*40+'e30'); pg.check('#confirm'); s,r=go(); check('R5-04 max entered tolerance converts and self-replays', 'checks passed' in s, s[:120])
+    load('penzd.txt','PENZD','IntlFeetToMeters'); pg.evaluate("document.getElementById('ctrlFold').open=true"); pg.fill('#control','6 6065.5576 6187.6131 30.48 '+'1'*40+'e30'); pg.check('#confirm'); s,r=go(); check('R5-04 max entered tolerance converts and self-replays', 'checks passed' in s, s[:120])
     pg.fill('#control','6 6065.5576 6187.6131 30.48 '+'1'*41); pg.check('#confirm'); s,r=go(); check('R5-04 41-digit control refused at entry', 'Refused' in s and '40 digits' in s)
     # R5-05/06/07 in the browser verifier
     pg.fill('#control',''); pg.check('#confirm'); s,r=go(); m5=r['manifest']
