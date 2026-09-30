@@ -352,6 +352,14 @@ with sync_playwright() as p:
     # 1.3 (owner, 2026-09-29): the mixed-label note explains that one factor applies to every coordinate column
     gload('hmix.csv', ['Point,Easting (m),Northing (m),Elevation (ft),Description']+SIXROWS, 'ft', 'm')
     check('G20 mixed labels: the note says one factor applies to every coordinate column', 'same factor is applied to every coordinate column' in gt('#unitClue'))
+    # source unit reference help (owner, 2026-09-30): optional, folded by default, keyboard-operable, never moves the layout
+    gload('six.csv', SIXROWS, '', '')
+    lab=pgG.text_content('label[for="unitRef"]') or ''; folded=not pgG.eval_on_selector('#refHelp','e=>e.open')
+    geo=lambda: pgG.evaluate("()=>['unitRef','decimals','from'].map(function(i){var q=document.getElementById(i).closest('.field').getBoundingClientRect(); return [Math.round(q.x),Math.round(q.y+scrollY),Math.round(q.width),Math.round(q.height)];})")
+    g1=geo(); pgG.focus('#refHelp summary'); pgG.keyboard.press('Enter'); pgG.wait_for_timeout(120); opened=pgG.eval_on_selector('#refHelp','e=>e.open'); g2=geo()
+    items=pgG.eval_on_selector_all('#refHelp li','e=>e.map(x=>x.textContent)')
+    check('G21 unit reference: labelled optional, help folded by default, opens with Enter, four examples, layout unchanged', 'optional' in lab and folded and opened and len(items)==4 and 'LandXML file header: linear unit = USSurveyFoot' in items and g1==g2, (lab, folded, opened, len(items), g1==g2))
+    pgG.click('#refHelp summary')
     pgG.close()
     # ---- owner decisions D1-D3 and gap closures (2026-09-29.2) ----
     pgD=ctx.new_page(); pgD.goto(APP); pgD.wait_for_timeout(400)
