@@ -81,7 +81,7 @@ with sync_playwright() as p:
     load('penzd.txt','PENZD','IntlFeetToMeters'); pg.select_option('#decimals','4'); pg.check('#confirm'); s,r=go(); check('too few decimals refused (4-dp feet to 4-dp metres)', 'verification failed' in s)
     load('penzd_m.txt','PENZD','MetersToIntlFeet'); pg.select_option('#decimals','4'); pg.check('#confirm'); s,r=go(); check('exact round trip reproduces source bytes', 'checks passed' in s and r['out'].encode()==rd('penzd.txt'))
     check('pass message names the declared source (metres)', 'really in metres.' in s)
-    load('penzd.txt','PENZD','IntlFeetToMeters'); pg.click('#cardSettings details summary'); pg.fill('#anchors input[data-a="max-3"]','20'); pg.check('#confirm'); s,r=go(); check('anchor miss refused', 'anchor field 3 failed' in s)
+    load('penzd.txt','PENZD','IntlFeetToMeters'); pg.click('#ctrlFold summary'); pg.fill('#anchors input[data-a="max-3"]','20'); pg.check('#confirm'); s,r=go(); check('anchor miss refused', 'anchor field 3 failed' in s)
     pg.fill('#anchors input[data-a="max-3"]',''); pg.fill('#control','6 6065.5576 6187.6131 30.48 0.001'); pg.check('#confirm'); s,r=go(); check('control point recorded with exact fields', 'Control point 6 : pass' in r['report'] and r['manifest']['control_points'][0]['tolerance']=='0.001' and r['manifest']['control_points'][0]['checked_fields']==[1,2,3])
     load('lf.csv','ENZ','MetersToIntlFeet'); pg.select_option('#header','yes'); pg.check('#confirm'); s,r=go(); check('csv header == python', same('lf_ft.csv',r) and r['manifest']['counts']['header']==1)
     load('bom.txt','PENZD','IntlFeetToMeters'); s,r=go(); check('bom == python', same('bom_m.txt',r) and r['manifest']['source']['encoding']=='utf-8-bom')
