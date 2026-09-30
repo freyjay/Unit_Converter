@@ -51,7 +51,7 @@ with sync_playwright() as p:
     load('penzd.txt','PENZD','IntlFeetToMeters'); s,r=go(); check('T1 verified and == python bytes', 'checks passed' in s and same('penzd_m.txt',r))
     check('pass message names the declared source (international feet), no bare Verified', 'Arithmetic and preservation checks passed' in s and 'really in international feet.' in s and 'Verified' not in s and pg.text_content('#hdrStatus')=='checks passed')
     pg.select_option('#to','usft'); pg.wait_for_timeout(100); check('3.5 settings change invalidates result', pg.is_hidden('#dlBtn') and not pg.is_checked('#confirm'))
-    load('penzd.txt','PENZD','IntlFeetToMeters'); pg.evaluate("window._lastRun=null"); pg.click('#convertBtn'); pg.evaluate("window._loadBytes('sci.txt', %s)"%list(rd('sci.txt'))); pg.wait_for_timeout(1200)
+    load('penzd.txt','PENZD','IntlFeetToMeters'); pg.evaluate("(function(b){ window._lastRun=null; document.getElementById('convertBtn').click(); window._loadBytes('sci.txt', b); })(%s)"%list(rd('sci.txt'))); pg.wait_for_timeout(1200)   # one step: A is guaranteed to be running when B loads
     check('3.5 loading B mid-run cannot publish A', pg.evaluate('window._lastRun')==None and pg.is_hidden('#dlBtn') and 'sci.txt' in pg.text_content('#fileMeta'))
     load('penzd.txt','PENZD','Custom','1'); pg.evaluate("window._lastRun=null; document.getElementById('convertBtn').click(); var cf=document.getElementById('customFactor'); cf.value='2'; cf.dispatchEvent(new Event('input'));"); pg.wait_for_timeout(1200)
     check('R2 settings change while the worker runs publishes nothing', pg.evaluate('window._lastRun')==None and pg.is_hidden('#dlBtn') and not pg.is_checked('#confirm') and pg.is_hidden('#cancelBtn'))
