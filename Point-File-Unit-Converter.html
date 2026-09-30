@@ -154,6 +154,8 @@ h3 .n,.prin .pl,.rl.hot .rlh,details.sfold>summary:hover h2,.btn.warn{color:#B83
 .clue .acts{margin-top:8px;display:flex;gap:8px;flex-wrap:wrap}
 .legacy{margin:8px 0 0;font-size:14px;color:var(--ink-soft)}
 .ready{margin:10px 0 0;font-size:14.5px;color:var(--ink-soft)}
+.dechint{margin-top:4px;font-size:13px;color:var(--ink-soft)}
+body:has(#fileMeta:not(:empty)) #from:has(option[value=""]:checked),body:has(#fileMeta:not(:empty)) #to:has(option[value=""]:checked){border:2px solid #FF5B04;background-color:#FFF1E8;color:#B83F00;font-weight:700}
 /* Next step, #3CAEA3: the action that moves the user forward. Styling reacts to states the page already sets. */
 .btn.primary:not(:disabled){background:#3CAEA3;border-color:#2B8A81;color:#16232A}
 body:has(#dlBtn:not(.hidden)) #convertBtn:not(:disabled){background:#16232A;border-color:#16232A;color:#fff}
@@ -251,7 +253,7 @@ body:has(#fileMeta:not(:empty)) .confirm:has(#confirm:not(:checked)){border-colo
       <div class="field"><label>Target units</label><select id="to"><option value="">&mdash; choose &mdash;</option><option value="m">Metres</option><option value="ft">International feet</option><option value="usft">US survey feet (legacy)</option></select></div>
     </div>
     <div class="field hidden" id="customWrap"><label>Custom factor (decimal or a/b)</label><input type="text" id="customFactor" placeholder="e.g. 2 or 1/2"></div>
-    <div class="field"><label>Decimals to write</label><select id="decimals"><option value="auto">Auto (find a precision that passes every check)</option><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option></select></div>
+    <div class="field"><label>Decimals to write</label><select id="decimals"><option value="auto">Auto (find a precision that passes every check)</option><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option selected>8</option><option>9</option><option>10</option><option>11</option><option>12</option></select><div class="dechint">Written decimals are output precision, not survey accuracy.</div></div>
     <div class="field" style="min-width:260px"><label>Source unit reference (recorded, not checked)</label><input type="text" id="unitRef" placeholder="e.g. survey report &sect;2.1, LandXML header"></div>
   </div>
   <div id="declSummary" class="decl hidden" aria-live="polite"></div>
@@ -304,7 +306,7 @@ body:has(#fileMeta:not(:empty)) .confirm:has(#confirm:not(:checked)){border-colo
     <div class="rule"><b>Privacy</b>No network: the page&rsquo;s content policy blocks every connection. A complete handoff embeds the original source; share it only with people who should have that data. A handoff contains this app&rsquo;s code; open only copies from a source you trust.</div>
   </div></details>
 </div>
-<footer class="sheetfoot">TOOL-01 v3.3.6 &#183; PAGE TEXT 2026-09-29.1 &#183; UNITS ARE NOT COORDINATE SYSTEMS &#183; A PASS IS ABOUT BYTES AND ARITHMETIC, NOT ABOUT THE SURVEY &#183; MIT LICENSE</footer>
+<footer class="sheetfoot">TOOL-01 v3.3.6 &#183; PAGE TEXT 2026-09-29.2 &#183; UNITS ARE NOT COORDINATE SYSTEMS &#183; A PASS IS ABOUT BYTES AND ARITHMETIC, NOT ABOUT THE SURVEY &#183; MIT LICENSE</footer>
 </div>
 <script id="savedPackage" type="application/json">null</script>
 <script id="engine">
@@ -672,7 +674,7 @@ var UN={m:'metres',ft:'international feet',usft:'U.S. survey feet'};
     if(v.level==='against'){ t.textContent='Check your units'; p.textContent='This file\u2019s own labels say '+CLUE_WORD[v.cls]+' ('+describeItems(v.items)+'), but you declared the source as '+fromName+'. Labels can be outdated if this file came from an earlier conversion, so check the survey source before changing anything. You make the final call.'; }
     else if(v.level==='agree'){ t.textContent='The file\u2019s labels agree'; p.textContent='This file\u2019s own labels say '+CLUE_WORD[v.cls]+' ('+describeItems(v.items)+'), consistent with your declaration of '+fromName+'. Labels can be outdated, so this is not proof.'; }
     else if(v.level==='info'){ t.textContent='The file\u2019s labels'; p.textContent='This file\u2019s own labels say '+CLUE_WORD[v.cls]+' ('+describeItems(v.items)+'). Labels can be outdated after an earlier conversion.'; }
-    else { t.textContent='Unit labels disagree'; p.textContent='The unit labels in this file don\u2019t agree with each other ('+describeItems(v.items)+'). No suggestion is made: check the survey source.'; }
+    else { t.textContent='Unit labels disagree'; p.textContent='The unit labels in this file don\u2019t agree with each other ('+describeItems(v.items)+'). No suggestion is made: check the survey source. The same factor is applied to every coordinate column, so a file that mixes units can’t be converted correctly in one run.'; }
     box.appendChild(t); box.appendChild(p);
     if(v.level==='against'){ var acts=document.createElement('div'); acts.className='acts';
       (v.cls==='feet'?['ft','usft']:[v.cls]).forEach(function(u){ var b=document.createElement('button'); b.type='button'; b.className='btn small'; b.textContent='Use '+UN[u]+' as source';
@@ -683,7 +685,7 @@ var UN={m:'metres',ft:'international feet',usft:'U.S. survey feet'};
   function clueResultLine(r){ var v=clueVerdict(clueScan(),$('from').value); if(!v)return ''; var t=r&&r.F&&r.F.outU, out=[];
     if(v.level==='against')out.push('You kept this choice although the file\u2019s own labels say '+CLUE_WORD[v.cls]+'.');
     else if(v.level==='agree')out.push('The file\u2019s own labels agree with your declaration; labels can be outdated, so this is not proof.');
-    else if(v.level==='mixed')out.push('The unit labels in this file disagree with each other; check the survey source.');
+    else if(v.level==='mixed')out.push('The unit labels in this file disagree with each other; check the survey source. The same factor is applied to every coordinate column, so a file that mixes units can’t be converted correctly in one run.');
     if(v.level!=='mixed'&&t&&FAM[t]&&FAM[v.cls]!==FAM[t])out.push('The header and comment text was copied unchanged and still says '+CLUE_WORD[v.cls]+'; the coordinates are now in '+UN[t]+'.');
     return out.join('\n'); }
   // Declaration summary, using the engine's own exact factor.
@@ -717,6 +719,9 @@ var UN={m:'metres',ft:'international feet',usft:'U.S. survey feet'};
     if(!best)return ''; var fu=r.F&&r.F.inU, tu=r.F&&r.F.outU;
     return 'Example ('+(bounded?'largest value in the first 20,000 rows':'largest value')+'): '+(best.id!==null?'point '+best.id:'line '+best.line)+', '+(names[best.col]||('column '+(best.col+1)))+': '+best.src+(UN[fu]?' '+UN[fu]:'')+' \u2192 '+best.out+(UN[tu]?' '+UN[tu]:'')+'.';
   }catch(e){ return ''; } }
+  function controlLine(r){ var cps=(r&&r.rep&&r.rep.control_points)||[];
+    if(!cps.length)return 'No control point was entered, so the units were not checked against an independently known point.';
+    return 'Control point check: '+cps.length+' point'+(cps.length>1?'s':'')+' within tolerance ('+cps.map(function(c){return c.id;}).join(', ')+').'; }
   function readinessText(){ if(!S.bytes)return 'Load a point file to begin.'; if(!$('format').value)return 'Choose the file format in step 2.';
     if($('mode').value==='custom'){ if($('customFactor').value.trim()==='')return 'Enter the custom factor in step 3.'; }
     else { var f=$('from').value,t=$('to').value; if(!f||!t)return 'Choose the source units and the target units in step 3.'; if(f===t)return 'Source and target are both '+UN[f]+'. Choose a different target unit.'; }
@@ -800,7 +805,7 @@ function run(dry){
         if(!dry&&!replay.ok){ setStatus('bad','Refused','The record this conversion would publish does not re-verify from its own serialized form; nothing published:\n  '+(replay.unsupported||(replay.fresh.concat(replay.consistency)).slice(0,6).join('\n  '))); window._lastRun={error:'self-replay failed'}; return; }
         var report=renderReport(manifest,r,dry,st,sp,unitRef);
         $('log').textContent=report; $('log').classList.remove('hidden');
-        var warnTxt=r.rep.warnings.join('\n'); var srcName={m:'metres',ft:'international feet',usft:'U.S. survey feet'}[r.F.inU]; var unitNote=srcName?"The tool can't tell what units your file is in. Please make sure the source file is really in "+srcName+".":"The tool can't tell what units your file is in. Please make sure the custom factor matches the units your file is really in."; var guideLines=(function(){ var a=[clueResultLine(r),exampleLine(r)].filter(Boolean); return a.length?a.join('\n')+'\n':''; })();
+        var warnTxt=r.rep.warnings.join('\n'); var srcName={m:'metres',ft:'international feet',usft:'U.S. survey feet'}[r.F.inU]; var unitNote=srcName?"The tool can't tell what units your file is in. Please make sure the source file is really in "+srcName+".":"The tool can't tell what units your file is in. Please make sure the custom factor matches the units your file is really in."; var guideLines=(function(){ var a=[clueResultLine(r),controlLine(r),exampleLine(r)].filter(Boolean); return a.length?a.join('\n')+'\n':''; })();
         if(dry){ S.out=null; setStatus(warnTxt?'warn':'ok','Dry run passed',unitNote+'\n'+guideLines+(warnTxt?warnTxt+'\n':'')+r.rep.counts.data.toLocaleString()+' data rows would convert at '+r.d+' decimals. Max reverse error '+r.rep.max_error+' '+r.F.inU+'. Check the ranges against your site, then Convert.'); }
         else { var manifestText=JSON.stringify(manifest,null,2); S.out={bytes:r.bytes,name:outName,report:report,manifest:manifest,manifestText:manifestText,manifestBytes:new TextEncoder().encode(manifestText),hash:r.outHash,gen:gen,rev:rev,st:st,decimals:r.d}; ['dlBtn','dlRepBtn','dlManBtn','dlHandoffBtn','reverify'].forEach(function(id){$(id).classList.remove('hidden');}); setStatus(warnTxt?'warn':'ok','Arithmetic and preservation checks passed',unitNote+'\n'+guideLines+(warnTxt?warnTxt+'\n':'')+r.rep.counts.data.toLocaleString()+' data rows converted at '+r.d+' decimals and independently re-verified. Output SHA-256 '+r.outHash.slice(0,16)+'\u2026 Save the complete handoff, or download the file with its report and manifest.','checks passed'); }
         window._lastRun={out:r.text,report:report,manifest:manifest,name:outName,byteLength:r.bytes.length,sha256:r.outHash,bytes:window.PFU_TEST_FULL_DIAGNOSTICS===true?Array.prototype.slice.call(r.bytes):null};   // F11-04: no duplicate payload copy in production

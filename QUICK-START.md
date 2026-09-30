@@ -2,6 +2,8 @@
 
 Converts the coordinate columns of a survey point file between metres, international feet and U.S. survey feet using exact arithmetic. Every other character in the file is left unchanged, and the output is checked by a second, independent calculation before it is offered to you.
 
+Works in Chrome, Safari, Edge and Brave.
+
 ## In a browser (nothing to install)
 
 1. **Open `Point-File-Unit-Converter.html`** by double-clicking it. It works offline, and your file never leaves your computer.

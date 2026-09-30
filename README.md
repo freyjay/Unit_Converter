@@ -2,7 +2,7 @@
 
 **Start here:** [`START-HERE.html`](START-HERE.html), a one-page guide for Windows and Mac. **Text guide:** [QUICK-START.md](QUICK-START.md). **Status:** [docs/CURRENT-STATUS.md](docs/CURRENT-STATUS.md). **All documents:** [docs/README.md](docs/README.md).
 
-**Supported:** Windows 11 (Edge, Chrome, Brave) and macOS (Safari, Chrome).
+**Works in Chrome, Safari, Edge and Brave.**
 
 Convert survey point-file coordinates between metres, international feet and U.S. survey feet, preserve everything outside the selected coordinate values, and keep a verifiable record of the operation. You establish source units and column meaning; a pass checks arithmetic and preservation under those declarations.
 

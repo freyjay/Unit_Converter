@@ -350,6 +350,32 @@ with sync_playwright() as p:
     gload('hx.csv', ['Point,<b>E</b> (m),Northing (m),Elevation (m),Description']+SIXROWS, 'ft', 'm')
     check('G14 label text is shown literally, never as markup', '<b>E</b> (m)' in pgG.text_content('#unitClue') and pgG.query_selector('#unitClue b') is None)
     pgG.close()
+    # ---- owner decisions D1-D3 and gap closures (2026-09-29.2) ----
+    pgD=ctx.new_page(); pgD.goto(APP); pgD.wait_for_timeout(400)
+    dcss=lambda sel: pgD.eval_on_selector(sel,'e=>{var c=getComputedStyle(e);return [c.borderTopColor,c.fontWeight]}')
+    check('G15 fresh page starts at 8 decimals', pgD.input_value('#decimals')=='8')
+    check('G15b precision note under the decimals field', 'Written decimals are output precision, not survey accuracy.' in (pgD.text_content('.dechint') or ''))
+    check('G16 before a file is loaded, unit fields are not highlighted', dcss('#from')[0]!='rgb(255, 91, 4)')
+    pgD.evaluate("window._loadBytes('six.csv', %s)" % list(gbytes(SIXROWS))); pgD.wait_for_timeout(250)
+    for s_,v_ in (('#format','PENZD'),('#header','no'),('#mode','units'),('#from',''),('#to','')): pgD.select_option(s_,v_)
+    check('G16b unchosen unit fields stand out (orange edge, bold)', dcss('#from')==['rgb(255, 91, 4)','700'] and dcss('#to')==['rgb(255, 91, 4)','700'], (dcss('#from'), dcss('#to')))
+    pgD.select_option('#from','ft'); pgD.select_option('#to','m')
+    check('G16c chosen unit fields return to normal', dcss('#from')[0]!='rgb(255, 91, 4)' and dcss('#to')[0]!='rgb(255, 91, 4)')
+    def drun():
+        pgD.check('#confirm'); pgD.click('#convertBtn'); t0=time.time()
+        while time.time()-t0<20 and not (pgD.text_content('#hdrStatus') or '').startswith(('checks passed','refused')): pgD.wait_for_timeout(100)
+        return ' '.join((pgD.text_content('#status') or '').split())
+    s=drun(); check('G17 no control point: the result says so', 'No control point was entered, so the units were not checked against an independently known point.' in s, s[:200])
+    pgD.evaluate("document.getElementById('control').value='110 304800 609600 0 0.001'; document.getElementById('control').dispatchEvent(new Event('input'))")
+    s=drun(); check('G18 control point within tolerance: the result names it', 'Control point check: 1 point within tolerance (110).' in s, s[:260])
+    pgD.select_option('#from','m'); pgD.select_option('#to','ft'); s=drun()
+    check('G18b the same control point refuses the wrong declaration', pgD.text_content('#hdrStatus').startswith('refused') and pgD.is_hidden('#dlBtn'), s[:160])
+    pgD.evaluate("document.getElementById('control').value=''; document.getElementById('control').dispatchEvent(new Event('input'))")
+    pgD.select_option('#from','ft'); pgD.select_option('#to','m'); pgD.select_option('#decimals','5'); drun()
+    with pgD.expect_download() as dD: pgD.click('#dlHandoffBtn')
+    hD=os.path.join(W,'g19_handoff.html'); dD.value.save_as(hD); pgE=ctx.new_page(); pgE.goto(file_uri(hD)); okE=wait_hdr(pgE,'handoff verified')
+    check('G19 a reopened handoff keeps its own 5 decimals, not the new default of 8', okE and pgE.input_value('#decimals')=='5', pgE.input_value('#decimals'))
+    pgE.close(); pgD.close()
     # ---- slow lifecycle at scale (PFU_SLOW=1): the construction defect found at the 64 MiB cap is only visible at scale ----
     if os.environ.get('PFU_SLOW')=='1':
         import random; random.seed(5); parts=[]; size=0; i=0
