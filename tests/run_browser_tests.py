@@ -349,6 +349,9 @@ with sync_playwright() as p:
     gload('hft.csv', HFT, 'm', 'usft'); check('G13 legacy note and a non-terminating factor', pgG.is_visible('#legacyHint') and '3937/1200 \u2248 3.28083333' in gt('#declSummary'), gt('#declSummary'))
     gload('hx.csv', ['Point,<b>E</b> (m),Northing (m),Elevation (m),Description']+SIXROWS, 'ft', 'm')
     check('G14 label text is shown literally, never as markup', '<b>E</b> (m)' in pgG.text_content('#unitClue') and pgG.query_selector('#unitClue b') is None)
+    # 1.3 (owner, 2026-09-29): the mixed-label note explains that one factor applies to every coordinate column
+    gload('hmix.csv', ['Point,Easting (m),Northing (m),Elevation (ft),Description']+SIXROWS, 'ft', 'm')
+    check('G20 mixed labels: the note says one factor applies to every coordinate column', 'same factor is applied to every coordinate column' in gt('#unitClue'))
     pgG.close()
     # ---- owner decisions D1-D3 and gap closures (2026-09-29.2) ----
     pgD=ctx.new_page(); pgD.goto(APP); pgD.wait_for_timeout(400)
