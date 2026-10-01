@@ -1,16 +1,16 @@
 {
  "package": "Unit_Converter (built from PointTruth team package 2026-09-26 r2)",
  "product_in_this_package": "PFU 3.3.6 browser and Python converter",
- "html_sha256": "2eb1fefa7cfe16dd2ea287630b9b6b069e176b41a1dd44b4ee157b5cd170154c",
+ "html_sha256": "006eb3c9ac07b84a9ff403d5a0a0481b70868285930fe0deb9f22105eb243adb",
  "python_sha256": "b6589870c4c2e587d3ef5bf21496db19a598d6adb449903e1b0ea61cb2f326cf",
  "application_script_sha256": [
   "242685711184a5078934439c4270654656e2df53d12b8e8ed5a731d377f34eef",
   "c564f5d25375957f9ec45f1d323cc0e6bf1b5eb8d9e13ad82e072f1bdfc7c0a5",
-  "761f44229678dcbd325cb18cdd5a7ca72e49e7b1af665ea3b9c43df3a937f79e"
+  "be7826427fb1707572c819e155beccc54191913ac31a9c7df005faf3ea9f2a82"
  ],
  "based_on_advisor_archive_sha256": "3e4967f1b82fccce5ae334b62207a79967fec9a3e37f836f438cfc1285f79446",
  "base_html_sha256": "a4e2b3883f6132d7d370daa1dfdbbc6e120cdb7679deaa628394956af04dc71a",
- "html_change": "Static text only (all script blocks identical): foot box points to control points as the check for a wrong declaration; control-point section summary says what it catches; scope note names international vs U.S. survey foot; download buttons labelled point data vs report/manifest (not for import), with titles. Revision 2: the foot box states that a control reveals a wrong unit choice only when the difference exceeds a justified tolerance. Unit_Converter 2026-09-27: foot box shortened with the tolerance qualification kept; \"Point data for import\" is the primary download; footer shows the page-text revision and states the license as intended. 2026-09-27.2: page background changed from a square grid to a tapered tumbling-blocks pattern (inline SVG in CSS, measured from the owner-supplied image); footer states the MIT license. 2026-09-27.3: background recoloured to light grey (#ECEEF0) with darker grey pattern lines (#9AA1A8), at the owner's request. 2026-09-27.4: pattern three times denser (68x113 px tile, strokes 2.0 to 1.0 px) with lines in #CBD2D9 on #ECEEF0, at the owner's request. 2026-09-28.1: colour theme from the owner's palette (Mirage, Deep Sea Green, Blaze Orange, Wild Sand); dark header band; CSS only, layout and all scripts unchanged. 2026-09-28.2: file drop box in #FFBD76 with a #9A5210 dashed edge, warm-brown small print, a hover shade and a deeper solid drag-over state (CSS only). 2026-09-28.3: next-step emphasis in #3CAEA3 (confirmation box once a file is loaded and unticked; Convert & verify when enabled; Point data for import once shown, with Convert returning to Mirage); CSS only, reacting to existing page states. 2026-09-28.4: the drop box keeps its resting colour on hover and drag-over (owner preference, most subtle); only the dashed edge turns solid while a file is dragged over it. 2026-09-28.5 (interface script, owner's wording): a passing conversion reads 'Arithmetic and preservation checks passed' with 'The tool can't tell what units your file is in. Please make sure the source file is really in <declared source unit>.'; the dry run carries the same reminder; the header status reads 'checks passed'. The engine script is unchanged. 2026-09-29.1 (interface script): readiness line naming what is missing; the settings-changed message says to tick the confirmation again; a declaration summary with the engine's exact factor; unit clues from header coordinate fields and '# units:' comments only (never the file name) at three levels, contradiction with explicit buttons and Keep my choice, agreement, disagreeing labels, always noting labels can be outdated; a before/after example of the largest coordinate using the value actually written; a legacy U.S. survey foot note. The engine script is unchanged. 2026-09-29.2 (owner decisions D1-D3): a fresh page starts at 8 decimals (a reopened handoff keeps its own); an unchosen unit field stands out once a file is loaded; 'Written decimals are output precision, not survey accuracy' under the decimals field; the result states the control-point check (points within tolerance, or none entered). The engine script is unchanged. Also 1.3: disagreeing unit labels note that the same factor is applied to every coordinate column. 2026-09-30.1 (page text and CSS only; all scripts unchanged): the source unit reference is labelled optional and connected to its input, with a folded 'What should I write here?' note (explanation, four examples, when it helps). The control-points fold-out has a stable id (ctrlFold) so that tests open it by name.",
+ "html_change": "Static text only (all script blocks identical): foot box points to control points as the check for a wrong declaration; control-point section summary says what it catches; scope note names international vs U.S. survey foot; download buttons labelled point data vs report/manifest (not for import), with titles. Revision 2: the foot box states that a control reveals a wrong unit choice only when the difference exceeds a justified tolerance. Unit_Converter 2026-09-27: foot box shortened with the tolerance qualification kept; \"Point data for import\" is the primary download; footer shows the page-text revision and states the license as intended. 2026-09-27.2: page background changed from a square grid to a tapered tumbling-blocks pattern (inline SVG in CSS, measured from the owner-supplied image); footer states the MIT license. 2026-09-27.3: background recoloured to light grey (#ECEEF0) with darker grey pattern lines (#9AA1A8), at the owner's request. 2026-09-27.4: pattern three times denser (68x113 px tile, strokes 2.0 to 1.0 px) with lines in #CBD2D9 on #ECEEF0, at the owner's request. 2026-09-28.1: colour theme from the owner's palette (Mirage, Deep Sea Green, Blaze Orange, Wild Sand); dark header band; CSS only, layout and all scripts unchanged. 2026-09-28.2: file drop box in #FFBD76 with a #9A5210 dashed edge, warm-brown small print, a hover shade and a deeper solid drag-over state (CSS only). 2026-09-28.3: next-step emphasis in #3CAEA3 (confirmation box once a file is loaded and unticked; Convert & verify when enabled; Point data for import once shown, with Convert returning to Mirage); CSS only, reacting to existing page states. 2026-09-28.4: the drop box keeps its resting colour on hover and drag-over (owner preference, most subtle); only the dashed edge turns solid while a file is dragged over it. 2026-09-28.5 (interface script, owner's wording): a passing conversion reads 'Arithmetic and preservation checks passed' with 'The tool can't tell what units your file is in. Please make sure the source file is really in <declared source unit>.'; the dry run carries the same reminder; the header status reads 'checks passed'. The engine script is unchanged. 2026-09-29.1 (interface script): readiness line naming what is missing; the settings-changed message says to tick the confirmation again; a declaration summary with the engine's exact factor; unit clues from header coordinate fields and '# units:' comments only (never the file name) at three levels, contradiction with explicit buttons and Keep my choice, agreement, disagreeing labels, always noting labels can be outdated; a before/after example of the largest coordinate using the value actually written; a legacy U.S. survey foot note. The engine script is unchanged. 2026-09-29.2 (owner decisions D1-D3): a fresh page starts at 8 decimals (a reopened handoff keeps its own); an unchosen unit field stands out once a file is loaded; 'Written decimals are output precision, not survey accuracy' under the decimals field; the result states the control-point check (points within tolerance, or none entered). The engine script is unchanged. Also 1.3: disagreeing unit labels note that the same factor is applied to every coordinate column. 2026-09-30.1 (page text and CSS only; all scripts unchanged): the source unit reference is labelled optional and connected to its input, with a folded 'What should I write here?' note (explanation, four examples, when it helps). The control-points fold-out has a stable id (ctrlFold) so that tests open it by name. 2026-10-01.1 (Windows review of ff68746): F1 a label naming both feet is ambiguous; F2 the stale-label warning compares the exact unit with the output (bare ft stays unresolved); F3 the 500-line clue scan discloses its scope; F4 exact comparison selects the example for every numeric form; F5 readiness and buttons refresh once the worker is active; S1 'Download requested: name'; S2 keyboard-reachable file input and programmatic labels; S4 legacy wording; S5 source-drawing example; S6 the example decodes only its own output line. The engine script is unchanged.",
  "packaging_changes": [
   "Mac and GitHub instructions",
   "Pinned cross-platform CI definitions (not yet executed)",
@@ -25,33 +25,30 @@
   "Run records capture tool hashes, settings, Playwright package, browser version and Git revision during the run"
  ],
  "pointtruth_comparator": "tests/differential/PointTruth.html is pinned rc.1 evidence; it is not a replacement for the primary PFU application",
- "macos_execution": "Core PASS on macOS 15.7.1 Apple Silicon (arm64), Python 3.13.5, Node 22.17 (owner; commits e26ce91 and 357d536; partner-reviewed 27 Sep). Browser suite and Intel Macs PENDING. Core PASS on the public commit 625fbbc (owner).",
- "github_execution": "CI run https://github.com/freyjay/Unit_Converter/actions/runs/36348557774 on 625fbbc: all six jobs succeeded (core, and the Chromium lifecycle through Playwright, on Ubuntu, Windows and macOS), confirmed from GitHub job data by the Windows review. Build-once, test-the-same-artifact CI is pending.",
+ "macos_execution": "Core PASS on macOS 15.7.1 Apple Silicon (owner) on b798716, bb42e97 and ff68746 (30 Sep 2026); earlier on e26ce91, 357d536 and 625fbbc. Installed Safari and Chrome on the current version, and Intel Macs, are pending.",
+ "github_execution": "CI run https://github.com/freyjay/Unit_Converter/actions/runs/36708843874 on ff68746: all six jobs succeeded (core and Chromium lifecycle on Ubuntu, Windows and macOS; per-job results read by the Windows review). Run 36706419229 on bb42e97 failed one macOS check, a race in a test, fixed in 07adf44. Runs on 625fbbc and 53dc0e9 succeeded. Later commits have their own runs. Build-once, test-the-same-artifact CI is pending.",
  "civil3d_scope": "One operator-assisted six-point PFU Python import/export passed; no CAD program is included",
  "based_on_team_package_zip_sha256": "a8995d2e3b2bb5d24bf2ad94d18b2c652ceb411ce1f98b7b3ebe37446a6db3e9",
  "browser_execution": {
-  "linux_chromium": {
-   "status": "PASS (contributor-run; the 25 Sep run was partner-reviewed, the 26 Sep runs are contributor-reported)",
-   "scope": "Chromium 141 diagnostic-CSP regressions (slow 16 MiB lifecycle skipped) and normal-CSP ~1 MiB lifecycle, producer open and closed",
-   "evidence": [
-    "evidence/contributor-linux-2026-09-26/"
-   ]
+  "chromium_automated": {
+   "status": "PASS",
+   "scope": "Playwright Chromium: diagnostic-CSP regressions and normal-CSP lifecycles, producer open and closed",
+   "where": "contributor Linux runs, and CI on Ubuntu, Windows and macOS (latest: run 36708843874 on ff68746)"
   },
-  "windows": {
+  "safari_installed": {
    "status": "PARTIAL",
-   "note": "Chromium (Playwright) lifecycle PASS in CI on 625fbbc; local core PASS on 625fbbc (Windows review). Installed Edge and Chrome not yet tested by hand."
+   "note": "By hand on the 28 Sep page (a4e2b388): forward and round trip byte-identical. Installed-browser runs on the current version are pending."
   },
-  "macos": {
-   "status": "PARTIAL",
-   "note": "Chromium (Playwright) lifecycle PASS in CI on 625fbbc; local core PASS (owner). Installed Safari and Chrome not yet tested by hand."
+  "chrome_edge_brave_installed": {
+   "status": "PENDING",
+   "note": "Hands-on runs on the current version are pending (Windows hands-on checklist v2)."
   },
-  "other_browsers": {
-   "status": "NOT CLAIMED",
-   "note": "Edge/Firefox targeted runs pending; Safari unclaimed"
+  "firefox": {
+   "status": "NOT TARGETED"
   }
  },
- "html_text_revision": "2026-09-30.1",
+ "html_text_revision": "2026-10-01.1",
  "license": "MIT (see LICENSE), copyright freyjay, the sole contributor; confirmed by the owner on 2026-09-27",
- "release_revision": "2026-09-30.1",
- "consumer_release_cross_platform": "Unit_Converter-2026-09-27.5.zip rebuilt on Windows by the partner is byte-identical to the Linux build (sha256 f3250b19b14cd8206d5bbd1226f12e8841fc0b90981741b0c7f611923a6fb371), confirming the pinned ZIP metadata on real Windows; identical compression output across future zlib versions is not claimed."
+ "release_revision": "2026-10-01.1",
+ "consumer_release_cross_platform": "Unit_Converter-2026-09-30.1.zip from ff68746: the Windows partner's rebuild matched the Linux build (fd94db7ffc0f55061b90a591d78942ea5ebe623e9a4edecd93ae562769bee010, 30 Sep 2026). Earlier: 2026-09-27.5 (f3250b19...). Identical compression across future zlib versions is not claimed."
 }

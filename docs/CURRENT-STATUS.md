@@ -2,15 +2,22 @@
 
 **What it is:** an offline browser app and a Python command-line tool that convert the coordinate columns of survey point files between metres, international feet and U.S. survey feet with exact arithmetic. It leaves every other byte unchanged and checks its own output before offering it.
 
-## Verified
+## Verified (each result belongs to the version named)
 
-- **Arithmetic and preservation:** exact rational conversion with declared rounding; an independent second calculation; hand-derived reference values; a second implementation (the PointTruth comparator in `tests/differential/`) agreeing on 47 cases, refusing the same 33, and differing only in 3 named policies; round-trip loops that reproduce the original bytes at the original precision.
-- **Operating systems:** the complete core test gate passed on macOS 15.7.1 (Apple Silicon) and Windows 10, and in continuous integration. On the accepted packaging revision, every machine built a **byte-identical** tested candidate, verified by opening and comparing the archives themselves (`docs/PAYLOAD-IDENTITY.md`, `scripts/compare_runs.py`). Browser tests passed in Chromium. **Continuous integration:** on the public commit `625fbbc`, all six GitHub Actions jobs succeeded: the core gate and the Chromium lifecycle (through Playwright), including on Windows and macOS ([run 36348557774](https://github.com/freyjay/Unit_Converter/actions/runs/36348557774)). The Windows and macOS core gates also passed locally on that commit, and the Windows tested archive is byte-identical to the other machines' archives.
+- **Arithmetic and preservation:** exact rational conversion with declared rounding; an independent second calculation; hand-derived reference values; a second implementation (the PointTruth comparator in `tests/differential/`). On `ff68746` the Windows review recomputed all 70,194 coordinates of a lifecycle fixture without the converter's code and reproduced the output exactly.
+- **Operating systems:** on `ff68746` the core test gate passed on macOS 15.7.1 (Apple Silicon) and on Windows 10, and in the contributor's automated runs. The Windows tested archive is **byte-identical** to the automated-run archives (`8c2e16a4…`), and the Windows rebuild of the download matches (`fd94db7f…`).
+- **Continuous integration:** run 36708843874 on `ff68746` passed all six jobs: the core gate and the automated Chromium lifecycle (through Playwright) on each of GitHub's three test systems, including Windows and macOS. Later commits have their own runs on the Actions tab.
+- **Safari by hand:** a conversion and its round trip came out byte-identical on the 28 September page (`a4e2b388`, the same conversion engine). Not yet repeated on the current page.
 - **Civil 3D:** one six-point case (international feet to metres, PENZD, Civil 3D 2027) was imported and exported natively, and the export came back byte-identical to the converted file (`acceptance/civil3d-completed/`).
 
 ## Not yet verified
 
-The browser app on Windows and macOS; Edge, Firefox and Safari; Intel Macs; the U.S. survey foot, metres-to-feet and PNEZD cases in Civil 3D (prepared in `acceptance/next-native-tests/`); files produced by the browser app in Civil 3D; accessibility; very large files on typical computers. Safari on macOS has been checked by hand (a conversion and its round trip, on the previous page design with the same engine). Hands-on checks in Edge, Chrome and Brave on Windows and Chrome on macOS are still pending (`docs/BROWSER-TESTS.md`).md`). Official CI that builds once and tests the same artifact on every OS is planned; today each OS rebuilds.
+- Installed browsers on the current version: Safari, Chrome, Edge and Brave by hand (these are the intended targets; the automated Chromium runs above are a different, narrower check). Firefox is not a target.
+- Phone screens: not supported in this pre-release (the page is designed for desktop browsers).
+- Intel Macs.
+- In Civil 3D: the U.S. survey foot, metres-to-feet and PNEZD cases (prepared in `acceptance/next-native-tests/`), and a file produced by the browser app.
+- Very large files up to the 64 MiB input limit on typical hardware.
+- A full accessibility review. Keyboard access to the file chooser and labels for every setting were added on 1 October 2026; a broader review is pending.
 
 ## What a pass means
 

@@ -360,6 +360,49 @@ with sync_playwright() as p:
     items=pgG.eval_on_selector_all('#refHelp li','e=>e.map(x=>x.textContent)')
     check('G21 unit reference: labelled optional, help folded by default, opens with Enter, four examples, layout unchanged', 'optional' in lab and folded and opened and len(items)==4 and 'LandXML file header: linear unit = USSurveyFoot' in items and g1==g2, (lab, folded, opened, len(items), g1==g2))
     pgG.click('#refHelp summary')
+    # ---- Windows review of ff68746 (2026-10-01): F1-F5, S1, S2, S4, S5; expected values computed here with exact fractions ----
+    from fractions import Fraction as _Fr
+    _ftusft=_Fr(381,1250)/_Fr(1200,3937); _n110_usft=_Fr(2000000)*_ftusft; assert _n110_usft==_Fr(1999996)
+    gload('amb.csv', ['# units: international feet / U.S. survey feet']+SIXROWS, 'ft', 'm')
+    check('G22 F1 a comment naming both feet is ambiguous, with no suggestion', 'mixed' in gclass() and not gbtns(), (gclass(), gbtns()))
+    gload('amb-h.csv', ['Point,Easting (international ft / US survey ft),Northing,Elevation,Description']+SIXROWS, 'ft', 'm')
+    check('G22b F1 a header naming both feet is ambiguous, with no suggestion', 'mixed' in gclass() and not gbtns(), (gclass(), gbtns()))
+    gload('ift.csv', ['# units: international feet']+SIXROWS, 'ft', 'usft'); s=grun()
+    check('G23 F2 international-feet label on U.S. survey foot output is flagged; exact value', 'still says international feet; the coordinates are now in U.S. survey feet.' in s and 'Northing (column 3): 2000000.0000 international feet \u2192 %d.00000000 U.S. survey feet.' % int(_n110_usft) in s, s[:400])
+    gload('usf.csv', ['# units: U.S. survey feet']+SIXROWS, 'usft', 'ft'); s=grun()
+    check('G23b F2 the reverse direction is flagged too', 'still says U.S. survey feet; the coordinates are now in international feet.' in s, s[:300])
+    gload('bft.csv', ['# units: feet']+SIXROWS, 'ft', 'usft'); s=grun()
+    check('G23c F2 a bare "feet" label stays unresolved: no foot-definition warning', 'still says' not in s, s[:300])
+    LATE=['# units: metres']+['%d,%d.0000,%d.0000,0.0000,P' % (1000+i, i, i) for i in range(520)]+['# units: international feet']
+    gload('late.csv', LATE, 'm', 'ft')
+    check('G24 F3 the notice discloses that only the first 500 non-blank lines were checked', 'agree' in gclass() and 'Only the first 500 non-blank lines were checked for unit labels' in gt('#unitClue'), gt('#unitClue')[:200])
+    gload('sci.csv', ['1,9007199254740992,9007199254740993e0,0,TEST'], 'ft', 'm'); s=grun()
+    check('G25 F4 exact selection: the example names the larger scientific-notation Northing', 'Northing (column 3): 9007199254740993e0 international feet' in s, s[:300])
+    pgW=ctx.new_page(); pgW.goto(APP); pgW.wait_for_timeout(400)
+    pgW.evaluate("window._loadBytes('six.csv', %s)" % list(gbytes(SIXROWS))); pgW.wait_for_timeout(250)
+    for _s,_v in (('#mode','units'),('#from','ft'),('#to','m')): pgW.select_option(_s,_v)
+    pgW.check('#confirm'); pgW.evaluate("window.Worker=function(u){ this.postMessage=function(){}; this.terminate=function(){}; this.addEventListener=function(){}; }")
+    pgW.click('#convertBtn'); pgW.wait_for_timeout(200)
+    busy=(' '.join((pgW.text_content('#readyHint') or '').split()), pgW.is_disabled('#convertBtn'), pgW.is_disabled('#previewBtn'))
+    pgW.select_option('#decimals','6'); pgW.wait_for_timeout(150); after=' '.join((pgW.text_content('#readyHint') or '').split())
+    check('G26 F5 a held run shows Working and disables Convert and Preview; a settings change ends it', busy==('Working\u2026', True, True) and 'tick the confirmation box' in after, (busy, after)); pgW.close()
+    gload('six.csv', SIXROWS, 'ft', 'm'); s=grun()
+    with pgG.expect_download() as _d: pgG.click('#dlBtn')
+    req=gt('#dlStatus'); pgG.select_option('#decimals','6'); cleared=gt('#dlStatus')
+    check('G27 S1 "Download requested: name" appears, and clears on a settings change', req=='Download requested: '+_d.value.suggested_filename and cleared=='', (req, cleared))
+    pgK=ctx.new_page(); pgK.goto(APP); pgK.wait_for_timeout(400); found=False
+    for _i in range(40):
+        pgK.keyboard.press('Tab')
+        if pgK.evaluate("document.activeElement&&document.activeElement.id")=='fileInput': found=True; break
+    ring=pgK.eval_on_selector('#drop','e=>{var c=getComputedStyle(e);return [c.outlineStyle,c.outlineColor]}') if found else None
+    opened=False
+    if found:
+        with pgK.expect_file_chooser(timeout=5000) as _fc: pgK.keyboard.press('Enter')
+        opened=_fc.value is not None
+    unl=pgK.evaluate("['format','delim','header','mode','from','to','decimals','unitRef','customFactor'].filter(function(i){var e=document.getElementById(i);return !(e&&e.labels&&e.labels.length);})")
+    check('G28 S2 the file chooser is reachable by Tab and opens with Enter; the drop box shows focus; every setting has a label', found and opened and ring==['solid','rgb(255, 91, 4)'] and unl==[], (found, opened, ring, unl)); pgK.close()
+    gload('six.csv', SIXROWS, 'm', 'usft')
+    check('G29 S4 S5 legacy and source-drawing wording', gt('#legacyHint')=='U.S. survey foot (legacy): deprecated since 1 January 2023; retain it for historical and legacy data that uses it.' and 'Settings of the source drawing that produced this point file' in (pgG.text_content('#refHelp') or ''))
     pgG.close()
     # ---- owner decisions D1-D3 and gap closures (2026-09-29.2) ----
     pgD=ctx.new_page(); pgD.goto(APP); pgD.wait_for_timeout(400)

@@ -155,6 +155,8 @@ h3 .n,.prin .pl,.rl.hot .rlh,details.sfold>summary:hover h2,.btn.warn{color:#B83
 .legacy{margin:8px 0 0;font-size:14px;color:var(--ink-soft)}
 .ready{margin:10px 0 0;font-size:14.5px;color:var(--ink-soft)}
 .dechint{margin-top:4px;font-size:13px;color:var(--ink-soft)}
+.sronly{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+body:has(#fileInput:focus-visible) #drop{outline:3px solid #FF5B04;outline-offset:3px}
 .refhelp{margin-top:6px;font-size:13px;color:var(--ink-soft);position:relative} /* the note floats over the page: opening it never moves the layout */
 .refhelp summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:6px}
 .refhelp summary::-webkit-details-marker{display:none}
@@ -203,9 +205,9 @@ body:has(#fileMeta:not(:empty)) .confirm:has(#confirm:not(:checked)){border-colo
   <h2><span class="n">VERIFY</span>Re-verify source + output + manifest</h2>
   <p class="ts">Same verifier as the command-line engine. Two verdicts: do the files pass a fresh verification under the manifest&rsquo;s settings, and is the report internally consistent with what that fresh verification observes. To re-verify a complete handoff, just drop the handoff HTML on the Convert tab. Nothing is uploaded.</p>
   <div class="row">
-    <div class="field"><label>Source file</label><input type="file" id="vSrc"></div>
-    <div class="field"><label>Converted output</label><input type="file" id="vOut"></div>
-    <div class="field"><label>Manifest (.manifest.json)</label><input type="file" id="vMan"></div>
+    <div class="field"><label for="vSrc">Source file</label><input type="file" id="vSrc"></div>
+    <div class="field"><label for="vOut">Converted output</label><input type="file" id="vOut"></div>
+    <div class="field"><label for="vMan">Manifest (.manifest.json)</label><input type="file" id="vMan"></div>
     <button class="btn primary" id="vRun" type="button">Verify</button>
   </div>
   <div id="vStatus"></div>
@@ -226,7 +228,7 @@ body:has(#fileMeta:not(:empty)) .confirm:has(#confirm:not(:checked)){border-colo
 <div class="card">
   <h2><span class="n">STEP 1</span>Load a point file, or a complete handoff</h2>
   <div class="drop" id="drop"><b>Drop a .txt / .csv / .pnt here, or a saved .handoff.html &mdash; or click to choose</b><br><span class="ts">Read into memory only. Never modified, never uploaded; the page has no network access. UTF-8 / ASCII only; other encodings are refused, not guessed. A handoff is re-verified before anything is shown.</span></div>
-  <input type="file" id="fileInput" class="hidden">
+  <input type="file" id="fileInput" class="sronly" aria-label="Choose a point file or a saved handoff">
   <div class="row" style="margin-top:8px"><div id="fileMeta" class="ts" style="flex:1"></div><button class="btn small ghost" id="sampleBtn" type="button">Try sample data</button></div>
 </div>
 
@@ -234,7 +236,7 @@ body:has(#fileMeta:not(:empty)) .confirm:has(#confirm:not(:checked)){border-colo
   <h2><span class="n">STEP 2</span>Confirm the format</h2>
   <p class="ts">Detection is advisory. You confirm the format; the tool scales only the columns that format defines and copies every other byte unchanged. Columns are numbered from 1 here (the manifest records zero-based field indexes for the command-line engine).</p>
   <div class="row">
-    <div class="field"><label>Format</label><select id="format">
+    <div class="field"><label for="format">Format</label><select id="format">
       <option value="">&mdash; choose &mdash;</option>
       <option value="PENZD">PENZD &mdash; Point, Easting, Northing, Z, Description</option>
       <option value="PNEZD">PNEZD &mdash; Point, Northing, Easting, Z, Description</option>
@@ -243,8 +245,8 @@ body:has(#fileMeta:not(:empty)) .confirm:has(#confirm:not(:checked)){border-colo
       <option value="XYZ">XYZ &mdash; no point number</option>
       <option value="CUSTOM">Custom mapping (set roles below)</option>
     </select></div>
-    <div class="field"><label>Delimiter</label><select id="delim"><option value="whitespace">Spaces / tabs</option><option value="comma">Comma (quoted fields supported)</option></select></div>
-    <div class="field"><label>First content line</label><select id="header"><option value="no">Is data &mdash; parse every row</option><option value="yes">Is a header &mdash; copy it unchanged</option></select></div>
+    <div class="field"><label for="delim">Delimiter</label><select id="delim"><option value="whitespace">Spaces / tabs</option><option value="comma">Comma (quoted fields supported)</option></select></div>
+    <div class="field"><label for="header">First content line</label><select id="header"><option value="no">Is data &mdash; parse every row</option><option value="yes">Is a header &mdash; copy it unchanged</option></select></div>
     <div class="field"><label>Suggested</label><div class="mono" id="suggest">&mdash;</div></div>
   </div>
   <table class="prev" id="prevTable"></table>
@@ -254,18 +256,18 @@ body:has(#fileMeta:not(:empty)) .confirm:has(#confirm:not(:checked)){border-colo
 <div class="card hidden" id="cardSettings">
   <h2><span class="n">STEP 3</span>Declare the units</h2>
   <div class="row">
-    <div class="field"><label>Operation</label><select id="mode"><option value="units">Convert between known length units</option><option value="custom">Apply a declared custom scale factor</option></select></div>
+    <div class="field"><label for="mode">Operation</label><select id="mode"><option value="units">Convert between known length units</option><option value="custom">Apply a declared custom scale factor</option></select></div>
     <div id="unitsWrap" class="row" style="margin:0;gap:16px">
-      <div class="field"><label>Source units</label><select id="from"><option value="">&mdash; choose &mdash;</option><option value="m">Metres</option><option value="ft">International feet</option><option value="usft">US survey feet (legacy)</option></select></div>
-      <div class="field"><label>Target units</label><select id="to"><option value="">&mdash; choose &mdash;</option><option value="m">Metres</option><option value="ft">International feet</option><option value="usft">US survey feet (legacy)</option></select></div>
+      <div class="field"><label for="from">Source units</label><select id="from"><option value="">&mdash; choose &mdash;</option><option value="m">Metres</option><option value="ft">International feet</option><option value="usft">US survey feet (legacy)</option></select></div>
+      <div class="field"><label for="to">Target units</label><select id="to"><option value="">&mdash; choose &mdash;</option><option value="m">Metres</option><option value="ft">International feet</option><option value="usft">US survey feet (legacy)</option></select></div>
     </div>
-    <div class="field hidden" id="customWrap"><label>Custom factor (decimal or a/b)</label><input type="text" id="customFactor" placeholder="e.g. 2 or 1/2"></div>
-    <div class="field"><label>Decimals to write</label><select id="decimals"><option value="auto">Auto (find a precision that passes every check)</option><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option selected>8</option><option>9</option><option>10</option><option>11</option><option>12</option></select><div class="dechint">Written decimals are output precision, not survey accuracy.</div></div>
-    <div class="field" style="min-width:260px"><label for="unitRef">Source unit reference (optional; recorded, not checked)</label><input type="text" id="unitRef" placeholder="e.g. survey report &sect;2.1, LandXML header"><details class="refhelp" id="refHelp"><summary><span class="q" aria-hidden="true">?</span> What should I write here?</summary><div class="refbody"><p>Where you learned the file&rsquo;s units: the document, the place in it, and what it says. It goes into the report, the manifest and the saved handoff. It is optional, it does not change the conversion, and the tool does not check it.</p><p>Examples:</p><ul><li>Topo survey, ABC Surveying, 14 Aug 2026, sheet 1, note 3: &ldquo;Coordinates in U.S. survey feet&rdquo;</li><li>LandXML file header: linear unit = USSurveyFoot</li><li>Civil 3D drawing settings, Units and Zone: US Survey Feet</li><li>Email from J. Smith, 12 Sep 2026: &ldquo;data is in metres&rdquo;</li></ul><p>Most useful when the file goes to someone else, might be questioned later, or its units weren&rsquo;t obvious. For a quick conversion of your own, you can leave it empty.</p></div></details></div>
+    <div class="field hidden" id="customWrap"><label for="customFactor">Custom factor (decimal or a/b)</label><input type="text" id="customFactor" placeholder="e.g. 2 or 1/2"></div>
+    <div class="field"><label for="decimals">Decimals to write</label><select id="decimals"><option value="auto">Auto (find a precision that passes every check)</option><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option selected>8</option><option>9</option><option>10</option><option>11</option><option>12</option></select><div class="dechint">Written decimals are output precision, not survey accuracy.</div></div>
+    <div class="field" style="min-width:260px"><label for="unitRef">Source unit reference (optional; recorded, not checked)</label><input type="text" id="unitRef" placeholder="e.g. survey report &sect;2.1, LandXML header"><details class="refhelp" id="refHelp"><summary><span class="q" aria-hidden="true">?</span> What should I write here?</summary><div class="refbody"><p>Where you learned the file&rsquo;s units: the document, the place in it, and what it says. It goes into the report, the manifest and the saved handoff. It is optional, it does not change the conversion, and the tool does not check it.</p><p>Examples:</p><ul><li>Topo survey, ABC Surveying, 14 Aug 2026, sheet 1, note 3: &ldquo;Coordinates in U.S. survey feet&rdquo;</li><li>LandXML file header: linear unit = USSurveyFoot</li><li>Settings of the source drawing that produced this point file (Civil 3D, Units and Zone): US Survey Feet</li><li>Email from J. Smith, 12 Sep 2026: &ldquo;data is in metres&rdquo;</li></ul><p>Most useful when the file goes to someone else, might be questioned later, or its units weren&rsquo;t obvious. For a quick conversion of your own, you can leave it empty.</p></div></details></div>
   </div>
   <div id="declSummary" class="decl hidden" aria-live="polite"></div>
 <div id="unitClue" class="clue hidden" role="status" aria-live="polite"></div>
-<div id="legacyHint" class="legacy hidden">U.S. survey foot (legacy): no longer used for new work in the United States since 1 January 2023, but still needed for data originally recorded in it.</div>
+<div id="legacyHint" class="legacy hidden">U.S. survey foot (legacy): deprecated since 1 January 2023; retain it for historical and legacy data that uses it.</div>
 <div class="status warn"><span class="pl">Which foot?</span>International foot = 0.3048 m exactly; US survey foot = 1200/3937 m. They differ by 2 ppm (about 2 ft on a 1,000,000 ft coordinate), and the file cannot tell you which it is: the choice is yours and is recorded as declared. <strong>To check it,</strong> enter an independently known point under <em>Control points</em> below with the tolerance its source justifies. A wrong choice is refused only when the difference it causes exceeds that tolerance, so a point near zero or a loose tolerance may not tell the two feet apart.</div>
   <details id="ctrlFold"><summary class="ts" style="cursor:pointer">Optional: control points and anchors. An independently known point can catch a wrong unit or foot declaration (checked on the written values; recorded in the report)</summary>
     <div class="anch" id="anchors"></div>
@@ -288,6 +290,7 @@ body:has(#fileMeta:not(:empty)) .confirm:has(#confirm:not(:checked)){border-colo
     <button class="btn hidden" id="dlManBtn" type="button" title="Machine-readable record used to re-verify the conversion. Not point data">&#8681; Manifest (.json, not for import)</button>
   </div>
 <div id="readyHint" class="ready" aria-live="polite"></div>
+<div id="dlStatus" class="ready" role="status" aria-live="polite"></div>
   <div id="status"></div>
   <pre class="log hidden" id="log"></pre>
   <div id="reverify" class="hidden" style="margin-top:14px">
@@ -313,7 +316,7 @@ body:has(#fileMeta:not(:empty)) .confirm:has(#confirm:not(:checked)){border-colo
     <div class="rule"><b>Privacy</b>No network: the page&rsquo;s content policy blocks every connection. A complete handoff embeds the original source; share it only with people who should have that data. A handoff contains this app&rsquo;s code; open only copies from a source you trust.</div>
   </div></details>
 </div>
-<footer class="sheetfoot">TOOL-01 v3.3.6 &#183; PAGE TEXT 2026-09-30.1 &#183; UNITS ARE NOT COORDINATE SYSTEMS &#183; A PASS IS ABOUT BYTES AND ARITHMETIC, NOT ABOUT THE SURVEY &#183; MIT LICENSE</footer>
+<footer class="sheetfoot">TOOL-01 v3.3.6 &#183; PAGE TEXT 2026-10-01.1 &#183; UNITS ARE NOT COORDINATE SYSTEMS &#183; A PASS IS ABOUT BYTES AND ARITHMETIC, NOT ABOUT THE SURVEY &#183; MIT LICENSE</footer>
 </div>
 <script id="savedPackage" type="application/json">null</script>
 <script id="engine">
@@ -643,7 +646,7 @@ var WORKER_SRC=ENGINE+'\nself.onmessage=function(ev){var d=ev.data;var progress=
 var S={gen:0,rev:0,runToken:0,name:'',bytes:null,text:'',bom:false,lines:[],hash:null,roles:[],ncol:0,out:null,worker:null};
 function setStatus(kind,label,msg,hdr){ var st=$('status'); st.innerHTML=''; var d=document.createElement('div'); d.className='status '+kind; var pl=document.createElement('span'); pl.className='pl'; pl.textContent=label; d.appendChild(pl); d.appendChild(document.createTextNode(msg)); st.appendChild(d); $('hdrStatus').textContent=(hdr||label).toLowerCase(); }
 function stopWorker(){ if(S.worker){ S.worker.terminate(); S.worker=null; } $('cancelBtn').classList.add('hidden'); }
-function invalidate(){ S.rev++; stopWorker(); S.out=null; $('ackWarn').checked=false; $('ackWrap').classList.add('hidden'); ['dlBtn','dlRepBtn','dlManBtn','dlHandoffBtn','reverify'].forEach(function(id){$(id).classList.add('hidden');}); $('log').classList.add('hidden'); $('reupResult').textContent=''; $('confirm').checked=false; updateButtons(); if(S.bytes)setStatus('warn','Not verified','Settings changed. Review them and tick the confirmation box again to enable Preview and Convert & verify.'); }
+function invalidate(){ S.rev++; stopWorker(); S.out=null; $('ackWarn').checked=false; $('ackWrap').classList.add('hidden'); ['dlBtn','dlRepBtn','dlManBtn','dlHandoffBtn','reverify'].forEach(function(id){$(id).classList.add('hidden');}); $('log').classList.add('hidden'); $('reupResult').textContent=''; $('confirm').checked=false; updateButtons(); if(S.bytes)setStatus('warn','Not verified','Settings changed. Review them and tick the confirmation box again to enable Preview and Convert & verify.'); if($('dlStatus'))$('dlStatus').textContent=''; }
 function convName(){ var mode=$('mode').value; if(mode==='custom')return 'Custom'; var f=$('from').value,t=$('to').value; if(!f||!t)return ''; if(f===t)return ''; return P.CONV_BY_UNITS[f+'>'+t]||''; }
 var UN={m:'metres',ft:'international feet',usft:'U.S. survey feet'};
   var CLUE_WORD={m:'metres',feet:'feet (they don\u2019t say which foot)',ft:'international feet',usft:'U.S. survey feet'};
@@ -651,9 +654,9 @@ var UN={m:'metres',ft:'international feet',usft:'U.S. survey feet'};
   var clueDismiss=null;
   // Unit words in a label. Only unambiguous text counts; a label naming two units is 'ambiguous'.
   function unitClass(txt){ var t=String(txt).toLowerCase(), hit={};
-    if(/\busft\b|\bu\.?s\.?\s*(survey\s*)?(ft|feet|foot)\b|\bsurvey\s*(ft|feet|foot)\b/.test(t))hit.usft=1;
-    else if(/\b(international|intl|int'l)\s*(ft|feet|foot)\b|\bift\b/.test(t))hit.ft=1;
-    else if(/\(ft\)|\[ft\]|\bft\b|\bfeet\b|\bfoot\b/.test(t))hit.feet=1;
+    var us=/\busft\b|\bu\.?s\.?\s*(survey\s*)?(ft|feet|foot)\b|\bsurvey\s*(ft|feet|foot)\b/.test(t), intl=/\b(international|intl|int'l)\s*(ft|feet|foot)\b|\bift\b/.test(t);
+    if(us)hit.usft=1; if(intl)hit.ft=1; // both explicit definitions in one label: ambiguous (checked independently)
+    if(!us&&!intl&&/\(ft\)|\[ft\]|\bft\b|\bfeet\b|\bfoot\b/.test(t))hit.feet=1;
     if(/\(m\)|\[m\]|\bmetres?\b|\bmeters?\b/.test(t))hit.m=1;
     var k=Object.keys(hit); return k.length===1?k[0]:(k.length>1?'ambiguous':null); }
   // Clues come only from the file's own text: coordinate fields of a header row, and '# units: ...' comments. Never the file name.
@@ -665,12 +668,14 @@ var UN={m:'metres',ft:'international feet',usft:'U.S. survey feet'};
       if(!seen){ seen=true; if(hdr){ var f=safeTok(raw,delim);
         for(var k=0;k<S.roles.length;k++){ if(S.roles[k]!=='coord'||!f[k])continue; var cc=unitClass(f[k].value); if(cc)items.push({kind:'header',line:i+1,col:k+1,text:f[k].value,cls:cc}); } } } }
     return {items:items,bounded:i<S.lines.length&&n>=LIMIT}; }
+  // A label is compatible with a unit when it names that unit; a bare 'feet' is compatible with either foot (unresolved).
+  function unitOK(cls,u){ return cls==='m'?u==='m':(cls==='feet'?(u==='ft'||u==='usft'):cls===u); }
+  var SCAN_NOTE=' Only the first 500 non-blank lines were checked for unit labels; later lines were not.';
   function clueVerdict(scan,from){ if(!scan||!scan.items.length)return null; var cls={}; scan.items.forEach(function(it){cls[it.cls]=1;});
-    if(cls.ambiguous||(cls.m&&(cls.feet||cls.ft||cls.usft))||(cls.ft&&cls.usft))return {level:'mixed',items:scan.items};
+    if(cls.ambiguous||(cls.m&&(cls.feet||cls.ft||cls.usft))||(cls.ft&&cls.usft))return {level:'mixed',items:scan.items,bounded:scan.bounded};
     var c=cls.usft?'usft':cls.ft?'ft':cls.feet?'feet':'m';
-    if(!from)return {level:'info',cls:c,items:scan.items};
-    var agree=c==='m'?from==='m':(c==='feet'?(from==='ft'||from==='usft'):from===c);
-    return {level:agree?'agree':'against',cls:c,items:scan.items}; }
+    if(!from)return {level:'info',cls:c,items:scan.items,bounded:scan.bounded};
+    return {level:unitOK(c,from)?'agree':'against',cls:c,items:scan.items,bounded:scan.bounded}; }
   function clip(s){ s=String(s); return s.length>60?s.slice(0,57)+'\u2026':s; }
   function describeItems(items){ return items.slice(0,4).map(function(it){ return (it.kind==='header'?'header line '+it.line+', column '+it.col:'line '+it.line)+': \u201c'+clip(it.text)+'\u201d'; }).join('; ')+(items.length>4?'; and '+(items.length-4)+' more':''); }
   function clueKey(){ return [S.gen,S.hash||S.name,$('format').value,$('delim').value,$('header').value,$('mode').value,$('from').value,$('to').value,S.roles.join(',')].join('|'); }
@@ -682,6 +687,7 @@ var UN={m:'metres',ft:'international feet',usft:'U.S. survey feet'};
     else if(v.level==='agree'){ t.textContent='The file\u2019s labels agree'; p.textContent='This file\u2019s own labels say '+CLUE_WORD[v.cls]+' ('+describeItems(v.items)+'), consistent with your declaration of '+fromName+'. Labels can be outdated, so this is not proof.'; }
     else if(v.level==='info'){ t.textContent='The file\u2019s labels'; p.textContent='This file\u2019s own labels say '+CLUE_WORD[v.cls]+' ('+describeItems(v.items)+'). Labels can be outdated after an earlier conversion.'; }
     else { t.textContent='Unit labels disagree'; p.textContent='The unit labels in this file don\u2019t agree with each other ('+describeItems(v.items)+'). No suggestion is made: check the survey source. The same factor is applied to every coordinate column, so a file that mixes units can’t be converted correctly in one run.'; }
+    if(v.bounded)p.textContent+=SCAN_NOTE;
     box.appendChild(t); box.appendChild(p);
     if(v.level==='against'){ var acts=document.createElement('div'); acts.className='acts';
       (v.cls==='feet'?['ft','usft']:[v.cls]).forEach(function(u){ var b=document.createElement('button'); b.type='button'; b.className='btn small'; b.textContent='Use '+UN[u]+' as source';
@@ -693,7 +699,8 @@ var UN={m:'metres',ft:'international feet',usft:'U.S. survey feet'};
     if(v.level==='against')out.push('You kept this choice although the file\u2019s own labels say '+CLUE_WORD[v.cls]+'.');
     else if(v.level==='agree')out.push('The file\u2019s own labels agree with your declaration; labels can be outdated, so this is not proof.');
     else if(v.level==='mixed')out.push('The unit labels in this file disagree with each other; check the survey source. The same factor is applied to every coordinate column, so a file that mixes units can’t be converted correctly in one run.');
-    if(v.level!=='mixed'&&t&&FAM[t]&&FAM[v.cls]!==FAM[t])out.push('The header and comment text was copied unchanged and still says '+CLUE_WORD[v.cls]+'; the coordinates are now in '+UN[t]+'.');
+    if(v.level!=='mixed'&&t&&UN[t]&&!unitOK(v.cls,t))out.push('The header and comment text was copied unchanged and still says '+CLUE_WORD[v.cls]+'; the coordinates are now in '+UN[t]+'.');
+    if(v.bounded&&out.length)out.push(SCAN_NOTE.trim());
     return out.join('\n'); }
   // Declaration summary, using the engine's own exact factor.
   function terminates(r){ var d=r.d<0n?-r.d:r.d; while(d%2n===0n)d/=2n; while(d%5n===0n)d/=5n; return d===1n; }
@@ -711,19 +718,26 @@ var UN={m:'metres',ft:'international feet',usft:'U.S. survey feet'};
     if(!sp||f==='CUSTOM'){ S.roles.forEach(function(r,i){ if(r==='coord')names[i]='column '+(i+1); }); return names; }
     var letters=f.replace(/[PD]/g,''), N={E:'Easting',N:'Northing',Z:'Elevation',X:'X',Y:'Y'};
     sp.coords.forEach(function(c,k){ names[c]=(N[letters[k]]||'coordinate')+' (column '+(c+1)+')'; }); return names; }
-  function absGreater(a,b){ if(/[eE]/.test(a+b))return Math.abs(Number(a))>Math.abs(Number(b));
-    function norm(s){ s=String(s).trim().replace(/^[+-]/,''); var q=s.split('.'); return [q[0].replace(/^0+/,''),(q[1]||'').replace(/0+$/,'')]; }
-    var x=norm(a), y=norm(b); if(x[0].length!==y[0].length)return x[0].length>y[0].length; if(x[0]!==y[0])return x[0]>y[0];
-    var L=Math.max(x[1].length,y[1].length); return (x[1]+'0'.repeat(L-x[1].length))>(y[1]+'0'.repeat(L-y[1].length)); }
+  // Exact |a| > |b| for decimal and scientific tokens: value = 0.digits x 10^mag, compared as strings (never via Number).
+  function magParts(tok){ var m=/^[+-]?([0-9]*)(?:\.([0-9]*))?(?:[eE]([+-]?[0-9]+))?$/.exec(String(tok).trim()); if(!m)return null;
+    var ip=m[1]||'', fp=m[2]||'', all=ip+fp, digits=all.replace(/^0+/,''); if(digits==='')return {zero:true};
+    return {digits:digits.replace(/0+$/,''), mag:ip.length+(m[3]?parseInt(m[3],10):0)-(all.length-digits.length)}; }
+  function absGreater(a,b){ var x=magParts(a), y=magParts(b); if(!x||!y)return false; if(x.zero)return false; if(y.zero)return true;
+    if(x.mag!==y.mag)return x.mag>y.mag; var L=Math.max(x.digits.length,y.digits.length);
+    return (x.digits+'0'.repeat(L-x.digits.length))>(y.digits+'0'.repeat(L-y.digits.length)); }
+  // The output line at index idx, found by scanning bytes (same breaks as splitLines: CRLF, CR, LF); only that line is decoded.
+  function outLineAt(bytes,idx){ var u=bytes instanceof Uint8Array?bytes:new Uint8Array(bytes), n=u.length, i=0, line=0, start=0;
+    if(n>=3&&u[0]===0xEF&&u[1]===0xBB&&u[2]===0xBF){i=3;start=3;}
+    for(;i<n;i++){ var ch=u[i]; if(ch===10||ch===13){ if(line===idx)return new TextDecoder('utf-8').decode(u.subarray(start,i)); if(ch===13&&i+1<n&&u[i+1]===10)i++; line++; start=i+1; } }
+    return line===idx?new TextDecoder('utf-8').decode(u.subarray(start,n)):null; }
   function exampleLine(r){ try{ if(!r||!r.bytes)return ''; var names=coordNames(), delim=$('delim').value, hdr=$('header').value==='yes';
-    var ol=P.splitLines(new TextDecoder('utf-8').decode(r.bytes).replace(/^\ufeff/,'')), sl=S.lines; if(ol.length!==sl.length)return '';
-    var best=null, seen=false, rows=0, LIMIT=20000, bounded=false;
+    var sl=S.lines, best=null, seen=false, rows=0, LIMIT=20000, bounded=false;
     for(var i=0;i<sl.length;i++){ var s=P.wsTrim(sl[i][0]); if(s===''||s[0]==='#')continue; if(!seen){seen=true; if(hdr)continue;} if(++rows>LIMIT){bounded=true;break;}
-      var a=safeTok(sl[i][0].replace(/^\ufeff/,''),delim), o=safeTok(ol[i][0],delim);
-      for(var c=0;c<S.roles.length;c++){ if(S.roles[c]!=='coord'||!a[c]||!o[c])continue;
+      var a=safeTok(sl[i][0].replace(/^\ufeff/,''),delim);
+      for(var c=0;c<S.roles.length;c++){ if(S.roles[c]!=='coord'||!a[c])continue;
         if(best===null||absGreater(a[c].value,best.src)){ var id=null; for(var k=0;k<S.roles.length;k++){ if(S.roles[k]==='id'&&a[k]){id=a[k].value;break;} }
-          best={src:a[c].value,out:o[c].value,col:c,line:i+1,id:id}; } } }
-    if(!best)return ''; var fu=r.F&&r.F.inU, tu=r.F&&r.F.outU;
+          best={src:a[c].value,col:c,idx:i,line:i+1,id:id}; } } }
+    if(!best)return ''; var ol=outLineAt(r.bytes,best.idx); if(ol===null)return ''; var o=safeTok(ol,delim); if(!o[best.col])return ''; best.out=o[best.col].value; var fu=r.F&&r.F.inU, tu=r.F&&r.F.outU;
     return 'Example ('+(bounded?'largest value in the first 20,000 rows':'largest value')+'): '+(best.id!==null?'point '+best.id:'line '+best.line)+', '+(names[best.col]||('column '+(best.col+1)))+': '+best.src+(UN[fu]?' '+UN[fu]:'')+' \u2192 '+best.out+(UN[tu]?' '+UN[tu]:'')+'.';
   }catch(e){ return ''; } }
   function controlLine(r){ var cps=(r&&r.rep&&r.rep.control_points)||[];
@@ -790,7 +804,7 @@ function run(dry){
   var decSel=$('decimals').value, unitRef=$('unitRef').value.trim(), custom=$('customFactor').value.trim(), ack=$('ackWarn').checked;
   stopWorker(); setStatus('warn','Working','Starting the background conversion\u2026'); $('cancelBtn').classList.remove('hidden'); updateButtons();
   var job={bytes:snap.bytes,name:snap.name,st:st,conversion:conv,custom:custom,decSel:decSel,anchors:anchors,control:control,unitRef:unitRef,ackWarn:ack};
-  var url=URL.createObjectURL(new Blob([WORKER_SRC],{type:'text/javascript'})); var w; try{ w=new Worker(url); }catch(e){ URL.revokeObjectURL(url); setStatus('bad','Refused','This browser could not start a background worker: '+e.message); return; } URL.revokeObjectURL(url); S.worker=w;
+  var url=URL.createObjectURL(new Blob([WORKER_SRC],{type:'text/javascript'})); var w; try{ w=new Worker(url); }catch(e){ URL.revokeObjectURL(url); $('cancelBtn').classList.add('hidden'); setStatus('bad','Refused','This browser could not start a background worker: '+e.message); updateButtons(); return; } URL.revokeObjectURL(url); S.worker=w; updateButtons();
   w.onerror=function(e){ if(S.worker!==w)return; stopWorker(); updateButtons(); if(stillCurrent(gen,rev,token,false))setStatus('bad','Refused','The background conversion stopped: '+(e.message||'unknown error')); };
   w.onmessage=function(ev){ var d=ev.data; if(S.worker!==w)return;
     if(d.kind==='progress'){ if(rev===S.rev)setStatus('warn','Working',d.message); return; }
@@ -842,7 +856,7 @@ function renderReport(m,r,dry,st,sp,unitRef){ var t=[]; t.push('POINT FILE UNIT 
   t.push('Hashes bind this report to those bytes. They do not certify the survey interpretation or the author.'); return t.join('\n')+'\n'; }
 
 // ---------------- downloads, complete handoff ----------------
-function download(bytes,name,type){ var blob=new Blob(Array.isArray(bytes)?bytes:[bytes],{type:type||'text/plain'}); var url=URL.createObjectURL(blob); var a=document.createElement('a'); a.href=url; a.download=name; document.body.appendChild(a); a.click(); setTimeout(function(){document.body.removeChild(a);URL.revokeObjectURL(url);},30000); }
+function download(bytes,name,type){ var blob=new Blob(Array.isArray(bytes)?bytes:[bytes],{type:type||'text/plain'}); var url=URL.createObjectURL(blob); var a=document.createElement('a'); a.href=url; a.download=name; document.body.appendChild(a); a.click(); var ds=$('dlStatus'); if(ds)ds.textContent='Download requested: '+name; setTimeout(function(){document.body.removeChild(a);URL.revokeObjectURL(url);},30000); }
 function b64(u8){ var s=''; for(var i=0;i<u8.length;i+=0x6000)s+=String.fromCharCode.apply(null,u8.subarray(i,i+0x6000)); return btoa(s); }
 function unb64(s,max){ if(typeof s!=='string'||s.length%4||/[^A-Za-z0-9+\/=]/.test(s))throw P.Refuse('handoff: embedded file is not valid Base64'); var raw=atob(s); if(raw.length>max)throw P.Refuse('handoff: embedded file exceeds the size limit'); return Uint8Array.from(raw,function(ch){return ch.charCodeAt(0);}); }
 function handoffBudgetCheck(srcLen,outLen,recLen){ if(srcLen>P.ENVELOPE.sourceBytes)return 'source exceeds the '+(P.ENVELOPE.sourceBytes>>20)+' MiB handoff budget'; if(outLen>P.ENVELOPE.outputBytes)return 'output exceeds the '+(P.ENVELOPE.outputBytes>>20)+' MiB handoff budget'; if(recLen>P.ENVELOPE.recordBytes)return 'record exceeds the '+(P.ENVELOPE.recordBytes>>20)+' MiB record budget'; var env=P.envelopeBudget(srcLen,outLen,recLen); if(env>P.ENVELOPE.envelopeBytes)return 'encoded envelope ('+env+' bytes) exceeds the '+(P.ENVELOPE.envelopeBytes>>20)+' MiB handoff budget'; return null; }
