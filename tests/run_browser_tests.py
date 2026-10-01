@@ -403,6 +403,17 @@ with sync_playwright() as p:
     check('G28 S2 the file chooser is reachable by Tab and opens with Enter; the drop box shows focus; every setting has a label', found and opened and ring==['solid','rgb(255, 91, 4)'] and unl==[], (found, opened, ring, unl)); pgK.close()
     gload('six.csv', SIXROWS, 'm', 'usft')
     check('G29 S4 S5 legacy and source-drawing wording', gt('#legacyHint')=='U.S. survey foot (legacy): deprecated since 1 January 2023; retain it for historical and legacy data that uses it.' and 'Settings of the source drawing that produced this point file' in (pgG.text_content('#refHelp') or ''))
+    # ---- 3.3.7 (2026-10-01): stale message on re-ticking, distinct warning style, reminder under Convert, version ----
+    gload('six.csv', SIXROWS, 'ft', 'm'); before=gt('#status'); pgG.check('#confirm'); pgG.wait_for_timeout(100); after=gt('#status')
+    check('G30 ticking again replaces the stale "tick again" message', 'tick the confirmation box again' in before and 'Settings confirmed. Preview or Convert & verify.' in after and 'tick the confirmation box again' not in after, (before[:80], after[:80]))
+    gload('hft.csv', HFT, 'm', 'ft')
+    sty=pgG.evaluate("""()=>{var c=getComputedStyle(document.getElementById('unitClue')), b=getComputedStyle(document.querySelector('#unitClue .ct'),'::before'); var wf=[].slice.call(document.querySelectorAll('.status.warn')).filter(function(e){return /Which foot/i.test(e.textContent)})[0]; return [c.borderTopStyle,c.borderTopWidth,c.borderTopColor,c.borderBottomWidth,c.backgroundColor,b.content,wf?getComputedStyle(wf).backgroundColor:null]}""")
+    check('G31 "Check your units" has its own style: full orange border, white, "!" badge; unlike the Which foot box', sty[:5]==['solid','2px','rgb(255, 91, 4)','2px','rgb(255, 255, 255)'] and sty[5]=='"!"' and sty[6] and sty[6]!=sty[4], sty)
+    rem1=(pgG.is_visible('#clueReminder'), gt('#clueReminder')); pgG.click('#unitClue button:has-text("Keep my choice")'); rem2=pgG.is_visible('#clueReminder')
+    gload('hft.csv', HFT, 'ft', 'm'); rem3=pgG.is_visible('#clueReminder')
+    check('G32 an unresolved warning is repeated under Convert; hidden after Keep my choice and when labels agree', rem1[0] and rem1[1].startswith('Check your units in step 3: this file\u2019s own labels say feet') and rem1[1].endswith('but the source is declared as metres.') and not rem2 and not rem3, (rem1, rem2, rem3))
+    gload('six.csv', SIXROWS, 'ft', 'm'); s=grun(); _m=pgG.evaluate('window._lastRun && window._lastRun.manifest'); _m=json.loads(_m) if isinstance(_m,str) else _m; mv=(_m or {}).get('tool',{}).get('version')
+    check('G33 version 3.3.7 in the page title and in the manifest written', 'v3.3.7' in pgG.title() and mv=='3.3.7', (pgG.title(), mv))
     pgG.close()
     # ---- owner decisions D1-D3 and gap closures (2026-09-29.2) ----
     pgD=ctx.new_page(); pgD.goto(APP); pgD.wait_for_timeout(400)

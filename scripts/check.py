@@ -60,7 +60,7 @@ def main():
             if args.suite=='core':
                 run('extracted-package-core',[sys.executable,copy/'tests/release_check.py','--partial'],copy)
                 run('next-fixture-checker',[sys.executable,copy/'acceptance/next-native-tests/test_checker.py'],copy)
-                artifact=copy/'point-file-unit-converter-v3.3.6-team-candidate-partial.zip'
+                artifact=copy/'point-file-unit-converter-v3.3.7-team-candidate-partial.zip'
                 shutil.copyfile(artifact,out/'tested-partial.zip')
                 shutil.copyfile(artifact.with_suffix('.zip.record.json'),out/'tested-partial.zip.record.json')
                 record['tested_partial_sha256']=hashlib.sha256(artifact.read_bytes()).hexdigest()
