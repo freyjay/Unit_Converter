@@ -11,6 +11,8 @@
 - **Safari by hand:** a conversion and its round trip came out byte-identical on the 28 September page (`a4e2b388`, the same conversion engine). Not yet repeated on the current page.
 - **Civil 3D:** one six-point case (international feet to metres, PENZD, Civil 3D 2027) was imported and exported natively, and the export came back byte-identical to the converted file (`acceptance/civil3d-completed/`).
 
+- **3.3.8** fixes the one defect the Windows review found in 3.3.7 (PFU-01): the page now stays busy, showing *Verifying*, until a result is verified and published. Status and timing only; the arithmetic is unchanged. Its own CI run is on the Actions tab.
+
 ## Not yet verified
 
 - Installed browsers on the current version: Safari, Chrome, Edge and Brave by hand (these are the intended targets; the automated Chromium runs above are a different, narrower check). Firefox is not a target.

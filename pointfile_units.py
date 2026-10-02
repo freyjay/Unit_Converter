@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-pointfile_units.py  -  exact-arithmetic unit conversion for survey point files (v3.3.7)
+pointfile_units.py  -  exact-arithmetic unit conversion for survey point files (v3.3.8)
 
 Guarantee (scope-honest):
   The tool converts explicitly selected coordinate fields using explicitly confirmed units.
@@ -18,7 +18,7 @@ Standard library only. Python 3.8+.
 import argparse, hashlib, json, os, re, sys, datetime
 from fractions import Fraction
 
-VERSION = "3.3.7"
+VERSION = "3.3.8"
 MAX_DIGITS = 40          # digits in one numeric token
 MAX_EXP = 30             # |exponent| in one numeric token
 MAX_DECIMALS = 12        # written decimals ceiling

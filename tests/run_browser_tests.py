@@ -413,15 +413,15 @@ with sync_playwright() as p:
     gload('hft.csv', HFT, 'ft', 'm'); rem3=pgG.is_visible('#clueReminder')
     check('G32 an unresolved warning is repeated under Convert; hidden after Keep my choice and when labels agree', rem1[0] and rem1[1].startswith('Check your units in step 3: this file\u2019s own labels say feet') and rem1[1].endswith('but the source is declared as metres.') and not rem2 and not rem3, (rem1, rem2, rem3))
     gload('six.csv', SIXROWS, 'ft', 'm'); s=grun(); _m=pgG.evaluate('window._lastRun && window._lastRun.manifest'); _m=json.loads(_m) if isinstance(_m,str) else _m; mv=(_m or {}).get('tool',{}).get('version')
-    check('G33 version 3.3.7 in the page title and in the manifest written', 'v3.3.7' in pgG.title() and mv=='3.3.7', (pgG.title(), mv))
+    check('G33 version 3.3.8 in the page title and in the manifest written', 'v3.3.8' in pgG.title() and mv=='3.3.8', (pgG.title(), mv))
     # ---- PFU-01 / N1 (2026-10-02): the run stays active through fingerprint, standalone verification and publication ----
     # PFU.sha256 and PFU.standaloneVerify are wrapped so a test can hold, release or fail them. The hold is switched on only
     # after the file has loaded (loading hashes the file too), so only the run's own steps are held. Publications are counted.
-    pgG.evaluate("""(function(){ var o1=PFU.sha256, o2=PFU.standaloneVerify; window.__hold={sha:false,ver:false,rejectSha:false,q:[]}; window.__pubs=0; var lr=null;
+    pgG.evaluate("""(function(){ var o1=PFU.sha256, o2=PFU.standaloneVerify; window.__hold={sha:false,ver:false,rejectSha:false,rejectVer:false,failOnRelease:false,q:[]}; window.__pubs=0; var lr=null;
       Object.defineProperty(window,'_lastRun',{configurable:true,get:function(){return lr;},set:function(v){ if(v&&!v.error)window.__pubs++; lr=v; }});
       PFU.sha256=function(){ var a=arguments; if(window.__hold.rejectSha)return Promise.reject(new Error('test: fingerprint failed'));
-        if(window.__hold.sha)return new Promise(function(res,rej){ window.__hold.q.push(function(){ o1.apply(null,a).then(res,rej); }); }); return o1.apply(null,a); };
-      PFU.standaloneVerify=function(){ var a=arguments; if(window.__hold.ver)return new Promise(function(res,rej){ window.__hold.q.push(function(){ o2.apply(null,a).then(res,rej); }); }); return o2.apply(null,a); };
+        if(window.__hold.sha){ var late=window.__hold.failOnRelease; return new Promise(function(res,rej){ window.__hold.q.push(function(){ if(late)rej(new Error('test: late failure')); else o1.apply(null,a).then(res,rej); }); }); } return o1.apply(null,a); };
+      PFU.standaloneVerify=function(){ var a=arguments; if(window.__hold.rejectVer)return Promise.reject(new Error('test: verification failed')); if(window.__hold.ver)return new Promise(function(res,rej){ window.__hold.q.push(function(){ o2.apply(null,a).then(res,rej); }); }); return o2.apply(null,a); };
       window.__release=function(){ var q=window.__hold.q; window.__hold.q=[]; q.forEach(function(f){ f(); }); return q.length; }; })()""")
     def hset(**kw): pgG.evaluate("(function(k){ for(var x in k) window.__hold[x]=k[x]; })(%s)" % json.dumps(kw))
     def wait_until(js, t=15):
@@ -462,6 +462,18 @@ with sync_playwright() as p:
     start('#previewBtn', sha=True); held=wait_until(verifying); s1=state(); pgG.evaluate('window.__release()'); hset(sha=False)
     done=wait_until("(document.getElementById('hdrStatus').textContent||'').indexOf('dry run passed')===0")
     check('G40 Preview is held the same way, then reports Dry run passed', held and s1[:3]==('Verifying\u2026',True,True) and done, s1)
+    # the four remaining cases from DESIGN-RUN-LIFECYCLE (a failure in either step, cancel during each step, a late failure versus run B, keyboard launch)
+    start(rejectVer=True); fail=wait_until("(document.getElementById('status').textContent||'').indexOf('Verification could not be completed')>=0"); hset(rejectVer=False); pgG.wait_for_timeout(100); s1=state()
+    check('G41 a failed standalone verification shows the failure, publishes nothing, and the controls recover', fail and s1==('Ready: Preview or Convert & verify.',False,False,False,False) and pgG.evaluate('window.__pubs')==0, s1)
+    start(ver=True); held=wait_until(verifying); pgG.click('#cancelBtn'); pgG.wait_for_timeout(100); s1=state(); pgG.evaluate('window.__release()'); hset(ver=False); pgG.wait_for_timeout(600); s2=state()
+    check('G42 cancel while the standalone verification is held: controls recover; the released run never publishes', held and s1[1:]==(False,False,False,False) and 'Cancelled' in gt('#status') and not s2[3] and pgG.evaluate('window.__pubs')==0, (s1, s2))
+    start(sha=True, failOnRelease=True); heldA=wait_until(verifying); pgG.click('#cancelBtn'); hset(failOnRelease=False); pgG.check('#confirm'); pgG.evaluate('window.__pubs=0'); pgG.click('#convertBtn')
+    heldB=wait_until(verifying); pgG.evaluate('window.__release()'); hset(sha=False); doneB=wait_until(passed); pgG.wait_for_timeout(500)
+    check('G43 run A failing late (after cancel) leaves run B untouched: B publishes once, no failure shown', heldA and heldB and doneB and pgG.evaluate('window.__pubs')==1 and 'Verification could not be completed' not in gt('#status') and pgG.is_visible('#dlBtn'), (heldA, heldB, doneB, gt('#status')[:90]))
+    start(sha=True); held=wait_until(verifying); pgG.focus('#convertBtn'); pgG.keyboard.press('Enter'); pgG.keyboard.press(' '); pgG.focus('#previewBtn'); pgG.keyboard.press('Enter'); pgG.wait_for_timeout(150); s1=state()
+    pgG.evaluate('window.__release()'); hset(sha=False); done=wait_until(passed); pgG.wait_for_timeout(400); once_=pgG.evaluate('window.__pubs')==1
+    gload('six.csv', SIXROWS, 'ft', 'm'); wait_until("document.getElementById('fileMeta').textContent.indexOf('computing')<0"); pgG.check('#confirm'); pgG.evaluate('window.__pubs=0'); pgG.focus('#convertBtn'); pgG.keyboard.press('Enter'); kdone=wait_until(passed)
+    check('G44 keyboard: Enter and Space during a held run do nothing (one publication); Enter on a ready Convert starts a run', held and s1[:3]==('Verifying\u2026',True,True) and done and once_ and kdone and pgG.evaluate('window.__pubs')==1, (s1, done, once_, kdone))
     pgG.close()
     # ---- owner decisions D1-D3 and gap closures (2026-09-29.2) ----
     pgD=ctx.new_page(); pgD.goto(APP); pgD.wait_for_timeout(400)
