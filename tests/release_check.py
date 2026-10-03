@@ -276,7 +276,7 @@ def main(argv=None):
             return subprocess.run([sys.executable, str(ROOT / 'tests/test_utility_repairs.py'), 'ReleaseTests']).returncode
         inventory = build_inventory(REQUIRED, OPTIONAL, ROOT)
         # Advisor candidate is not a partner release. Partial checks cannot overwrite a full-gate ZIP.
-        name = 'point-file-unit-converter-v3.3.8-team-candidate'
+        name = 'point-file-unit-converter-v3.3.9-team-candidate'
         out = ROOT / (name + ('-partial' if args.partial else '') + '.zip')
         return publish_candidate(ROOT, inventory, out, args.partial)[0]
     except (OSError, ValueError) as exc:

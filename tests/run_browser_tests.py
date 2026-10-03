@@ -413,7 +413,7 @@ with sync_playwright() as p:
     gload('hft.csv', HFT, 'ft', 'm'); rem3=pgG.is_visible('#clueReminder')
     check('G32 an unresolved warning is repeated under Convert; hidden after Keep my choice and when labels agree', rem1[0] and rem1[1].startswith('Check your units in step 3: this file\u2019s own labels say feet') and rem1[1].endswith('but the source is declared as metres.') and not rem2 and not rem3, (rem1, rem2, rem3))
     gload('six.csv', SIXROWS, 'ft', 'm'); s=grun(); _m=pgG.evaluate('window._lastRun && window._lastRun.manifest'); _m=json.loads(_m) if isinstance(_m,str) else _m; mv=(_m or {}).get('tool',{}).get('version')
-    check('G33 version 3.3.8 in the page title and in the manifest written', 'v3.3.8' in pgG.title() and mv=='3.3.8', (pgG.title(), mv))
+    check('G33 version 3.3.9 in the page title and in the manifest written', 'v3.3.9' in pgG.title() and mv=='3.3.9', (pgG.title(), mv))
     # ---- PFU-01 / N1 (2026-10-02): the run stays active through fingerprint, standalone verification and publication ----
     # PFU.sha256 and PFU.standaloneVerify are wrapped so a test can hold, release or fail them. The hold is switched on only
     # after the file has loaded (loading hashes the file too), so only the run's own steps are held. Publications are counted.
@@ -474,6 +474,33 @@ with sync_playwright() as p:
     pgG.evaluate('window.__release()'); hset(sha=False); done=wait_until(passed); pgG.wait_for_timeout(400); once_=pgG.evaluate('window.__pubs')==1
     gload('six.csv', SIXROWS, 'ft', 'm'); wait_until("document.getElementById('fileMeta').textContent.indexOf('computing')<0"); pgG.check('#confirm'); pgG.evaluate('window.__pubs=0'); pgG.focus('#convertBtn'); pgG.keyboard.press('Enter'); kdone=wait_until(passed)
     check('G44 keyboard: Enter and Space during a held run do nothing (one publication); Enter on a ready Convert starts a run', held and s1[:3]==('Verifying\u2026',True,True) and done and once_ and kdone and pgG.evaluate('window.__pubs')==1, (s1, done, once_, kdone))
+    # ---- R338 (Windows review of 3.3.8): every interruption retires the run; a new run never shows an earlier result ----
+    FAKEW="window.__RealWorker=window.__RealWorker||window.Worker; window.Worker=function(){ this.postMessage=function(){}; this.terminate=function(){}; this.addEventListener=function(){}; };"
+    def rpage():
+        pr=ctx.new_page(); pr.goto(APP); pr.wait_for_timeout(400)
+        pr.evaluate("window._loadBytes('six.csv', %s)" % list(gbytes(SIXROWS))); pr.wait_for_timeout(250)
+        for _s,_v in (('#mode','units'),('#from','ft'),('#to','m')): pr.select_option(_s,_v)
+        pr.check('#confirm'); pr.evaluate(FAKEW); pr.click('#convertBtn'); pr.wait_for_timeout(200); return pr
+    rst=lambda pr: (' '.join((pr.text_content('#readyHint') or '').split()), pr.is_disabled('#convertBtn'), pr.is_visible('#cancelBtn'))
+    def retry_passes(pr):
+        pr.evaluate("(function(){ window.Worker=window.__RealWorker; window._lastRun=null; })()"); pr.check('#confirm'); pr.click('#convertBtn'); t0=time.time()
+        while time.time()-t0<20 and not (pr.text_content('#hdrStatus') or '').startswith('checks passed'): pr.wait_for_timeout(100)
+        return (pr.text_content('#hdrStatus') or '').startswith('checks passed')
+    pr=rpage(); busy=rst(pr)
+    pr.evaluate("var a=document.getElementById('ackWarn'); a.checked=true; a.dispatchEvent(new Event('change')); a.checked=false; a.dispatchEvent(new Event('change'));"); pr.wait_for_timeout(150); after=rst(pr); msg=' '.join((pr.text_content('#status') or '').split()); ok=retry_passes(pr)
+    check('G45 R338-01 withdrawing the acknowledgement mid-conversion retires the run: not stuck busy, Cancel hidden, retry works', busy==('Working\u2026',True,True) and after[0]!='Working\u2026' and not after[1] and not after[2] and 'Acknowledgement withdrawn' in msg and ok, (busy, after, msg[:70], ok)); pr.close()
+    pr=rpage(); busy=rst(pr)
+    pr.evaluate("(function(){ window.__RealRead=FileReader.prototype.readAsArrayBuffer; FileReader.prototype.readAsArrayBuffer=function(){ var self=this; setTimeout(function(){ if(self.onerror)self.onerror(); },0); }; })()")
+    pr.set_input_files('#fileInput', os.path.join(W,'penzd.txt')); pr.wait_for_timeout(300); refused=' '.join((pr.text_content('#status') or '').split()); after=rst(pr)
+    pr.evaluate("(function(){ FileReader.prototype.readAsArrayBuffer=window.__RealRead; })()"); ok=retry_passes(pr)
+    check('G46 R338-01 a replacement file that fails to read (real file input) retires the run: not stuck busy, Cancel hidden, retry works', busy==('Working\u2026',True,True) and 'could not read penzd.txt' in refused and after[0]!='Working\u2026' and not after[2] and ok, (busy, refused[:80], after, ok)); pr.close()
+    start(); first=wait_until(passed); dl1=pgG.is_visible('#dlBtn')
+    hset(ver=True); pgG.check('#confirm'); pgG.click('#convertBtn'); held=wait_until(verifying)
+    during=(pgG.is_visible('#dlBtn'), pgG.is_visible('#dlRepBtn'), pgG.is_visible('#dlManBtn'), pgG.is_visible('#dlHandoffBtn'))
+    pgG.evaluate('window.__release()'); hset(ver=False); second=wait_until(passed)
+    hset(rejectVer=True); pgG.check('#confirm'); pgG.click('#convertBtn'); failed=wait_until("(document.getElementById('status').textContent||'').indexOf('Verification could not be completed')>=0"); hset(rejectVer=False); pgG.wait_for_timeout(150)
+    afterfail=(pgG.is_visible('#dlBtn'), pgG.is_visible('#dlHandoffBtn'))
+    check('G47 R338-02 success, then rerun without reload: no earlier download while verifying, and none beside a later failure', first and dl1 and held and during==(False,False,False,False) and second and failed and afterfail==(False,False), (first, dl1, held, during, second, failed, afterfail))
     pgG.close()
     # ---- owner decisions D1-D3 and gap closures (2026-09-29.2) ----
     pgD=ctx.new_page(); pgD.goto(APP); pgD.wait_for_timeout(400)

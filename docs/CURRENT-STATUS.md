@@ -13,6 +13,8 @@
 
 - **3.3.8** fixes the one defect the Windows review found in 3.3.7 (PFU-01): the page now stays busy, showing *Verifying*, until a result is verified and published. Status and timing only; the arithmetic is unchanged. Its own CI run is on the Actions tab.
 
+- **3.3.9** closes the two lifecycle gaps the Windows review found in 3.3.8: every way of interrupting a conversion now ends it cleanly (the page can no longer stay stuck busy), and a new conversion never shows an earlier result's downloads. Status and timing only; the arithmetic is unchanged.
+
 ## Not yet verified
 
 - Installed browsers on the current version: Safari, Chrome, Edge and Brave by hand (these are the intended targets; the automated Chromium runs above are a different, narrower check). Firefox is not a target.

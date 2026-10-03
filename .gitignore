@@ -24,3 +24,7 @@ node_modules/
 /tests/differential/py.json
 # Consumer release builds (scripts/build_consumer_release.py)
 /dist/
+
+# Claude Code local settings (never committed; see CLAUDE.md)
+.claude/
+CLAUDE.local.md
