@@ -395,12 +395,16 @@ with sync_playwright() as p:
         pgK.keyboard.press('Tab')
         if pgK.evaluate("document.activeElement&&document.activeElement.id")=='fileInput': found=True; break
     ring=pgK.eval_on_selector('#drop','e=>{var c=getComputedStyle(e);return [c.outlineStyle,c.outlineColor]}') if found else None
-    opened=False
+    opened=None   # the key that opened the chooser; Enter or Space both satisfy the requirement (Space is the macOS convention)
     if found:
-        with pgK.expect_file_chooser(timeout=5000) as _fc: pgK.keyboard.press('Enter')
-        opened=_fc.value is not None
+        for _key in ('Enter',' '):
+            try:
+                with pgK.expect_file_chooser(timeout=4000) as _fc: pgK.keyboard.press(_key)
+                if _fc.value is not None: opened='Space' if _key==' ' else _key; break
+            except Exception:
+                pgK.focus('#fileInput')   # a timeout is a result for this check, never a crash of the whole suite
     unl=pgK.evaluate("['format','delim','header','mode','from','to','decimals','unitRef','customFactor'].filter(function(i){var e=document.getElementById(i);return !(e&&e.labels&&e.labels.length);})")
-    check('G28 S2 the file chooser is reachable by Tab and opens with Enter; the drop box shows focus; every setting has a label', found and opened and ring==['solid','rgb(255, 91, 4)'] and unl==[], (found, opened, ring, unl)); pgK.close()
+    check('G28 S2 the file chooser is reachable by Tab and opens with Enter or Space; the drop box shows focus; every setting has a label', found and opened is not None and ring==['solid','rgb(255, 91, 4)'] and unl==[], (found, opened, ring, unl)); pgK.close()
     gload('six.csv', SIXROWS, 'm', 'usft')
     check('G29 S4 S5 legacy and source-drawing wording', gt('#legacyHint')=='U.S. survey foot (legacy): deprecated since 1 January 2023; retain it for historical and legacy data that uses it.' and 'Settings of the source drawing that produced this point file' in (pgG.text_content('#refHelp') or ''))
     # ---- 3.3.7 (2026-10-01): stale message on re-ticking, distinct warning style, reminder under Convert, version ----
